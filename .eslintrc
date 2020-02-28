@@ -110,6 +110,6 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
   },
-  "plugins": ["html", "prettier", "react-hooks"],
-  "linebreak-style": ["error", "windows"]
+  "plugins": ["html", "prettier", "react-hooks"]
+  // "linebreak-style": ["error", "windows"]
 }
