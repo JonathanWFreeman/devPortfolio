@@ -7,7 +7,7 @@ ${normalize};
 
 html {
   box-sizing: border-box;
-  font-size: 1px;
+  font-size: 16px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -20,33 +20,35 @@ body{
   font-family: 'Victor Mono', monospace;
   background-color: #333;
   color: #FFF;
-  font-size: 20rem;
+  font-size: 1.2rem;
   -webkid-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
-  font-size: 35rem;
+  font-size: 4rem;
   font-weight: bold;
 }
 
 h2 {
-  font-size: 30rem;
+  font-size: 3.5rem;
   font-weight: bold;
 }
 
 h3 {
-  font-size: 25rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
 h4 {
-  font-size: 22rem;
+  font-size: 2.5rem;
 }
 
 a {
-  font-style: italic;
   color: #FFF;
+  &:hover{
+    font-style: italic;
+  }
 }
 `;
 

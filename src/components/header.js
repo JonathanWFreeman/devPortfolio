@@ -11,14 +11,16 @@ const HeaderWrapper = styled.div`
 
 const HeaderContainer = styled.div`
   margin: 0 auto;
-  width: ${SiteWidth};
+  max-width: ${SiteWidth};
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-const HeaderH1 = styled.h1`
+const HeaderLogo = styled.div`
   margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
   a {
     font-style: normal;
     text-decoration: none;
@@ -47,15 +49,18 @@ const HeaderH1 = styled.h1`
 const Nav = styled.nav`
   display: flex;
   a {
-    margin-left: 10px;
     text-decoration: none;
+    flex: 1;
+    :not(:first-child) {
+      margin-left: 30px;
+    }
   }
 `;
 
 const Header = ({ siteTitle }) => (
   <HeaderWrapper>
     <HeaderContainer>
-      <HeaderH1 style={{}}>
+      <HeaderLogo style={{}}>
         <Link to="/">
           {/* {siteTitle} */}
           <span>J</span>
@@ -63,7 +68,7 @@ const Header = ({ siteTitle }) => (
           <span>F</span>
           <span>reeman</span>
         </Link>
-      </HeaderH1>
+      </HeaderLogo>
       <Nav>
         <Link to="/projects">Projects</Link>
         <Link to="/contact">Contact</Link>

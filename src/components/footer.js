@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { SiteWidth } from '../Global';
 
 const FooterWrapper = styled.footer`
-  width: ${SiteWidth};
+  max-width: ${SiteWidth};
   margin: 0 auto;
   text-align: center;
 `;
