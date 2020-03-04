@@ -19,6 +19,13 @@ const MainWrapper = styled.main`
   margin: 0 auto;
   max-width: ${SiteWidth};
   min-height: 85vh;
+  display: grid;
+  grid-template-columns: 8vw 1fr;
+  grid-template-areas: 'social main';
+`;
+
+const Content = styled.section`
+  grid-area: main;
 `;
 
 const Layout = ({ children }) => {
@@ -35,8 +42,10 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <Social />
-      <MainWrapper>{children}</MainWrapper>
+      <MainWrapper>
+        <Social />
+        <Content>{children}</Content>
+      </MainWrapper>
       <Footer />
       <GlobalStyle />
     </>

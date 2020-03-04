@@ -6,7 +6,8 @@ import styled from 'styled-components';
 import { SiteWidth } from '../Global';
 
 const HeaderWrapper = styled.div`
-  background: rebeccapurple;
+  ${'' /* background: rebeccapurple; */}
+  margin-top: 2vh;
 `;
 
 const HeaderContainer = styled.div`
@@ -63,10 +64,11 @@ const Header = ({ siteTitle }) => (
       <HeaderLogo style={{}}>
         <Link to="/">
           {/* {siteTitle} */}
-          <span>J</span>
+          <span>&lt;J</span>
           <span>onathan</span>
           <span>F</span>
           <span>reeman</span>
+          <span>/&gt;</span>
         </Link>
       </HeaderLogo>
       <Nav>
