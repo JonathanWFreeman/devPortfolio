@@ -4,10 +4,11 @@ import { SiteWidth } from '../Global';
 
 const FooterWrapper = styled.footer`
   max-width: ${SiteWidth};
-  margin: 0 auto;
+  margin: 25px auto 0;
   text-align: center;
   display: flex;
   justify-content: center;
+  padding: 25px 0;
   p {
     margin: 0 10px;
   }
@@ -19,10 +20,23 @@ function Footer() {
       <p>
         © {new Date().getFullYear()}, Built with
         {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.gatsbyjs.org"
+        >
+          Gatsby
+        </a>
       </p>
       <p>
-        Font: <a href="https://rubjo.github.io/victor-mono/">Victor Mono</a>
+        Font:{' '}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://rubjo.github.io/victor-mono/"
+        >
+          Victor Mono
+        </a>
       </p>
     </FooterWrapper>
   );

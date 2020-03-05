@@ -2,6 +2,9 @@ import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 import 'victormono';
 
+export const SiteWidth = '90vw';
+export const PrimaryColor = '#333';
+
 const GlobalStyle = createGlobalStyle`
 ${normalize};
 
@@ -18,7 +21,7 @@ html {
 
 body{
   font-family: 'Victor Mono', monospace;
-  background-color: #333;
+  background-color: ${PrimaryColor};
   color: #FFF;
   font-size: 1.2rem;
   -webkid-font-smoothing: antialiased;
@@ -51,7 +54,5 @@ a {
   }
 }
 `;
-
-export const SiteWidth = '90vw';
 
 export default GlobalStyle;

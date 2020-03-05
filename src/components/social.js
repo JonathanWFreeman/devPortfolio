@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { PrimaryColor } from '../Global';
 
 const SocialBar = styled.aside`
   position: fixed;
@@ -8,12 +9,11 @@ const SocialBar = styled.aside`
   align-items: left;
   flex-direction: column;
   justify-content: center;
-  ${'' /* width: 8vw; */}
   grid-area: social;
 
   a {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     margin: 10px 0;
   }
 
@@ -27,7 +27,7 @@ const SocialBar = styled.aside`
     border-radius: 100%;
   }
   .github {
-    background: #333;
+    background: ${PrimaryColor};
     color: #fff;
     fill: #fff;
     &:hover {

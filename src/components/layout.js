@@ -18,7 +18,7 @@ import GlobalStyle, { SiteWidth } from '../Global';
 const MainWrapper = styled.main`
   margin: 0 auto;
   max-width: ${SiteWidth};
-  min-height: 85vh;
+  min-height: 88vh;
   display: grid;
   grid-template-columns: 8vw 1fr;
   grid-template-areas: 'social main';
@@ -26,6 +26,7 @@ const MainWrapper = styled.main`
 
 const Content = styled.section`
   grid-area: main;
+  margin-top: 8vh;
 `;
 
 const Layout = ({ children }) => {

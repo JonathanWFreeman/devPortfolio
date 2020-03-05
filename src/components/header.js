@@ -8,6 +8,9 @@ import { SiteWidth } from '../Global';
 const HeaderWrapper = styled.div`
   ${'' /* background: rebeccapurple; */}
   margin-top: 2vh;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 `;
 
 const HeaderContainer = styled.div`
@@ -56,12 +59,15 @@ const Nav = styled.nav`
       margin-left: 30px;
     }
   }
+  .active {
+    color: red;
+  }
 `;
 
 const Header = ({ siteTitle }) => (
   <HeaderWrapper>
     <HeaderContainer>
-      <HeaderLogo style={{}}>
+      <HeaderLogo>
         <Link to="/">
           {/* {siteTitle} */}
           <span>&lt;J</span>
@@ -72,8 +78,12 @@ const Header = ({ siteTitle }) => (
         </Link>
       </HeaderLogo>
       <Nav>
-        <Link to="/projects">Projects</Link>
-        <Link to="/contact">Contact</Link>
+        <Link activeClassName="active" to="/projects">
+          Projects
+        </Link>
+        <Link activeClassName="active" to="/contact">
+          Contact
+        </Link>
       </Nav>
     </HeaderContainer>
   </HeaderWrapper>
