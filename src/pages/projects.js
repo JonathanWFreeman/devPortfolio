@@ -10,7 +10,6 @@ const Projects = () => (
     <SEO title="Projects" />
     <h1>Projects</h1>
     <Archive />
-    <Link to="/">Go back to the homepage</Link>
   </Layout>
 );
 

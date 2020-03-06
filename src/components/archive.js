@@ -1,8 +1,8 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 
-const Archive = () => {
+const usePortfolioArchiveQuery = () => {
   const { allMarkdownRemark } = useStaticQuery(graphql`
     query PortfolioArchive {
       allMarkdownRemark {
@@ -21,17 +21,21 @@ const Archive = () => {
       }
     }
   `);
+  return allMarkdownRemark;
+};
 
+const Archive = () => {
+  const { edges } = usePortfolioArchiveQuery();
   return (
-    <>
-      <section>
-        {allMarkdownRemark.edges.map(edge => (
+    <section>
+      {edges.map(edge => (
+        <Link to={`/projects${edge.node.frontmatter.slug}`}>
           <li key={edge.node.frontmatter.slug}>
             {edge.node.frontmatter.title}
           </li>
-        ))}
-      </section>
-    </>
+        </Link>
+      ))}
+    </section>
   );
 };
 

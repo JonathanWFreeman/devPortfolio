@@ -13,7 +13,7 @@ import styled from 'styled-components';
 import Footer from './footer';
 import Header from './header';
 import Social from './social';
-import GlobalStyle, { SiteWidth } from '../Global';
+import { SiteWidth } from '../Global';
 
 const MainWrapper = styled.main`
   margin: 0 auto;
@@ -48,7 +48,6 @@ const Layout = ({ children }) => {
         <Content>{children}</Content>
       </MainWrapper>
       <Footer />
-      <GlobalStyle />
     </>
   );
 };

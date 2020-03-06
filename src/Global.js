@@ -24,7 +24,7 @@ body{
   background-color: ${PrimaryColor};
   color: #FFF;
   font-size: 1.2rem;
-  -webkid-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
