@@ -1,6 +1,9 @@
 ---
 slug: "/quicktv"
 title: "QuickTV"
+description: "Jango chewbacca yoda hutt ben hoth kamino jango darth."
+image_sm: "https://i.picsum.photos/id/1025/400/400.jpg"
+image_desc: "Dog in blanket"
 ---
 
 ## Test

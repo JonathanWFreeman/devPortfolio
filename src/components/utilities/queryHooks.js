@@ -12,6 +12,7 @@ export const useProjectsQuery = () => {
             frontmatter {
               title
               slug
+              description
             }
           }
         }

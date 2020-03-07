@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { SiteWidth } from '../Global';
+import { SiteWidth, PrimaryColor } from '../Global';
 
 const HeaderWrapper = styled.div`
-  ${'' /* background: rebeccapurple; */}
-  margin-top: 2vh;
+  background: ${PrimaryColor};
+  padding: 1.5vh 0;
   position: fixed;
   width: 100%;
   z-index: 100;
