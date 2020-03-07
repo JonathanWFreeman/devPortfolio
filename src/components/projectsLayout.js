@@ -1,20 +1,21 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Layout from './layout';
 
-function ProjectsLayout() {
-  return (
-    <Layout>
-      <div>
-        <h1>Layout</h1>
-      </div>
-    </Layout>
-  );
-}
+const ProjectsLayout = ({ data }) => (
+  <Layout>
+    <div>
+      <h1>{data.markdownRemark.frontmatter.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+    </div>
+  </Layout>
+);
 
 export const query = graphql`
-  query ProjectQuery {
-    markdownRemark(frontmatter: { slug: { eq: "/queue" } }) {
+  query ProjectQuery($slug: String!) {
+    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {
         slug
@@ -23,5 +24,9 @@ export const query = graphql`
     }
   }
 `;
+
+ProjectsLayout.propTypes = {
+  data: PropTypes.node.isRequired,
+};
 
 export default ProjectsLayout;
