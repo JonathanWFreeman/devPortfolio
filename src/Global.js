@@ -1,9 +1,34 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css, keyframes } from 'styled-components';
 import { normalize } from 'styled-normalize';
 import 'victormono';
 
 export const SiteWidth = '90vw';
-export const PrimaryColor = '#333';
+export const BackgroundColor = '#333';
+export const PrimaryColor = '#03E9F4';
+
+const size = {
+  small: 400,
+  med: 960,
+  large: 1140,
+};
+
+export const Above = Object.keys(size).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (min-width: ${size[label]}px) {
+      ${css(...args)}
+    }
+  `;
+  return acc;
+}, {});
+
+export const Below = Object.keys(size).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (max-width: ${size[label]}px) {
+      ${css(...args)}
+    }
+  `;
+  return acc;
+}, {});
 
 const GlobalStyle = createGlobalStyle`
 ${normalize};
@@ -21,7 +46,7 @@ html {
 
 body{
   font-family: 'Victor Mono', monospace;
-  background-color: ${PrimaryColor};
+  background-color: ${BackgroundColor};
   color: #FFF;
   font-size: 1.2rem;
   -webkit-font-smoothing: antialiased;
@@ -50,13 +75,7 @@ h4 {
 }
 
 a {
-  ${'' /* text-decoration: none; */}
-  .link {
-  color: #FFF;
-  &:hover{
-    font-style: italic;
-  }
-}
+  color: grey;
 }
 
 img {

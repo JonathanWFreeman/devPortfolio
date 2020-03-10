@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SiteWidth } from '../Global';
+import { ExLink } from './elements/links';
 
 const FooterWrapper = styled.footer`
   max-width: ${SiteWidth};
@@ -20,23 +21,13 @@ function Footer() {
       <p>
         © {new Date().getFullYear()}, Built with
         {` `}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.gatsbyjs.org"
-        >
-          Gatsby
-        </a>
+        <ExLink linkTo="https://www.gatsbyjs.org">Gatsby</ExLink>
       </p>
       <p>
         Font:{' '}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://rubjo.github.io/victor-mono/"
-        >
+        <ExLink linkTo="https://rubjo.github.io/victor-mono/">
           Victor Mono
-        </a>
+        </ExLink>
       </p>
     </FooterWrapper>
   );

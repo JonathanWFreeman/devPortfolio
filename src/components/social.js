@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { PrimaryColor } from '../Global';
+import { BackgroundColor } from '../Global';
 
 const SocialBar = styled.aside`
   position: fixed;
@@ -27,7 +27,7 @@ const SocialBar = styled.aside`
     border-radius: 100%;
   }
   .github {
-    background: ${PrimaryColor};
+    background: ${BackgroundColor};
     color: #fff;
     fill: #fff;
     &:hover {

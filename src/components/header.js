@@ -1,12 +1,13 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { SiteWidth, PrimaryColor } from '../Global';
+import { SiteWidth, BackgroundColor, PrimaryColor } from '../Global';
 
 const HeaderWrapper = styled.div`
-  background: ${PrimaryColor};
+  background: ${BackgroundColor};
   padding: 1.5vh 0;
   position: fixed;
   width: 100%;
@@ -31,7 +32,7 @@ const HeaderLogo = styled.div`
   }
   span {
     :nth-child(odd) {
-      color: orange;
+      color: ${PrimaryColor};
     }
     color: #fff;
     display: inline-flex;
@@ -53,6 +54,7 @@ const HeaderLogo = styled.div`
 const Nav = styled.nav`
   display: flex;
   a {
+    color: ${PrimaryColor};
     text-decoration: none;
     flex: 1;
     :not(:first-child) {
@@ -62,6 +64,10 @@ const Nav = styled.nav`
   .active {
     color: red;
   }
+`;
+
+const StyledLink = styled(props => <Link {...props} />)`
+  border: none;
 `;
 
 const Header = ({ siteTitle }) => (
