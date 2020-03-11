@@ -84,7 +84,7 @@ const Header = ({ siteTitle }) => (
         </Link>
       </HeaderLogo>
       <Nav>
-        <Link activeClassName="active" to="/projects">
+        <Link activeClassName="active" partiallyActive to="/projects">
           Projects
         </Link>
         <Link activeClassName="active" to="/contact">

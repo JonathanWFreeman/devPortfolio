@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import { useProjectsQuery } from './utilities/queryHooks';
+import { BackgroundColor } from '../Global';
 
 const Grid = styled.section`
   display: grid;
@@ -14,70 +15,124 @@ const Grid = styled.section`
 const Card = styled.div`
   position: relative;
   .face {
-    ${'' /* width: 300px; */}
-    ${'' /* height: 200px; */}
+    :before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      bottom: -2px;
+      left: -2px;
+      background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
+      z-index: -3;
+    }
+    :after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      bottom: -2px;
+      left: -2px;
+      background: #fff;
+      filter: blur(40px);
+      background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
+      z-index: -4;
+    }
     transition: 0.5s;
-    &.face1 {
+    &.cardTop {
       position: relative;
-      background: #333;
+      background: ${BackgroundColor};
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 1;
       transform: translateY(100px);
-      .content {
-        opacity: 0.2;
+      .cardContent {
+        width: 100%;
         transition: 0.5s;
+        background: ${BackgroundColor};
+        position: relative;
+
+        h2 {
+          text-align: center;
+          transition: 0.5s;
+          padding: 25px 0;
+          margin: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 100%;
+          position: absolute;
+        }
         img {
-          max-width: 90%;
+          transition: 0.5s;
+          z-index: 1;
+          opacity: 0.6;
         }
       }
     }
 
-    &.face2 {
+    &.cardBottom {
       position: relative;
       color: #000;
-      background: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-      transform: translateY(-100px);
-      .content p {
+      transform: translateY(-160px);
+      background: #fff;
+      z-index: -1;
+      .cardContent p {
         margin: 0;
-        padding: 0;
+        padding: 120px 20px 20px;
       }
-      .content a {
-        margin: 15px 0 0;
-        display: inline-block;
-        text-decoration: none;
-        font-weight: 900;
-        color: #333;
-        padding: 5px;
-        border: 1px solid #333;
+      .cardContent {
+        padding: 0 20px 20px;
+        background: #fff;
+        width: 100%;
+        .titleBg {
+          transition: 0.5s;
+          width: 100%;
+          height: 80px;
+          position: absolute;
+          left: 0;
+        }
+        a {
+          margin: 15px 0 0;
+          display: inline-block;
+          text-decoration: none;
+          font-weight: 900;
+          color: ${BackgroundColor};
+          padding: 5px;
+          border: 1px solid ${BackgroundColor};
+        }
       }
     }
   }
   :hover {
     .face {
-      &.face1 {
-        background: red;
+      &.cardTop {
         transform: translateY(0);
+        .cardContent {
+          img {
+            opacity: 1;
+          }
+          h2 {
+            width: 100%;
+            top: 96%;
+            transform: translateY(0);
+          }
+        }
       }
-      &.face2 {
+      &.cardBottom {
         transform: translateY(0);
-      }
-      .content {
-        opacity: 1;
+        .cardContent {
+          opacity: 1;
+          .titleBg {
+            background: red;
+          }
+        }
       }
     }
   }
 `;
-// const Face;
-// const Face1;
-// const Face2;
-// const Content;
 
 const ProjectsListing = () => {
   const { edges } = useProjectsQuery();
@@ -86,17 +141,18 @@ const ProjectsListing = () => {
     <Grid>
       {edges.map(({ node }) => (
         <Card key={node.frontmatter.slug}>
-          <div className="face face1">
-            <div className="content">
+          <div className="face cardTop">
+            <div className="cardContent">
               <img
-                src="https://i.picsum.photos/id/1025/600/350.jpg"
+                src="https://i.picsum.photos/id/1025/600/400.jpg"
                 alt={node.frontmatter.image_desc}
               />
               <h2>{node.frontmatter.title}</h2>
             </div>
           </div>
-          <div className="face face2">
-            <div className="content">
+          <div className="face cardBottom">
+            <div className="cardContent">
+              <div className="titleBg" />
               <p>{node.frontmatter.description}</p>
               <Link to={`/projects${node.frontmatter.slug}`}>Read More</Link>
             </div>

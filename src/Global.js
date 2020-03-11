@@ -55,23 +55,23 @@ body{
 
 h1 {
   font-size: 4rem;
-  font-size: min(max(3rem, 10vw), 4rem);
+  font-size: min(max(3.5rem, 10vw), 4rem);
   font-weight: bold;
 }
 
 h2 {
-  font-size: 3rem;
-  font-size: min(max(2rem, 10vw), 2.5rem);
+  font-size: 3.5rem;
+  font-size: min(max(3rem, 10vw), 3.5rem);
   font-weight: bold;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
 h4 {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 a {
