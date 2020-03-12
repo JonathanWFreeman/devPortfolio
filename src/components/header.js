@@ -4,7 +4,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { SiteWidth, BackgroundColor, PrimaryColor } from '../Global';
+import {
+  SiteWidth,
+  BackgroundColor,
+  PrimaryColor,
+  SecondaryColor,
+} from '../Global';
 
 const HeaderWrapper = styled.div`
   background: ${BackgroundColor};
@@ -62,7 +67,7 @@ const Nav = styled.nav`
     }
   }
   .active {
-    color: red;
+    color: ${SecondaryColor};
   }
 `;
 

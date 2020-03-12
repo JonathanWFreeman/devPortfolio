@@ -5,6 +5,8 @@ import 'victormono';
 export const SiteWidth = '90vw';
 export const BackgroundColor = '#333';
 export const PrimaryColor = '#03E9F4';
+export const SecondaryColor = '#FF0700';
+export const AltColor = '#1B5AF7';
 
 const size = {
   small: 400,

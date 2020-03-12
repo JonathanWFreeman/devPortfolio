@@ -16,6 +16,8 @@
     "jest": true
   },
   "rules": {
+    "no-use-before-define": "off",
+    "no-plusplus": "off",
     "no-debugger": 0,
     "no-alert": 0,
     "no-await-in-loop": 0,
