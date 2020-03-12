@@ -38,7 +38,7 @@ export const ButtonLink = styled(Link)`
   :hover {
     background: ${SecondaryColor};
     color: #fff;
-    box-shadow: 0 0 50px ${SecondaryColor};
+    box-shadow: 0 0 25px ${SecondaryColor};
     transition-delay: 0.3s;
     :before,
     :after {

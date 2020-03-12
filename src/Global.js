@@ -8,8 +8,11 @@ export const PrimaryColor = '#03E9F4';
 export const SecondaryColor = '#FF0700';
 export const AltColor = '#1B5AF7';
 
+// TODO:
+// Add media for device
+
 const size = {
-  small: 400,
+  small: 500,
   med: 960,
   large: 1140,
 };
