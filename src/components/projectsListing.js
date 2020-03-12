@@ -8,6 +8,7 @@ import {
   PrimaryColor,
   SecondaryColor,
   AltColor,
+  Above,
 } from '../Global';
 
 const Grid = styled.section`
@@ -62,7 +63,9 @@ const Card = styled.div`
     justify-content: center;
     align-items: center;
     z-index: 1;
-    transform: translateY(100px);
+    ${Above.small`
+      transform: translateY(100px);
+    `}
     .cardContent {
       width: 100%;
       transition: 0.5s;
@@ -74,10 +77,15 @@ const Card = styled.div`
         transition: 0.5s;
         padding: 25px 0;
         margin: 0;
-        top: 50%;
-        transform: translateY(-50%);
+        ${Above.small`
+          top: 50%;
+          transform: translateY(-50%);
+        `}
         width: 100%;
         position: absolute;
+        text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 10px ${SecondaryColor},
+          0 0 20px ${SecondaryColor}, 0 0 30px ${SecondaryColor},
+          0 0 40px ${SecondaryColor};
       }
       img {
         transition: 0.5s;
@@ -91,7 +99,9 @@ const Card = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateY(-160px);
+    ${Above.small`
+      transform: translateY(-160px);
+    `}
     transition: 0.5s;
     z-index: -1;
     .cardContent p {
