@@ -70,7 +70,8 @@ const Card = styled.div`
     .cardContent {
       width: 100%;
       transition: 0.5s;
-      background: ${BackgroundColor};
+      background: #00000080;
+      line-height: 0;
       position: relative;
 
       h2 {
@@ -158,6 +159,7 @@ const Card = styled.div`
           top: 100%;
           transform: translateY(0);
           font-size: 2em;
+          line-height: 1.15;
         }
       }
     }
