@@ -89,6 +89,7 @@ const Card = styled.div`
         `}
         ${Below.small`
           font-size: 2em;
+          line-height: 1.15;
         `}
       }
       img {
@@ -104,7 +105,8 @@ const Card = styled.div`
     justify-content: center;
     align-items: center;
     transition: 0.5s;
-    z-index: -1;
+    position: relative;
+    z-index: 0;
     ${Above.small`
       transform: translateY(-160px);
     `}

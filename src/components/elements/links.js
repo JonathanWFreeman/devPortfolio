@@ -19,6 +19,10 @@ const ALink = styled.a`
   padding-bottom: 2px;
   position: relative;
   overflow: hidden;
+  margin: 0 5px;
+  p {
+    margin: 0;
+  }
   span {
     display: block;
     position: absolute;
@@ -35,17 +39,15 @@ const ALink = styled.a`
 `;
 
 export const ExLink = ({ children, linkTo }) => (
-  <>
-    <ALink
-      href={linkTo}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="link"
-    >
-      <span />
-      {children}
-    </ALink>
-  </>
+  <ALink
+    href={linkTo}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="link"
+  >
+    <p>{children}</p>
+    <span />
+  </ALink>
 );
 
 ExLink.propTypes = {

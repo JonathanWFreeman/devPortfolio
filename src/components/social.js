@@ -1,16 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BackgroundColor } from '../Global';
+import { BackgroundColor, Above } from '../Global';
 
 const SocialBar = styled.aside`
-  position: fixed;
+  ${Above.small`
+    position: fixed;
+    height: 100vh;
+    flex-direction: column;
+  `}
   display: flex;
-  height: 100vh;
   align-items: left;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   grid-area: social;
-
   a {
     height: 40px;
     width: 40px;

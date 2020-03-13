@@ -16,7 +16,9 @@ const HeaderWrapper = styled.div`
   padding: 1.5vh 0;
   position: fixed;
   width: 100%;
+  top: 0;
   z-index: 100;
+  grid-area: header;
 `;
 
 const HeaderContainer = styled.div`
