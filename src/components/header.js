@@ -12,7 +12,7 @@ import {
 } from '../Global';
 
 const HeaderWrapper = styled.header`
-  background: ${BackgroundColor};
+  ${'' /* background: ${BackgroundColor}; */}
   padding: 1.5vh 0;
   position: fixed;
   width: 100%;

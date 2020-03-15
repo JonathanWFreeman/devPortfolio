@@ -12,16 +12,8 @@ import GlobalStyle, { SiteWidth, Above, Below } from '../../Global';
 
 const SiteLayout = styled.div`
   display: grid;
-  ${Above.small`
-    grid-template-columns: ${SocialWidth} 1fr;
-    grid-template-rows: 100px 1fr 50px;
-    grid-template-areas:
-      'header header'
-      'social main'
-      'footer footer';
-    `}
   grid-template-columns: 1fr;
-  grid-template-rows: 100px 1fr 60px 100px;
+  grid-template-rows: 0 1fr 60px 100px;
   grid-template-areas:
     'header'
     'main'
@@ -39,17 +31,13 @@ const MainWrapper = styled.main`
 `;
 
 const Content = styled.section`
-  margin: 8vh auto;
-  ${Above.small`
-    max-width: calc(${`${SiteWidth} + ${SocialWidth}`});
-    padding-right: ${SocialWidth};
-  `}
-  ${Below.small` 
-    padding: 0 2%;
-  `}
+  margin: 0 auto;
+  max-width: ${SiteWidth};
+  ${'' /* padding-right: ${SocialWidth}; */}
+  padding: 0 2%;
 `;
 
-const LayoutProjects = ({ children }) => {
+const LayoutProjects = ({ children, bg }) => {
   const data = useStaticQuery(graphql`
     {
       site {
@@ -65,6 +53,7 @@ const LayoutProjects = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <Social />
       <MainWrapper>
+        <img src={bg} alt="Dog" />
         <Content>{children}</Content>
       </MainWrapper>
       <Footer />
@@ -75,6 +64,7 @@ const LayoutProjects = ({ children }) => {
 
 LayoutProjects.propTypes = {
   children: PropTypes.node.isRequired,
+  bg: PropTypes.string.isRequired,
 };
 
 export default LayoutProjects;

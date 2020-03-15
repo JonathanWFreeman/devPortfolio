@@ -1,17 +1,9 @@
-/* eslint-disable react/no-danger */
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import styled from 'styled-components';
-
-import LayoutProjects from './layouts/layoutProjects';
-import ProjectsArchive from './projectsArchive';
 import {
   BackgroundColor,
   PrimaryColor,
   SecondaryColor,
   AltColor,
-} from '../Global';
+} from '../../Global';
 
 const Header = styled.header`
   position: relative;
@@ -53,27 +45,45 @@ const useScrollEvent = initialState => {
   return [scrollPosition];
 };
 
-const ProjectsLayout = ({ data }) => {
+const HeaderBg = ({ data }) => {
+  const [scrollPosition] = useScrollEvent('');
+
+  <Header bg={data.markdownRemark.frontmatter.image_cover}>
+  <div
+    id="bg"
+    style={{
+      opacity: 1 - scrollPosition / 600,
+      top: scrollPosition,
+      backgroundPositionY: -scrollPosition,
+    }}
+  >
+    <span
+      className="skewed"
+      style={{ transform: `skewY(${-5 + scrollPosition / 60}deg)` }}
+      // style={{ transform: `skewY(60deg)` }}
+    />
+  </div>
+</Header>
+
+const HeaderBg = ({ data }) => {
   const [scrollPosition] = useScrollEvent('');
 
   return (
     <LayoutProjects bg={data.markdownRemark.frontmatter.image_cover}>
-      <Header bg={data.markdownRemark.frontmatter.image_cover}>
-        <div
-          id="bg"
-          style={{
-            opacity: 1 - scrollPosition / 600,
-            top: scrollPosition,
-            backgroundPositionY: -scrollPosition,
-          }}
-        >
-          <span
-            className="skewed"
-            style={{ transform: `skewY(${-5 + scrollPosition / 60}deg)` }}
-            // style={{ transform: `skewY(60deg)` }}
-          />
-        </div>
-      </Header>
+      <div
+        id="bg"
+        style={{
+          opacity: 1 - scrollPosition / 600,
+          top: scrollPosition,
+          backgroundPositionY: -scrollPosition,
+        }}
+      >
+        <span
+          className="skewed"
+          style={{ transform: `skewY(${-5 + scrollPosition / 60}deg)` }}
+          // style={{ transform: `skewY(60deg)` }}
+        />
+      </div>
       <div>
         <h1>{data.markdownRemark.frontmatter.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
@@ -83,22 +93,4 @@ const ProjectsLayout = ({ data }) => {
   );
 };
 
-export const query = graphql`
-  query ProjectQuery($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        slug
-        title
-        image_cover
-        image_desc
-      }
-    }
-  }
-`;
-
-ProjectsLayout.propTypes = {
-  data: PropTypes.node.isRequired,
-};
-
-export default ProjectsLayout;
+export default HeaderBg;
