@@ -3,6 +3,7 @@ slug: "/queue"
 title: "Queue"
 description: "Jango chewbacca yoda hutt ben hoth kamino jango darth."
 image_sm: "https://i.picsum.photos/id/1025/400/400.jpg"
+image_cover: "https://i.picsum.photos/id/1025/2000/1000.jpg"
 image_desc: "Dog in blanket"
 ---
 

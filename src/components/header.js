@@ -11,7 +11,7 @@ import {
   SecondaryColor,
 } from '../Global';
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.header`
   background: ${BackgroundColor};
   padding: 1.5vh 0;
   position: fixed;

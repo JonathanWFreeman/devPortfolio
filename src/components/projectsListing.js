@@ -108,7 +108,8 @@ const Card = styled.div`
     position: relative;
     z-index: 0;
     ${Above.small`
-      transform: translateY(-160px);
+      ${'' /* transform: translateY(-160px); */}
+      margin-top: -245px;
     `}
     .cardContent p {
       margin: 0;
@@ -166,7 +167,8 @@ const Card = styled.div`
       }
     }
     .cardBottom {
-      transform: translateY(0);
+      ${'' /* transform: translateY(0); */}
+      margin-top: 0;
       .cardContent {
         opacity: 1;
       }
@@ -180,28 +182,52 @@ const ProjectsListing = () => {
   return (
     <Grid>
       {edges.map(({ node }) => (
-        <Card key={node.frontmatter.slug}>
-          <div className="cardTop">
-            <BorderWrapper>
-              <div className="cardContent">
-                <img
-                  src="https://i.picsum.photos/id/1025/600/400.jpg"
-                  alt={node.frontmatter.image_desc}
-                />
-                <h2>{node.frontmatter.title}</h2>
-              </div>
-            </BorderWrapper>
-          </div>
-          <div className="cardBottom">
-            <div className="cardContent">
-              <div className="titleBg" />
-              <p>{node.frontmatter.description}</p>
-              <ButtonLink to={`/projects${node.frontmatter.slug}`}>
-                Read More
-              </ButtonLink>
+        <>
+          <Card key={node.frontmatter.slug}>
+            <div className="cardTop">
+              <BorderWrapper>
+                <div className="cardContent">
+                  <img
+                    src="https://i.picsum.photos/id/1025/600/400.jpg"
+                    alt={node.frontmatter.image_desc}
+                  />
+                  <h2>{node.frontmatter.title}</h2>
+                </div>
+              </BorderWrapper>
             </div>
-          </div>
-        </Card>
+            <div className="cardBottom">
+              <div className="cardContent">
+                <div className="titleBg" />
+                <p>{node.frontmatter.description}</p>
+                <ButtonLink to={`/projects${node.frontmatter.slug}`}>
+                  Read More
+                </ButtonLink>
+              </div>
+            </div>
+          </Card>
+          <Card key={node.frontmatter.slug}>
+            <div className="cardTop">
+              <BorderWrapper>
+                <div className="cardContent">
+                  <img
+                    src="https://i.picsum.photos/id/1025/600/400.jpg"
+                    alt={node.frontmatter.image_desc}
+                  />
+                  <h2>{node.frontmatter.title}</h2>
+                </div>
+              </BorderWrapper>
+            </div>
+            <div className="cardBottom">
+              <div className="cardContent">
+                <div className="titleBg" />
+                <p>{node.frontmatter.description}</p>
+                <ButtonLink to={`/projects${node.frontmatter.slug}`}>
+                  Read More
+                </ButtonLink>
+              </div>
+            </div>
+          </Card>
+        </>
       ))}
     </Grid>
   );

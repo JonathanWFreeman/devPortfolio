@@ -14,7 +14,7 @@ import styled from 'styled-components';
 import Footer from './footer';
 import Header from './header';
 import Social from './social';
-import GlobalStyle, { SiteWidth, Above, Below } from '../Global';
+import GlobalStyle, { SiteWidth, Above } from '../Global';
 
 const SiteLayout = styled.div`
   display: grid;
@@ -26,15 +26,13 @@ const SiteLayout = styled.div`
       'social main'
       'footer footer';
     `}
-  ${Below.small`
-      grid-template-columns: 1fr;
-      grid-template-rows: 100px 1fr 60px 100px;
-      grid-template-areas:
-        'header'
-        'main'
-        'social'
-        'footer';
-    `}
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 1fr 60px 100px;
+  grid-template-areas:
+    'header'
+    'main'
+    'social'
+    'footer';
 `;
 
 const MainWrapper = styled.main`
