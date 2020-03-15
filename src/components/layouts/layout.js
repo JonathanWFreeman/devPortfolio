@@ -54,10 +54,11 @@ const Content = styled.section`
     padding: 0 2%;
   `}
 `;
-
+// TODO:
+// Change query to hook
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    {
       site {
         siteMetadata {
           title
