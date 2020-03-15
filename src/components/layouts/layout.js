@@ -11,15 +11,15 @@ import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import Footer from './footer';
-import Header from './header';
-import Social from './social';
-import GlobalStyle, { SiteWidth, Above } from '../Global';
+import Footer from '../footer';
+import Header from '../header';
+import Social, { SocialWidth } from '../social';
+import GlobalStyle, { SiteWidth, Above, Below } from '../../Global';
 
 const SiteLayout = styled.div`
   display: grid;
   ${Above.small`
-    grid-template-columns: 50px 1fr;
+    grid-template-columns: ${SocialWidth} 1fr;
     grid-template-rows: 100px 1fr 50px;
     grid-template-areas:
       'header header'
@@ -46,7 +46,13 @@ const MainWrapper = styled.main`
 
 const Content = styled.section`
   margin: 8vh auto;
-  max-width: ${SiteWidth};
+  ${Above.small`
+    max-width: calc(${`${SiteWidth} + ${SocialWidth}`});
+    padding-right: ${SocialWidth};
+  `}
+  ${Below.small` 
+    padding: 0 2%;
+  `}
 `;
 
 const Layout = ({ children }) => {

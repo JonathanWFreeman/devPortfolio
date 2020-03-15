@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SiteWidth, Above } from '../Global';
+import { Above } from '../Global';
 import { ExLink } from './elements/links';
 
 const FooterWrapper = styled.footer`

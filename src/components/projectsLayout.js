@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import Layout from './layout';
+import Layout from './layouts/layout';
 import ProjectsArchive from './projectsArchive';
 import {
   BackgroundColor,

@@ -2,14 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { BackgroundColor, AltColor, Above } from '../Global';
 
+export const SocialWidth = '50px';
+
 const SocialBar = styled.aside`
   ${Above.small`
     position: fixed;
     height: 100vh;
     flex-direction: column;
+    width: ${SocialWidth};
+    align-items: center;
   `}
   display: flex;
-  align-items: left;
   flex-direction: row;
   justify-content: center;
   grid-area: social;
