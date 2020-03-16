@@ -1,8 +1,8 @@
-import { createGlobalStyle, css, keyframes } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 import { normalize } from 'styled-normalize';
 import 'victormono';
 
-export const SiteWidth = '90vw';
+export const SiteWidth = '80vw';
 export const BackgroundColor = '#333';
 export const PrimaryColor = '#03E9F4';
 export const SecondaryColor = '#FF0700';
@@ -12,7 +12,7 @@ export const AltColor = '#1B5AF7';
 // Add media for device
 
 const size = {
-  small: 500,
+  small: 600,
   med: 960,
   large: 1140,
 };

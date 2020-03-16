@@ -66,7 +66,6 @@ const HeaderBg = ({ bg }) => {
         <span
           className="skewed"
           style={{ transform: `skewY(${-5 + scrollPosition / 200}deg)` }}
-          // style={{ transform: `skewY(60deg)` }}
         />
       </div>
     </Header>
