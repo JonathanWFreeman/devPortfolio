@@ -9,6 +9,7 @@ import Footer from '../footer';
 import Header from '../header';
 import Social, { SocialWidth } from '../social';
 import GlobalStyle, { SiteWidth, Above, Below } from '../../Global';
+import HeaderBg from '../elements/HeaderBg';
 
 const SiteLayout = styled.div`
   display: grid;
@@ -53,7 +54,8 @@ const LayoutProjects = ({ children, bg }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <Social />
       <MainWrapper>
-        <img src={bg} alt="Dog" />
+        {/* <img src={bg} alt="Dog" /> */}
+        <HeaderBg bg={bg} />
         <Content>{children}</Content>
       </MainWrapper>
       <Footer />

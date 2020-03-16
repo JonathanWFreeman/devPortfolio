@@ -1,3 +1,8 @@
+/* eslint-disable react/no-danger */
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import {
   BackgroundColor,
   PrimaryColor,
@@ -23,7 +28,7 @@ const Header = styled.header`
     background-size: cover;
     .skewed {
       position: absolute;
-      bottom: -85%;
+      bottom: -100vh;
       left: 0;
       width: 100%;
       height: 100%;
@@ -45,52 +50,31 @@ const useScrollEvent = initialState => {
   return [scrollPosition];
 };
 
-const HeaderBg = ({ data }) => {
-  const [scrollPosition] = useScrollEvent('');
-
-  <Header bg={data.markdownRemark.frontmatter.image_cover}>
-  <div
-    id="bg"
-    style={{
-      opacity: 1 - scrollPosition / 600,
-      top: scrollPosition,
-      backgroundPositionY: -scrollPosition,
-    }}
-  >
-    <span
-      className="skewed"
-      style={{ transform: `skewY(${-5 + scrollPosition / 60}deg)` }}
-      // style={{ transform: `skewY(60deg)` }}
-    />
-  </div>
-</Header>
-
-const HeaderBg = ({ data }) => {
+const HeaderBg = ({ bg }) => {
   const [scrollPosition] = useScrollEvent('');
 
   return (
-    <LayoutProjects bg={data.markdownRemark.frontmatter.image_cover}>
+    <Header bg={bg}>
       <div
         id="bg"
         style={{
-          opacity: 1 - scrollPosition / 600,
+          opacity: 1 - scrollPosition / (window.innerHeight / 1.3),
           top: scrollPosition,
           backgroundPositionY: -scrollPosition,
         }}
       >
         <span
           className="skewed"
-          style={{ transform: `skewY(${-5 + scrollPosition / 60}deg)` }}
+          style={{ transform: `skewY(${-5 + scrollPosition / 200}deg)` }}
           // style={{ transform: `skewY(60deg)` }}
         />
       </div>
-      <div>
-        <h1>{data.markdownRemark.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-      </div>
-      <ProjectsArchive />
-    </LayoutProjects>
+    </Header>
   );
+};
+
+HeaderBg.propTypes = {
+  bg: PropTypes.string.isRequired,
 };
 
 export default HeaderBg;
