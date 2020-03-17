@@ -178,7 +178,7 @@ const Card = styled.div`
 
 const ProjectsListing = () => {
   const { edges } = useProjectsQuery();
-  console.log(styled);
+
   return (
     <Grid>
       {edges.map(({ node }) => (

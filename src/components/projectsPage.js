@@ -10,10 +10,11 @@ import { ExLink } from './elements/links';
 
 const ProjectsLayout = ({ data }) => (
   <Layout bg={data.markdownRemark.frontmatter.image_cover} layout="projects">
-    <div>
+    <article>
       <h1>{data.markdownRemark.frontmatter.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-    </div>
+      <p>Stack: {data.markdownRemark.frontmatter.stack}</p>
+      <p dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+    </article>
     <ButtonLink to={data.markdownRemark.frontmatter.repo}>Github</ButtonLink>
     <ExLink linkTo={data.markdownRemark.frontmatter.repo}>Github</ExLink>
     <ProjectsArchive />
@@ -29,6 +30,7 @@ export const query = graphql`
         title
         image_cover
         image_desc
+        stack
         repo
       }
     }
