@@ -1,8 +1,9 @@
 /* eslint-disable react/no-danger */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { useScrollEvent } from '../utilities/hooks';
 import {
   BackgroundColor,
   PrimaryColor,
@@ -38,17 +39,6 @@ const Header = styled.header`
     }
   }
 `;
-
-const useScrollEvent = initialState => {
-  const [scrollPosition, setScrollPosition] = useState(initialState);
-
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      setScrollPosition(window.pageYOffset);
-    });
-  }, []);
-  return [scrollPosition];
-};
 
 const HeaderBg = ({ bg }) => {
   const [scrollPosition] = useScrollEvent('');

@@ -15,6 +15,7 @@ import Header from '../header';
 import Social, { SocialWidth } from '../social';
 import GlobalStyle, { SiteWidth, Above, Below } from '../../Global';
 import HeaderBg from '../elements/HeaderBg';
+import Scrollbar from '../elements/scrollbar';
 
 const SiteLayout = styled.div`
   display: grid;
@@ -123,6 +124,7 @@ const Layout = ({ children, bg, layout }) => {
       </MainWrapper>
       <Footer />
       <GlobalStyle />
+      <Scrollbar />
     </SiteLayout>
   );
 };
