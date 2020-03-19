@@ -3,7 +3,7 @@ import { normalize } from 'styled-normalize';
 import 'victormono';
 
 export const SiteWidth = '80vw';
-export const BackgroundColor = '#333';
+export const BackgroundColor = '#333333';
 export const PrimaryColor = '#03E9F4';
 export const SecondaryColor = '#FF0700';
 export const AltColor = '#1B5AF7';
@@ -69,23 +69,23 @@ body{
 
 h1 {
   font-size: 4rem;
-  font-size: min(max(3.5rem, 10vw), 4rem);
+  font-size: min(max(3rem, 10vw), 4rem);
   font-weight: bold;
 }
 
 h2 {
   font-size: 3.5rem;
-  font-size: min(max(3rem, 10vw), 3.5rem);
+  font-size: min(max(2.5rem, 10vw), 3.5rem);
   font-weight: bold;
 }
 
 h3 {
-  font-size: 2.5rem;
+  font-size: min(max(2rem, 10vw), 2.5rem);
   font-weight: bold;
 }
 
 h4 {
-  font-size: 2rem;
+  font-size: min(max(1.5rem, 10vw), 2rem);
 }
 
 a {

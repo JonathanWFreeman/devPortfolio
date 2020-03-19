@@ -60,10 +60,12 @@ const SiteLayout = styled.div`
     }
   }}
 `;
-
+// TODO:
+// FIX MARGIN ISSUES
 const MainWrapper = styled.main`
   min-height: 80vh;
   grid-area: main;
+  ${'' /* margin: 8vh 0; */}
 `;
 
 const Content = styled.section`

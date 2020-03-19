@@ -15,12 +15,14 @@ import {
 const Grid = styled.section`
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  ${'' /* grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); */}
+  grid-template-columns: repeat(auto-fit);
   grid-gap: 4%;
 `;
 
 const BorderWrapper = styled.span`
   width: 100%;
+  background: ${`${BackgroundColor}60`};
   :before {
     content: '';
     position: absolute;
@@ -34,7 +36,7 @@ const BorderWrapper = styled.span`
       ${AltColor},
       ${PrimaryColor}
     );
-    z-index: -5;
+    z-index: -9;
   }
   :after {
     content: '';
@@ -50,8 +52,30 @@ const BorderWrapper = styled.span`
       ${AltColor},
       ${PrimaryColor}
     );
-    z-index: -6;
+    z-index: -10;
   }
+`;
+
+const GlowTitle = styled.h2`
+  ${'' /* text-align: center; */}
+  transition: 0.5s;
+  padding: 25px 0;
+  margin: 0;
+  ${'' /* width: 100%; */}
+  position: ${({ position }) => position || 'relative'};
+  text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 10px ${SecondaryColor},
+    0 0 20px ${SecondaryColor}, 0 0 30px ${SecondaryColor};
+  ${Above.med`
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        `}
+  ${Below.med`
+          font-size: 2em;
+          line-height: 1.15;
+          text-align: center;
+          width: 100%;
+        `}
 `;
 
 const Card = styled.div`
@@ -64,33 +88,29 @@ const Card = styled.div`
     justify-content: center;
     align-items: center;
     z-index: 1;
-    ${Above.small`
-      transform: translateY(100px);
-    `}
+
     .cardContent {
       width: 100%;
       transition: 0.5s;
-      background: #00000080;
-      line-height: 0;
+      background: #00000090;
       position: relative;
-
-      h2 {
-        text-align: center;
-        transition: 0.5s;
-        padding: 25px 0;
-        margin: 0;
-        width: 100%;
-        position: absolute;
-        text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 10px ${SecondaryColor},
-          0 0 20px ${SecondaryColor}, 0 0 30px ${SecondaryColor};
-        ${Above.small`
-          top: 50%;
-          transform: translateY(-50%);
+      overflow: hidden;
+      .innerTopContent {
+        ${Above.med`
+          display: block;
         `}
-        ${Below.small`
-          font-size: 2em;
-          line-height: 1.15;
+        ${Below.med`
+          display: none;
         `}
+        .innerTopDescription {
+          ${Above.med`
+            transition: 0.5s;
+            position: absolute;
+            transform: translate(-50%, 50%);
+            left: 50%;
+            bottom: -50%;
+        `}
+        }
       }
       img {
         transition: 0.5s;
@@ -99,21 +119,24 @@ const Card = styled.div`
       }
     }
   }
-
   .cardBottom {
-    display: flex;
+    ${Above.med`
+      display:none
+    `}
+    ${Below.med`
+      display: flex;
+    `}
     justify-content: center;
     align-items: center;
     transition: 0.5s;
     position: relative;
     z-index: 0;
-    ${Above.small`
+    ${Above.med`
       ${'' /* transform: translateY(-160px); */}
-      margin-top: -245px;
+      ${'' /* margin-top: -245px; */}
     `}
     .cardContent p {
-      margin: 0;
-      padding: 120px 20px 20px;
+      margin: 40px 0 20px;
     }
     .cardContent {
       padding: 0 20px 20px;
@@ -152,25 +175,31 @@ const Card = styled.div`
   }
   :hover {
     .cardTop {
-      transform: translateY(0);
+      ${'' /* transform: translateY(0); */}
       .cardContent {
-        img {
-          opacity: 1;
-        }
-        h2 {
-          width: 100%;
-          top: 100%;
-          transform: translateY(0);
+        ${Above.med`
+          img {
+            opacity: 0.2;
+          }
+        `}
+        ${GlowTitle} {
+          ${'' /* width: 100%; */}
+          left: 4%;
+          top: 0;
+          transform: translate(4%, 0);
           font-size: 2em;
           line-height: 1.15;
+        }
+        .innerTopDescription {
+          transform: translate(-50%, 50%);
+          bottom: 50%;
         }
       }
     }
     .cardBottom {
-      ${'' /* transform: translateY(0); */}
-      margin-top: 0;
+      ${'' /* margin-top: 0; */}
       .cardContent {
-        opacity: 1;
+        ${'' /* opacity: 1; */}
       }
     }
   }
@@ -188,38 +217,27 @@ const ProjectsListing = () => {
               <BorderWrapper>
                 <div className="cardContent">
                   <img
-                    src="https://i.picsum.photos/id/1025/600/400.jpg"
+                    src="https://i.picsum.photos/id/1025/1200/400.jpg"
                     alt={node.frontmatter.image_desc}
                   />
-                  <h2>{node.frontmatter.title}</h2>
+                  <div className="innerTopContent">
+                    <GlowTitle position="absolute">
+                      {node.frontmatter.title}
+                    </GlowTitle>
+                    <div className="innerTopDescription">
+                      <p>{node.frontmatter.description}</p>
+                      <ButtonLink to={`/projects${node.frontmatter.slug}`}>
+                        Read More
+                      </ButtonLink>
+                    </div>
+                  </div>
                 </div>
               </BorderWrapper>
             </div>
             <div className="cardBottom">
               <div className="cardContent">
                 <div className="titleBg" />
-                <p>{node.frontmatter.description}</p>
-                <ButtonLink to={`/projects${node.frontmatter.slug}`}>
-                  Read More
-                </ButtonLink>
-              </div>
-            </div>
-          </Card>
-          <Card key={node.frontmatter.slug}>
-            <div className="cardTop">
-              <BorderWrapper>
-                <div className="cardContent">
-                  <img
-                    src="https://i.picsum.photos/id/1025/600/400.jpg"
-                    alt={node.frontmatter.image_desc}
-                  />
-                  <h2>{node.frontmatter.title}</h2>
-                </div>
-              </BorderWrapper>
-            </div>
-            <div className="cardBottom">
-              <div className="cardContent">
-                <div className="titleBg" />
+                <GlowTitle>{node.frontmatter.title}</GlowTitle>
                 <p>{node.frontmatter.description}</p>
                 <ButtonLink to={`/projects${node.frontmatter.slug}`}>
                   Read More
