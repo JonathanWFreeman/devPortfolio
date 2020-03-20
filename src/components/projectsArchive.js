@@ -8,10 +8,11 @@ const ProjectsArchive = () => {
   return (
     <aside>
       {edges.map(edge => (
-        <Link to={`/projects${edge.node.frontmatter.slug}`}>
-          <li key={edge.node.frontmatter.slug}>
-            {edge.node.frontmatter.title}
-          </li>
+        <Link
+          to={`/projects${edge.node.frontmatter.slug}`}
+          key={edge.node.frontmatter.slug}
+        >
+          <li>{edge.node.frontmatter.title}</li>
         </Link>
       ))}
     </aside>

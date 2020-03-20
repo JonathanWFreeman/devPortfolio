@@ -8,7 +8,7 @@ import ProjectsArchive from './projectsArchive';
 import { ButtonLink } from './elements/buttons';
 import { ExLink } from './elements/links';
 
-const ProjectsLayout = ({ data }) => (
+const ProjectsPage = ({ data }) => (
   <Layout bg={data.markdownRemark.frontmatter.image_cover} layout="projects">
     <article>
       <h1>{data.markdownRemark.frontmatter.title}</h1>
@@ -37,8 +37,8 @@ export const query = graphql`
   }
 `;
 
-ProjectsLayout.propTypes = {
-  data: PropTypes.node.isRequired,
+ProjectsPage.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 
-export default ProjectsLayout;
+export default ProjectsPage;

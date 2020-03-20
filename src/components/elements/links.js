@@ -23,19 +23,20 @@ const ALink = styled.a`
   p {
     margin: 0;
   }
-  span {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, ${PrimaryColor});
-    animation: ${animateLink} 1.5s linear infinite;
-  }
   &:hover {
     font-style: italic;
   }
+`;
+
+const LinkAnimation = styled.span`
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, ${PrimaryColor});
+  animation: ${animateLink} 1.5s linear infinite;
 `;
 
 export const ExLink = ({ children, linkTo }) => (
@@ -45,8 +46,8 @@ export const ExLink = ({ children, linkTo }) => (
     rel="noopener noreferrer"
     className="link"
   >
-    <p>{children}</p>
-    <span />
+    {children}
+    <LinkAnimation />
   </ALink>
 );
 

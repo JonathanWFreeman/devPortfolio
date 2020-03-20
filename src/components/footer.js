@@ -15,20 +15,21 @@ const FooterWrapper = styled.footer`
   text-align: center;
   grid-area: footer;
   p {
+    display: inline-block;
     padding: 0 5px;
   }
 `;
 
 const Footer = () => (
   <FooterWrapper>
-    <p>
-      © {new Date().getFullYear()}, Built with
+    <span>
+      <p>© {new Date().getFullYear()}, Built with</p>
       <ExLink linkTo="https://www.gatsbyjs.org">Gatsby</ExLink>
-    </p>
-    <p>
-      Font:
+    </span>
+    <span>
+      <p>Font</p>:
       <ExLink linkTo="https://rubjo.github.io/victor-mono/">Victor Mono</ExLink>
-    </p>
+    </span>
   </FooterWrapper>
 );
 
