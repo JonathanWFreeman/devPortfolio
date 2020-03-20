@@ -5,8 +5,7 @@ import { graphql } from 'gatsby';
 
 import Layout from './layouts/layout';
 import ProjectsArchive from './projectsArchive';
-import { ButtonLink } from './elements/buttons';
-import { ExLink } from './elements/links';
+import { ButtonLink, ExLink } from './elements';
 
 const ProjectsPage = ({ data }) => (
   <Layout bg={data.markdownRemark.frontmatter.image_cover} layout="projects">

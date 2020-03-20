@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Above } from '../Global';
-import { ExLink } from './elements/links';
+import { Above } from './utilities';
+import { ExLink } from './elements';
 
 const FooterWrapper = styled.footer`
   ${'' /* max-width: ${SiteWidth}; */}

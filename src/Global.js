@@ -1,4 +1,4 @@
-import { createGlobalStyle, css } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 import 'victormono';
 
@@ -7,33 +7,6 @@ export const BackgroundColor = '#333333';
 export const PrimaryColor = '#03E9F4';
 export const SecondaryColor = '#FF0700';
 export const AltColor = '#1B5AF7';
-
-// TODO:
-// Add media for device
-
-const size = {
-  small: 600,
-  med: 960,
-  large: 1140,
-};
-
-export const Above = Object.keys(size).reduce((acc, label) => {
-  acc[label] = (...args) => css`
-    @media (min-width: ${size[label]}px) {
-      ${css(...args)}
-    }
-  `;
-  return acc;
-}, {});
-
-export const Below = Object.keys(size).reduce((acc, label) => {
-  acc[label] = (...args) => css`
-    @media (max-width: ${size[label]}px) {
-      ${css(...args)}
-    }
-  `;
-  return acc;
-}, {});
 
 const GlobalStyle = createGlobalStyle`
 ${normalize};

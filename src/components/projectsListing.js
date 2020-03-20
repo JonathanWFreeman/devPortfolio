@@ -8,9 +8,8 @@ import {
   PrimaryColor,
   SecondaryColor,
   AltColor,
-  Above,
-  Below,
 } from '../Global';
+import { Above, Below } from './utilities';
 
 const Grid = styled.section`
   display: grid;

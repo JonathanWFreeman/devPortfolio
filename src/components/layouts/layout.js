@@ -12,10 +12,9 @@ import styled from 'styled-components';
 
 import Footer from '../footer';
 import Header from '../header';
-import Social, { SocialWidth } from '../social';
-import GlobalStyle, { SiteWidth, Above, Below } from '../../Global';
-import HeaderBg from '../elements/HeaderBg';
-import Scrollbar from '../elements/scrollbar';
+import { Social, HeaderBg, Scrollbar, SocialWidth } from '../elements';
+import GlobalStyle, { SiteWidth } from '../../Global';
+import { Above, Below } from '../utilities';
 
 const SiteLayout = styled.div`
   display: grid;

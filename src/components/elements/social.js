@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BackgroundColor, AltColor, Above } from '../Global';
+import { BackgroundColor, AltColor } from '../../Global';
+import { Above } from '../utilities';
 
 export const SocialWidth = '50px';
 

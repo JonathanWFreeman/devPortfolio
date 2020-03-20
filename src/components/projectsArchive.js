@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import { useProjectsQuery } from './utilities/queryHooks';
+import { useProjectsQuery } from './utilities';
 
 const ProjectsArchive = () => {
   const { edges } = useProjectsQuery();
