@@ -15,8 +15,7 @@ const Grid = styled.section`
   display: grid;
   width: 100%;
   ${'' /* grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); */}
-  grid-template-columns: repeat(auto-fit);
-  grid-gap: 4%;
+  grid-gap: 4em;
 `;
 
 const BorderWrapper = styled.span`
