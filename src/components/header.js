@@ -16,7 +16,7 @@ import {
 const HeaderWrapper = styled.header`
   background: ${({ location }) =>
     location.includes('project')
-      ? ({ maths }) => maths >= 1 && `BackgroundColor`
+      ? ({ maths }) => maths >= 1 && BackgroundColor
       : BackgroundColor};
   padding: 1.5vh 0;
   position: fixed;
