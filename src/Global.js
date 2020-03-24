@@ -25,7 +25,7 @@ html {
 }
 
 ::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
+    width: 5px;  /* Remove scrollbar space */
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
 

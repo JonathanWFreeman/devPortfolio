@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-import { useScrollEvent } from '../utilities/hooks';
-import { PrimaryColor, SecondaryColor, AltColor } from '../../Global';
+import { useScrollEvent, Below } from '../utilities';
+import { PrimaryColor, AltColor } from '../../Global';
 
 const animate = keyframes`
   from {
@@ -18,6 +18,9 @@ const ScrollPath = styled.div`
   top: 0;
   right: 0;
   width: 10px;
+  ${Below.small`
+    width: 2px
+  `}
   height: 100%;
   background: rgba(255, 255, 255, 0.05);
 `;
@@ -26,6 +29,9 @@ const ProgressBar = styled.div`
   top: 0;
   right: 0;
   width: 10px;
+  ${Below.small`
+    width: 2px
+  `}
   height: 100%;
   background: linear-gradient(to bottom, ${AltColor}, ${PrimaryColor});
   animation: ${animate} 5s linear infinite;
