@@ -29,6 +29,7 @@ const ProgressBar = styled.div`
   height: 100%;
   background: linear-gradient(to bottom, ${AltColor}, ${PrimaryColor});
   animation: ${animate} 5s linear infinite;
+  z-index: 100;
   :before {
     content: '';
     position: absolute;

@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { useScrollEvent } from '../utilities/hooks';
+import { useScrollEvent } from '../utilities';
 import {
   BackgroundColor,
   PrimaryColor,
@@ -63,7 +63,7 @@ const HeaderBg = ({ bg }) => {
 };
 
 HeaderBg.propTypes = {
-  bg: PropTypes.string.isRequired,
+  bg: PropTypes.string,
 };
 
 export default HeaderBg;

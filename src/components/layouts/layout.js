@@ -104,7 +104,7 @@ const Content = styled.section`
   }}
 `;
 
-const Layout = ({ children, bg, layout }) => {
+const Layout = ({ children, bg, layout, location }) => {
   const data = useStaticQuery(graphql`
     {
       site {
@@ -117,7 +117,7 @@ const Layout = ({ children, bg, layout }) => {
 
   return (
     <SiteLayout layoutType={layout}>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header siteTitle={data.site.siteMetadata.title} location={location} />
       <Social />
       <MainWrapper>
         {bg && <HeaderBg bg={bg} />}
@@ -132,8 +132,9 @@ const Layout = ({ children, bg, layout }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  bg: PropTypes.string.isRequired,
+  bg: PropTypes.string,
   layout: PropTypes.string,
+  location: PropTypes.object,
 };
 
 Layout.defaultProps = {

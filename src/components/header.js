@@ -1,8 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+
+import { useScrollEvent } from './utilities';
 
 import {
   SiteWidth,
@@ -12,7 +14,10 @@ import {
 } from '../Global';
 
 const HeaderWrapper = styled.header`
-  ${'' /* background: ${BackgroundColor}; */}
+  background: ${({ location }) =>
+    location.includes('project')
+      ? ({ maths }) => maths >= 1 && `BackgroundColor`
+      : BackgroundColor};
   padding: 1.5vh 0;
   position: fixed;
   width: 100%;
@@ -77,37 +82,60 @@ const StyledLink = styled(props => <Link {...props} />)`
   border: none;
 `;
 
-const Header = ({ siteTitle }) => (
-  <HeaderWrapper>
-    <HeaderContainer>
-      <HeaderLogo>
-        <Link to="/">
-          {/* {siteTitle} */}
-          <span>&lt;J</span>
-          <span>onathan</span>
-          <span>F</span>
-          <span>reeman</span>
-          <span>/&gt;</span>
-        </Link>
-      </HeaderLogo>
-      <Nav>
-        <Link activeClassName="active" partiallyActive to="/projects">
-          Projects
-        </Link>
-        <Link activeClassName="active" to="/contact">
-          Contact
-        </Link>
-      </Nav>
-    </HeaderContainer>
-  </HeaderWrapper>
-);
+const useGetPath = location => {
+  const [locationPath, setLocationPath] = useState('');
+  const regex = /^(\/[^\\/]+)/gm;
+  const pathName = location.pathname;
+  setLocationPath(pathName.match(regex).toString());
+
+  useEffect(() => locationPath, [locationPath]);
+};
+
+// TODO:
+// fix so calcs only on project pages
+// context?
+
+const Header = ({ siteTitle, location }) => {
+  const [scrollPosition] = useScrollEvent('');
+  const maths = 0 + scrollPosition / (window.innerHeight / 1.3);
+
+  console.log(maths > 1);
+  return (
+    <HeaderWrapper maths={maths} location={location.pathname}>
+      <HeaderContainer>
+        <HeaderLogo>
+          <Link to="/">
+            {/* {siteTitle} */}
+            <span>&lt;J</span>
+            <span>onathan</span>
+            <span>F</span>
+            <span>reeman</span>
+            <span>/&gt;</span>
+          </Link>
+        </HeaderLogo>
+        <Nav>
+          <Link activeClassName="active" partiallyActive to="/projects">
+            Projects
+          </Link>
+          <Link activeClassName="active" to="/contact">
+            Contact
+          </Link>
+        </Nav>
+      </HeaderContainer>
+    </HeaderWrapper>
+  );
+};
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  location: PropTypes.object,
 };
 
 Header.defaultProps = {
   siteTitle: ``,
+  location: {
+    pathname: 'undefined',
+  },
 };
 
 export default Header;

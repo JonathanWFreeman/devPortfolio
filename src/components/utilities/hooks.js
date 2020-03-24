@@ -10,3 +10,13 @@ export const useScrollEvent = initialState => {
   }, []);
   return [scrollPosition];
 };
+
+export const useGetPath = location => {
+  const [locationPath, setLocationPath] = useState('');
+
+  const regex = /^(\/[^\\/]+)/gm;
+  const pathName = location.pathname;
+  setLocationPath(pathName.match(regex).toString());
+
+  return locationPath;
+};
