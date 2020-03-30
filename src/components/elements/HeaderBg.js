@@ -50,7 +50,7 @@ const HeaderBg = ({ bg }) => {
         style={{
           opacity: 1 - scrollPosition / (window.innerHeight / 1.3),
           top: scrollPosition,
-          backgroundPositionY: -scrollPosition,
+          backgroundPositionY: -scrollPosition / 4,
         }}
       >
         <span

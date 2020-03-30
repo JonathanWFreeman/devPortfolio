@@ -16,10 +16,19 @@ const ProjectsPage = ({ data, location }) => (
     <article>
       <h1>{data.markdownRemark.frontmatter.title}</h1>
       <p>Stack: {data.markdownRemark.frontmatter.stack}</p>
+      <section>
+        <ButtonLink to={data.markdownRemark.frontmatter.repo}>
+          Github
+        </ButtonLink>
+        {data.markdownRemark.frontmatter.demo && (
+          <ButtonLink to={data.markdownRemark.frontmatter.demo}>
+            Demo
+          </ButtonLink>
+        )}
+        <ExLink linkTo={data.markdownRemark.frontmatter.repo}>Github</ExLink>
+      </section>
       <p dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
     </article>
-    <ButtonLink to={data.markdownRemark.frontmatter.repo}>Github</ButtonLink>
-    <ExLink linkTo={data.markdownRemark.frontmatter.repo}>Github</ExLink>
     <ProjectsArchive />
   </Layout>
 );
@@ -35,6 +44,7 @@ export const query = graphql`
         image_desc
         stack
         repo
+        demo
       }
     }
   }

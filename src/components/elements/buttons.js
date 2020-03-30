@@ -6,7 +6,7 @@ import { SecondaryColor } from '../../Global';
 export const ButtonLink = styled(Link)`
   position: relative;
   text-decoration: none;
-  margin: 15px 0 0;
+  margin: 15px 15px 0 0;
   display: inline-block;
   padding: 10px 30px;
   color: ${SecondaryColor};
