@@ -5,7 +5,8 @@ import { graphql } from 'gatsby';
 
 import Layout from './layouts/layout';
 import ProjectsArchive from './projectsArchive';
-import { ButtonLink, ExLink } from './elements';
+import { ButtonLinkEx } from './elements';
+import { PrimaryColor } from '../Global';
 
 const ProjectsPage = ({ data, location }) => (
   <Layout
@@ -17,15 +18,17 @@ const ProjectsPage = ({ data, location }) => (
       <h1>{data.markdownRemark.frontmatter.title}</h1>
       <p>Stack: {data.markdownRemark.frontmatter.stack}</p>
       <section>
-        <ButtonLink to={data.markdownRemark.frontmatter.repo}>
+        <ButtonLinkEx
+          linkTo={data.markdownRemark.frontmatter.repo}
+          color={PrimaryColor}
+        >
           Github
-        </ButtonLink>
+        </ButtonLinkEx>
         {data.markdownRemark.frontmatter.demo && (
-          <ButtonLink to={data.markdownRemark.frontmatter.demo}>
+          <ButtonLinkEx linkTo={data.markdownRemark.frontmatter.demo}>
             Demo
-          </ButtonLink>
+          </ButtonLinkEx>
         )}
-        <ExLink linkTo={data.markdownRemark.frontmatter.repo}>Github</ExLink>
       </section>
       <p dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
     </article>

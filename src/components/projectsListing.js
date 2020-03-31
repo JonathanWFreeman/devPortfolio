@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { useProjectsQuery } from './utilities/queryHooks';
-import { ButtonLink } from './elements/buttons';
+import { ButtonLinkIn } from './elements/buttons';
 import {
   BackgroundColor,
   PrimaryColor,
@@ -224,9 +224,11 @@ const ProjectsListing = () => {
                     </GlowTitle>
                     <div className="innerTopDescription">
                       <p>{node.frontmatter.description}</p>
-                      <ButtonLink to={`/projects${node.frontmatter.slug}`}>
+                      <ButtonLinkIn
+                        linkTo={`/projects${node.frontmatter.slug}`}
+                      >
                         Read More
-                      </ButtonLink>
+                      </ButtonLinkIn>
                     </div>
                   </div>
                 </div>
@@ -237,9 +239,9 @@ const ProjectsListing = () => {
                 <div className="titleBg" />
                 <GlowTitle>{node.frontmatter.title}</GlowTitle>
                 <p>{node.frontmatter.description}</p>
-                <ButtonLink to={`/projects${node.frontmatter.slug}`}>
+                <ButtonLinkIn linkTo={`/projects${node.frontmatter.slug}`}>
                   Read More
-                </ButtonLink>
+                </ButtonLinkIn>
               </div>
             </div>
           </Card>
