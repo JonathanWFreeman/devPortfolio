@@ -32,10 +32,16 @@ const IndexPage = () => (
           I'm Jonathan
         </h2>
         <h4>Front-End Developer</h4>
+        <p>Jango chewbacca yoda hutt ben hoth kamino jango darth</p>
+        <p>Jango chewbacca yoda hutt ben hoth kamino jango darth</p>
+        <p>Jango chewbacca yoda hutt ben hoth kamino jango darth</p>
+        <p>
+          Video games, baseball, bread baking and trying and keep my bonsai
+          alive
+        </p>
+        <p>Resume | Projects | Contact</p>
       </div>
       <div>
-        <p>Welcome to your new Gatsby site.</p>
-        <p>Now go build something great.</p>
         <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }} />
         <Image />
         <Link to="/projects/">Go to page 2</Link>
