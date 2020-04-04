@@ -1,9 +1,10 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { useScrollEvent } from '../utilities';
+import { useScrollEvent, SwipeTransition } from '../utilities';
 import {
   BackgroundColor,
   PrimaryColor,
@@ -44,21 +45,23 @@ const HeaderBg = ({ bg }) => {
   const [scrollPosition] = useScrollEvent('');
 
   return (
-    <Header bg={bg}>
-      <div
-        id="bg"
-        style={{
-          opacity: 1 - scrollPosition / (window.innerHeight / 1.3),
-          top: scrollPosition,
-          backgroundPositionY: -scrollPosition / 4,
-        }}
-      >
-        <span
-          className="skewed"
-          style={{ transform: `skewY(${-5 + scrollPosition / 200}deg)` }}
-        />
-      </div>
-    </Header>
+    <SwipeTransition>
+      <Header bg={bg}>
+        <div
+          id="bg"
+          style={{
+            opacity: 1 - scrollPosition / (window.innerHeight / 1.3),
+            top: scrollPosition,
+            backgroundPositionY: -scrollPosition / 4,
+          }}
+        >
+          <span
+            className="skewed"
+            style={{ transform: `skewY(${-5 + scrollPosition / 200}deg)` }}
+          />
+        </div>
+      </Header>
+    </SwipeTransition>
   );
 };
 

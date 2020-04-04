@@ -2,14 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { useProjectsQuery } from './utilities/queryHooks';
-import { ButtonLinkIn } from './elements/buttons';
 import {
   BackgroundColor,
   PrimaryColor,
   SecondaryColor,
   AltColor,
 } from '../Global';
-import { Above, Below } from './utilities';
+import { Above, Below, FadeButtonTransition } from './utilities';
 
 const Grid = styled.section`
   display: grid;
@@ -182,9 +181,9 @@ const Card = styled.div`
         `}
         ${GlowTitle} {
           ${'' /* width: 100%; */}
-          left: 4%;
+          left: 2%;
           top: 0;
-          transform: translate(4%, 0);
+          transform: translate(2%, 0);
           font-size: 2em;
           line-height: 1.15;
         }
@@ -224,11 +223,11 @@ const ProjectsListing = () => {
                     </GlowTitle>
                     <div className="innerTopDescription">
                       <p>{node.frontmatter.description}</p>
-                      <ButtonLinkIn
+                      <FadeButtonTransition
                         linkTo={`/projects${node.frontmatter.slug}`}
                       >
                         Read More
-                      </ButtonLinkIn>
+                      </FadeButtonTransition>
                     </div>
                   </div>
                 </div>
@@ -239,9 +238,11 @@ const ProjectsListing = () => {
                 <div className="titleBg" />
                 <GlowTitle>{node.frontmatter.title}</GlowTitle>
                 <p>{node.frontmatter.description}</p>
-                <ButtonLinkIn linkTo={`/projects${node.frontmatter.slug}`}>
+                <FadeButtonTransition
+                  linkTo={`/projects${node.frontmatter.slug}`}
+                >
                   Read More
-                </ButtonLinkIn>
+                </FadeButtonTransition>
               </div>
             </div>
           </Card>

@@ -49,6 +49,12 @@ module.exports = {
     },
     'gatsby-transformer-remark',
     'gatsby-plugin-styled-components',
+    {
+      resolve: 'gatsby-plugin-transition-link',
+      options: {
+        injectPageProps: false,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

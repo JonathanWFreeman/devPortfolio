@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { useScrollEvent } from './utilities';
-
+import { useScrollEvent, FadeLinkTransition } from './utilities';
 import {
   SiteWidth,
   BackgroundColor,
@@ -99,27 +98,23 @@ const Header = ({ siteTitle, location }) => {
   const [scrollPosition] = useScrollEvent('');
   const maths = 0 + scrollPosition / (window.innerHeight / 1.3);
 
-  console.log(maths > 1);
+  // console.log(maths > 1);
   return (
     <HeaderWrapper maths={maths} location={location.pathname}>
       <HeaderContainer>
         <HeaderLogo>
-          <Link to="/">
+          <FadeLinkTransition to="/">
             {/* {siteTitle} */}
             <span>&lt;J</span>
             <span>onathan</span>
             <span>F</span>
             <span>reeman</span>
             <span>/&gt;</span>
-          </Link>
+          </FadeLinkTransition>
         </HeaderLogo>
         <Nav>
-          <Link activeClassName="active" partiallyActive to="/projects">
-            Projects
-          </Link>
-          <Link activeClassName="active" to="/contact">
-            Contact
-          </Link>
+          <FadeLinkTransition to="/projects">Projects</FadeLinkTransition>
+          <FadeLinkTransition to="/contact">Contact</FadeLinkTransition>
         </Nav>
       </HeaderContainer>
     </HeaderWrapper>

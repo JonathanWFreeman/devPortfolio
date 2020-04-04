@@ -14,7 +14,7 @@ import Footer from '../footer';
 import Header from '../header';
 import { Social, HeaderBg, Scrollbar, SocialWidth } from '../elements';
 import GlobalStyle, { SiteWidth } from '../../Global';
-import { Above, Below } from '../utilities';
+import { Above, Below, FadeTransition } from '../utilities';
 
 const SiteLayout = styled.div`
   display: grid;
@@ -120,8 +120,10 @@ const Layout = ({ children, bg, layout, location }) => {
       <Header siteTitle={data.site.siteMetadata.title} location={location} />
       <Social />
       <MainWrapper>
-        {bg && <HeaderBg bg={bg} />}
-        <Content layoutType={layout}>{children}</Content>
+        <FadeTransition>
+          {bg && <HeaderBg bg={bg} />}
+          <Content layoutType={layout}>{children}</Content>
+        </FadeTransition>
       </MainWrapper>
       <Footer />
       <GlobalStyle />
