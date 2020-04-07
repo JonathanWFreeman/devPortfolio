@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+import TransitionLink from 'gatsby-plugin-transition-link';
 
+import { entryTransition, exitTransition } from '../utilities';
 import { SecondaryColor } from '../../Global';
 
 export const Button = styled.button`
@@ -52,12 +53,6 @@ export const Button = styled.button`
   }
 `;
 
-export const ButtonLinkIn = ({ children, linkTo, color }) => (
-  <Button as={Link} to={linkTo} color={color}>
-    {children}
-  </Button>
-);
-
 export const ButtonLinkEx = ({ children, linkTo, color }) => (
   <Button
     as="a"
@@ -70,13 +65,25 @@ export const ButtonLinkEx = ({ children, linkTo, color }) => (
   </Button>
 );
 
-ButtonLinkIn.propTypes = {
-  children: PropTypes.string.isRequired,
+export const FadeButtonTransition = ({ linkTo, children, color }) => (
+  <Button
+    as={TransitionLink}
+    to={linkTo}
+    exit={exitTransition}
+    entry={entryTransition}
+    color={color}
+  >
+    {children}
+  </Button>
+);
+
+FadeButtonTransition.propTypes = {
   linkTo: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   color: PropTypes.object,
 };
 
-ButtonLinkIn.defaultProps = {
+FadeButtonTransition.defaultProps = {
   color: SecondaryColor,
 };
 

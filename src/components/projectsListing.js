@@ -8,7 +8,8 @@ import {
   SecondaryColor,
   AltColor,
 } from '../Global';
-import { Above, Below, FadeButtonTransition } from './utilities';
+import { Above, Below } from './utilities';
+import { FadeButtonTransition } from './elements';
 
 const Grid = styled.section`
   display: grid;

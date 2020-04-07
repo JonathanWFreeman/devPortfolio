@@ -5,9 +5,6 @@ import PropTypes from 'prop-types';
 import TransitionLink, { TransitionState } from 'gatsby-plugin-transition-link';
 import { motion } from 'framer-motion';
 
-import { Button } from '../elements';
-import { SecondaryColor } from '../../Global';
-
 const Fade = {
   exiting: { opacity: 0 },
   exited: { opacity: 0 },
@@ -51,12 +48,12 @@ const verticalAnimation = (length, direction, e, node) => {
 
 const TRANSITION_LENGTH = 1;
 
-const exitTransition = {
+export const exitTransition = {
   length: TRANSITION_LENGTH, // Take 1.5 seconds to leave
   trigger: () => console.log('We are exiting'),
 };
 
-const entryTransition = {
+export const entryTransition = {
   delay: TRANSITION_LENGTH, // Wait 1.5 seconds before entering
   trigger: () => console.log('We are entering'),
 };
@@ -99,18 +96,6 @@ export const FadeLinkTransition = ({ to, children }) => (
   </TransitionLink>
 );
 
-export const FadeButtonTransition = ({ linkTo, children }) => (
-  <Button
-    as={TransitionLink}
-    to={linkTo}
-    exit={exitTransitionTest}
-    entry={entryTransition}
-    color={SecondaryColor}
-  >
-    {children}
-  </Button>
-);
-
 FadeTransition.propTypes = {
   children: PropTypes.node.isRequired,
 };
@@ -121,10 +106,5 @@ SwipeTransition.propTypes = {
 
 FadeLinkTransition.propTypes = {
   to: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-};
-
-FadeButtonTransition.propTypes = {
-  linkTo: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
