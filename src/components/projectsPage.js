@@ -16,7 +16,8 @@ const ProjectsPage = ({ data, location }) => (
   >
     <article>
       <h1>{data.markdownRemark.frontmatter.title}</h1>
-      <p>Stack: {data.markdownRemark.frontmatter.stack}</p>
+      <h4>Stack:</h4>
+      <p>{data.markdownRemark.frontmatter.stack}</p>
       <section>
         <ButtonLinkEx
           linkTo={data.markdownRemark.frontmatter.repo}
