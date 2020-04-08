@@ -22,7 +22,6 @@ const ScrollPath = styled.div`
     width: 2px
   `}
   height: 100%;
-  background: rgba(255, 255, 255, 0.05);
 `;
 const ProgressBar = styled.div`
   position: fixed;
