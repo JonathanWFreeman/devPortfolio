@@ -80,7 +80,7 @@ export const FadeButtonTransition = ({ linkTo, children, color }) => (
 FadeButtonTransition.propTypes = {
   linkTo: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
-  color: PropTypes.object,
+  color: PropTypes.string,
 };
 
 FadeButtonTransition.defaultProps = {
@@ -90,7 +90,7 @@ FadeButtonTransition.defaultProps = {
 ButtonLinkEx.propTypes = {
   children: PropTypes.string.isRequired,
   linkTo: PropTypes.string.isRequired,
-  color: PropTypes.object,
+  color: PropTypes.string,
 };
 
 ButtonLinkEx.defaultProps = {

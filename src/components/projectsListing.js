@@ -209,45 +209,43 @@ const ProjectsListing = () => {
   return (
     <Grid>
       {edges.map(({ node }) => (
-        <>
-          <Card key={node.frontmatter.slug}>
-            <div className="cardTop">
-              <BorderWrapper>
-                <div className="cardContent">
-                  <img
-                    src="https://i.picsum.photos/id/1025/1200/400.jpg"
-                    alt={node.frontmatter.image_desc}
-                  />
-                  <div className="innerTopContent">
-                    <GlowTitle position="absolute">
-                      {node.frontmatter.title}
-                    </GlowTitle>
-                    <div className="innerTopDescription">
-                      <p>{node.frontmatter.description}</p>
-                      <FadeButtonTransition
-                        linkTo={`/projects${node.frontmatter.slug}`}
-                      >
-                        Read More
-                      </FadeButtonTransition>
-                    </div>
+        <Card key={node.frontmatter.slug}>
+          <div className="cardTop">
+            <BorderWrapper>
+              <div className="cardContent">
+                <img
+                  src="https://i.picsum.photos/id/1025/1200/400.jpg"
+                  alt={node.frontmatter.image_desc}
+                />
+                <div className="innerTopContent">
+                  <GlowTitle position="absolute">
+                    {node.frontmatter.title}
+                  </GlowTitle>
+                  <div className="innerTopDescription">
+                    <p>{node.frontmatter.description}</p>
+                    <FadeButtonTransition
+                      linkTo={`/projects${node.frontmatter.slug}`}
+                    >
+                      Read More
+                    </FadeButtonTransition>
                   </div>
                 </div>
-              </BorderWrapper>
-            </div>
-            <div className="cardBottom">
-              <div className="cardContent">
-                <div className="titleBg" />
-                <GlowTitle>{node.frontmatter.title}</GlowTitle>
-                <p>{node.frontmatter.description}</p>
-                <FadeButtonTransition
-                  linkTo={`/projects${node.frontmatter.slug}`}
-                >
-                  Read More
-                </FadeButtonTransition>
               </div>
+            </BorderWrapper>
+          </div>
+          <div className="cardBottom">
+            <div className="cardContent">
+              <div className="titleBg" />
+              <GlowTitle>{node.frontmatter.title}</GlowTitle>
+              <p>{node.frontmatter.description}</p>
+              <FadeButtonTransition
+                linkTo={`/projects${node.frontmatter.slug}`}
+              >
+                Read More
+              </FadeButtonTransition>
             </div>
-          </Card>
-        </>
+          </div>
+        </Card>
       ))}
     </Grid>
   );
