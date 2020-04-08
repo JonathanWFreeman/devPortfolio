@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { useProjectsQuery } from './utilities/queryHooks';
+import { useProjectsQuery, Above, Below, SwipeTransition } from './utilities';
 import {
   BackgroundColor,
   PrimaryColor,
   SecondaryColor,
   AltColor,
 } from '../Global';
-import { Above, Below } from './utilities';
 import { FadeButtonTransition } from './elements';
 
 const Grid = styled.section`
@@ -207,47 +206,49 @@ const ProjectsListing = () => {
   const { edges } = useProjectsQuery();
 
   return (
-    <Grid>
-      {edges.map(({ node }) => (
-        <Card key={node.frontmatter.slug}>
-          <div className="cardTop">
-            <BorderWrapper>
-              <div className="cardContent">
-                <img
-                  src="https://i.picsum.photos/id/1025/1200/400.jpg"
-                  alt={node.frontmatter.image_desc}
-                />
-                <div className="innerTopContent">
-                  <GlowTitle position="absolute">
-                    {node.frontmatter.title}
-                  </GlowTitle>
-                  <div className="innerTopDescription">
-                    <p>{node.frontmatter.description}</p>
-                    <FadeButtonTransition
-                      linkTo={`/projects${node.frontmatter.slug}`}
-                    >
-                      Read More
-                    </FadeButtonTransition>
+    <SwipeTransition direction="SwipeDown">
+      <Grid>
+        {edges.map(({ node }) => (
+          <Card key={node.frontmatter.slug}>
+            <div className="cardTop">
+              <BorderWrapper>
+                <div className="cardContent">
+                  <img
+                    src="https://i.picsum.photos/id/1025/1200/400.jpg"
+                    alt={node.frontmatter.image_desc}
+                  />
+                  <div className="innerTopContent">
+                    <GlowTitle position="absolute">
+                      {node.frontmatter.title}
+                    </GlowTitle>
+                    <div className="innerTopDescription">
+                      <p>{node.frontmatter.description}</p>
+                      <FadeButtonTransition
+                        linkTo={`/projects${node.frontmatter.slug}`}
+                      >
+                        Read More
+                      </FadeButtonTransition>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </BorderWrapper>
-          </div>
-          <div className="cardBottom">
-            <div className="cardContent">
-              <div className="titleBg" />
-              <GlowTitle>{node.frontmatter.title}</GlowTitle>
-              <p>{node.frontmatter.description}</p>
-              <FadeButtonTransition
-                linkTo={`/projects${node.frontmatter.slug}`}
-              >
-                Read More
-              </FadeButtonTransition>
+              </BorderWrapper>
             </div>
-          </div>
-        </Card>
-      ))}
-    </Grid>
+            <div className="cardBottom">
+              <div className="cardContent">
+                <div className="titleBg" />
+                <GlowTitle>{node.frontmatter.title}</GlowTitle>
+                <p>{node.frontmatter.description}</p>
+                <FadeButtonTransition
+                  linkTo={`/projects${node.frontmatter.slug}`}
+                >
+                  Read More
+                </FadeButtonTransition>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </Grid>
+    </SwipeTransition>
   );
 };
 
