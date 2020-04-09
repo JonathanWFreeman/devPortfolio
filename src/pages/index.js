@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 import Layout from '../components/layouts/layout';
 import Image from '../components/image';
 import SEO from '../components/seo';
+import { Animation } from '../components/utilities';
 
 const IndexPage = () => (
   <Layout>
@@ -31,6 +32,7 @@ const IndexPage = () => (
         >
           I'm Jonathan
         </h2>
+        <Animation />
         <h4>Front-End Developer</h4>
         <p>Jango chewbacca yoda hutt ben hoth kamino jango darth</p>
         <p>Jango chewbacca yoda hutt ben hoth kamino jango darth</p>
