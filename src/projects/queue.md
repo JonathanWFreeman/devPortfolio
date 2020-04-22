@@ -1,7 +1,7 @@
 ---
 slug: "/queue"
 title: "Queue"
-description: "Jango chewbacca yoda hutt ben hoth kamino jango darth."
+description: "App for queuing, notifies when you're up."
 image_sm: "https://i.picsum.photos/id/1025/400/400.jpg"
 image_cover: "https://i.picsum.photos/id/1025/2000/1000.jpg"
 image_desc: "Dog in blanket"
@@ -10,8 +10,14 @@ repo: "https://github.com/JonathanWFreeman/queue"
 demo: "https://quicktv.exe.rocks"
 ---
 
-## Test
+## Summary
 
-Lucas ipsum dolor sit amet mustafar aayla lando maul sebulba skywalker lars wedge dantooine darth. Lars dooku leia k-3po tatooine darth. Anakin darth hutt boba solo mon. Darth mustafar kessel qui-gonn skywalker yoda secura. Mustafar hutt calrissian secura. Fett organa organa mace luke skywalker. Wampa mara ewok darth organa wicket. Windu obi-wan utapau ahsoka. Leia calrissian jawa ewok anakin droid. Obi-wan jango skywalker skywalker darth darth lars organa. Solo anakin antilles amidala darth sebulba.
+Queue is a project I built while at a previous job. Most of the office used a certain website but we only had one login, so if one person was logged in working on the site and another person tried to login, it would knock off the first person causing lost data. I built this so everyone would know when someone was logged in and who was next in line.
 
-Jango chewbacca yoda hutt ben hoth kamino jango darth. Bothan dagobah solo calamari. Lando lando ahsoka vader darth jango. Ewok k-3po fett leia. Darth skywalker hutt endor solo. Zabrak jade moff jar vader ben luuke. Antilles endor skywalker hutt organa mace. Coruscant bothan jabba leia kit boba k-3po. Mandalorians hutt aayla skywalker hutt lando palpatine moff. Skywalker darth palpatine moff. Mace fett calrissian skywalker hutt amidala kit. Solo mandalore darth endor darth bespin ventress lando darth.
+## Purpose and Goal
+
+This was fun project to take on. I decided on React because I wanted to learn something new and thought the state management would come in handy. I went with Firebase because of its real time database which I was able to utilize to keep the front end updated with the current queue.
+
+## How it works
+
+You login to the app with just a name and it saves to local storage. You then get placed into the queue which is handled through Firebase. Once it's your turn you'll get a notification and a link will pop up to login.

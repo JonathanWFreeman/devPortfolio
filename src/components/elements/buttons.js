@@ -9,7 +9,7 @@ import { SecondaryColor } from '../../Global';
 export const Button = styled.button`
   position: relative;
   text-decoration: none;
-  margin: 15px 15px 0 0;
+  margin: 15px 15px 15px 0;
   display: inline-block;
   padding: 10px 30px;
   color: ${({ color }) => color};

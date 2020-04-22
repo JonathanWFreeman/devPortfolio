@@ -1,7 +1,7 @@
 ---
 slug: "/portfolio"
 title: "Portfolio"
-description: "Jango chewbacca yoda hutt ben hoth kamino jango darth."
+description: "A portfolio for displaying my current and recent projects."
 image_sm: "https://i.picsum.photos/id/1025/400/400.jpg"
 image_cover: "https://i.picsum.photos/id/1025/2000/1000.jpg"
 image_desc: "Dog in blanket"
@@ -9,8 +9,6 @@ stack: "Gatsby, Styled Components, Framer Motion, Netlify"
 repo: "https://github.com/JonathanWFreeman/devPortfolio"
 ---
 
-## Test
+## Purpose and Goal
 
-Lucas ipsum dolor sit amet mustafar aayla lando maul sebulba skywalker lars wedge dantooine darth. Lars dooku leia k-3po tatooine darth. Anakin darth hutt boba solo mon. Darth mustafar kessel qui-gonn skywalker yoda secura. Mustafar hutt calrissian secura. Fett organa organa mace luke skywalker. Wampa mara ewok darth organa wicket. Windu obi-wan utapau ahsoka. Leia calrissian jawa ewok anakin droid. Obi-wan jango skywalker skywalker darth darth lars organa. Solo anakin antilles amidala darth sebulba.
-
-Jango chewbacca yoda hutt ben hoth kamino jango darth. Bothan dagobah solo calamari. Lando lando ahsoka vader darth jango. Ewok k-3po fett leia. Darth skywalker hutt endor solo. Zabrak jade moff jar vader ben luuke. Antilles endor skywalker hutt organa mace. Coruscant bothan jabba leia kit boba k-3po. Mandalorians hutt aayla skywalker hutt lando palpatine moff. Skywalker darth palpatine moff. Mace fett calrissian skywalker hutt amidala kit. Solo mandalore darth endor darth bespin ventress lando darth.
+After reading about Gatsby I thought that was the perfect framework for building out a small portfolio site, and it would allow me to learn something new in the process. One thing I really wanted to add into the site were page transitions. I had not used an animation framework before and decided on [Framer Motion](https://www.framer.com/motion/) for this project after hearing Scott Tolinski speak highly of it in an episode of the Syntax podcast. I also thought this would be a great opportunity to learn styled components as well, which it turns out I love!

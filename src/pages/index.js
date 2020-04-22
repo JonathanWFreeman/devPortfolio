@@ -33,7 +33,7 @@ const IndexPage = () => (
           I'm Jonathan
         </h2>
         <Animation />
-        <h4>Front-End Developer</h4>
+        <h3>Front-End Developer</h3>
         <p>Jango chewbacca yoda hutt ben hoth kamino jango darth</p>
         <p>Jango chewbacca yoda hutt ben hoth kamino jango darth</p>
         <p>Jango chewbacca yoda hutt ben hoth kamino jango darth</p>

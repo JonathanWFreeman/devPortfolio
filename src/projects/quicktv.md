@@ -1,7 +1,7 @@
 ---
 slug: "/quicktv"
 title: "QuickTV"
-description: "Jango chewbacca yoda hutt ben hoth kamino jango darth."
+description: "App that only shows new TV episodes airing today and tomorrow."
 image_sm: "https://i.picsum.photos/id/1025/400/400.jpg"
 image_cover: "https://i.picsum.photos/id/1025/2000/1000.jpg"
 image_desc: "Dog in blanket"
@@ -10,8 +10,10 @@ repo: "https://github.com/JonathanWFreeman/tvFeed"
 demo: "https://quicktv.exe.rocks"
 ---
 
-## Test
+## Purpose and Goal
 
-Lucas ipsum dolor sit amet mustafar aayla lando maul sebulba skywalker lars wedge dantooine darth. Lars dooku leia k-3po tatooine darth. Anakin darth hutt boba solo mon. Darth mustafar kessel qui-gonn skywalker yoda secura. Mustafar hutt calrissian secura. Fett organa organa mace luke skywalker. Wampa mara ewok darth organa wicket. Windu obi-wan utapau ahsoka. Leia calrissian jawa ewok anakin droid. Obi-wan jango skywalker skywalker darth darth lars organa. Solo anakin antilles amidala darth sebulba.
+I decided to make QuickTV so I would have a quick way to see only new shows that were airing today or tomorrow. I typically have my shows set to record, but had recently made a switch to a new service and knew I wouldn't remember to set shows in the future. This was a good opportunity for me to not only practice vanilla ES6 JavaScript, but to have a place to go to quickly check on new shows coming out.
 
-Jango chewbacca yoda hutt ben hoth kamino jango darth. Bothan dagobah solo calamari. Lando lando ahsoka vader darth jango. Ewok k-3po fett leia. Darth skywalker hutt endor solo. Zabrak jade moff jar vader ben luuke. Antilles endor skywalker hutt organa mace. Coruscant bothan jabba leia kit boba k-3po. Mandalorians hutt aayla skywalker hutt lando palpatine moff. Skywalker darth palpatine moff. Mace fett calrissian skywalker hutt amidala kit. Solo mandalore darth endor darth bespin ventress lando darth.
+## How it works
+
+The app fetches from an API and stores the data in a couple of variables. All filtering is then done through the variables so we don't continually hit the API. Your local time zone is converted from GMT the API provides and then filters all of the shows into their respective air times. You can filter through show types as well as primetime or daytime and today or tomorrow airings.

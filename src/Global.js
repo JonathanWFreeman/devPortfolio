@@ -33,12 +33,15 @@ body{
   font-family: 'Victor Mono', monospace;
   background-color: ${BackgroundColor};
   color: #FFF;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
 }
 
+p {
+  line-height: 2rem;
+}
 
 h1 {
   font-size: 4rem;
@@ -48,17 +51,17 @@ h1 {
 
 h2 {
   font-size: 3.5rem;
-  font-size: min(max(2.5rem, 10vw), 3.5rem);
+  font-size: min(max(2rem, 10vw), 3rem);
   font-weight: bold;
 }
 
 h3 {
-  font-size: min(max(2rem, 10vw), 2.5rem);
+  font-size: min(max(1.5rem, 10vw), 2rem);
   font-weight: bold;
 }
 
 h4 {
-  font-size: min(max(1.5rem, 10vw), 2rem);
+  font-size: min(max(1.2rem, 10vw), 1.5rem);
 }
 
 a {
