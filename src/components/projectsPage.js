@@ -11,7 +11,7 @@ import { PrimaryColor } from '../Global';
 
 const ProjectsPage = ({ data, location }) => (
   <Layout
-    bg={data.markdownRemark.frontmatter.image_cover}
+    bg={data.markdownRemark.frontmatter}
     layout="projects"
     location={location}
   >
@@ -48,7 +48,9 @@ export const query = graphql`
         slug
         title
         image_cover
+        image_sm
         image_desc
+        video
         stack
         repo
         demo

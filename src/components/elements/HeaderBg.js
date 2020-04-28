@@ -28,16 +28,6 @@ const Header = styled.header`
     background-blend-mode: multiply;
     ${'' /* background-blend-mode: luminosity; */}
     background-size: cover;
-    .skewed {
-      position: absolute;
-      bottom: -100vh;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: ${BackgroundColor};
-      transform: skewY(-10deg);
-      transform-origin: top left;
-    }
   }
 `;
 
@@ -46,7 +36,7 @@ const HeaderBg = ({ bg }) => {
 
   return (
     <SwipeTransition>
-      <Header bg={bg}>
+      <Header bg={bg.image_cover}>
         <div
           id="bg"
           style={{
@@ -55,10 +45,11 @@ const HeaderBg = ({ bg }) => {
             backgroundPositionY: -scrollPosition / 4,
           }}
         >
-          <span
-            className="skewed"
-            style={{ transform: `skewY(${-5 + scrollPosition / 200}deg)` }}
-          />
+          {bg.video && (
+            <video autoPlay muted loop id="myVideo">
+              <source src={bg.video} type="video/mp4" />
+            </video>
+          )}
         </div>
       </Header>
     </SwipeTransition>

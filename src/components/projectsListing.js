@@ -1,7 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { useProjectsQuery, Above, Below, SwipeTransition } from './utilities';
+import {
+  useProjectsQuery,
+  Above,
+  Below,
+  SwipeTransition,
+  CloudImg,
+} from './utilities';
 import {
   BackgroundColor,
   PrimaryColor,
@@ -213,9 +219,9 @@ const ProjectsListing = () => {
             <div className="cardTop">
               <BorderWrapper>
                 <div className="cardContent">
-                  <img
-                    src="https://i.picsum.photos/id/1025/1200/400.jpg"
-                    alt={node.frontmatter.image_desc}
+                  <CloudImg
+                    img={node.frontmatter.image_sm}
+                    desc={node.frontmatter.image_desc}
                   />
                   <div className="innerTopContent">
                     <GlowTitle position="absolute">

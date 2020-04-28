@@ -13,6 +13,8 @@ export const useProjectsQuery = () => {
               title
               slug
               description
+              image_desc
+              image_sm
             }
           }
         }
