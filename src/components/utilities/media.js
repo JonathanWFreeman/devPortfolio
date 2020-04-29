@@ -6,6 +6,11 @@ import cloudinary from 'cloudinary-core';
 const cloudinaryCore = new cloudinary.Cloudinary({ cloud_name: 'jwfreeman' });
 const cloud = 'jwfreeman';
 
+export function imgCover(bool, ref) {
+  let target = bool ? (target = 'video') : (target = 'image');
+  return `https://res.cloudinary.com/jwfreeman/${target}/upload/${ref}.jpg`;
+}
+
 export const CloudImg = ({ img, desc }) => (
   <img
     src={`https://res.cloudinary.com/jwfreeman/video/upload/c_fill,h_400,w_1200/v1/${img}.jpg`}

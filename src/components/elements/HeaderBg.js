@@ -4,7 +4,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { useScrollEvent, SwipeTransition, CloudVideo } from '../utilities';
+import {
+  useScrollEvent,
+  SwipeTransition,
+  CloudVideo,
+  imgCover,
+} from '../utilities';
 import {
   BackgroundColor,
   PrimaryColor,
@@ -36,7 +41,7 @@ const HeaderBg = ({ bg }) => {
 
   return (
     <SwipeTransition>
-      <Header bg={bg.image_cover}>
+      <Header bg={imgCover(bg.video, bg.cloud_ref)}>
         <div
           id="bg"
           style={{

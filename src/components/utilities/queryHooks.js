@@ -24,3 +24,24 @@ export const useProjectsQuery = () => {
   `);
   return allMarkdownRemark;
 };
+
+// export const useProjectQuery = () => {
+//   const { markdownRemark } = useStaticQuery(graphql`
+//     query ProjectQuery2($slug: String!) {
+//       markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+//         html
+//         frontmatter {
+//           slug
+//           title
+//           image_desc
+//           cloud_ref
+//           video
+//           stack
+//           repo
+//           demo
+//         }
+//       }
+//     }
+//   `);
+//   return markdownRemark;
+// };
