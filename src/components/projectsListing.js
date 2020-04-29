@@ -220,7 +220,7 @@ const ProjectsListing = () => {
               <BorderWrapper>
                 <div className="cardContent">
                   <CloudImg
-                    img={node.frontmatter.image_sm}
+                    img={node.frontmatter.cloud_ref}
                     desc={node.frontmatter.image_desc}
                   />
                   <div className="innerTopContent">

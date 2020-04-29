@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Image,
-  Video,
-  Transformation,
-  CloudinaryContext,
-} from 'cloudinary-react';
+import { Video } from 'cloudinary-react';
+import cloudinary from 'cloudinary-core';
 
-// const cloudinaryCore = new cloudinary.Cloudinary({ cloud_name: 'jwfreeman' });
+const cloudinaryCore = new cloudinary.Cloudinary({ cloud_name: 'jwfreeman' });
+const cloud = 'jwfreeman';
 
 export const CloudImg = ({ img, desc }) => (
   <img
@@ -16,43 +13,24 @@ export const CloudImg = ({ img, desc }) => (
   />
 );
 
-export const CloudCover = ({ img, desc }) => (
-  <Image
-    cloudName="jwfreeman"
-    publicId="Portfolio/video/QuickTVDemo_ni2ter.jpg"
-  >
-    <Transformation width="1200" height="400" crop="fill" />
-  </Image>
-);
-
-export const CloudVideo = ({ vid, desc }) => (
-  <Video
-    cloudName="jwfreeman"
-    publicId="Portfolio/video/QuickTVDemo_ni2ter.jpg"
-  >
-    <Transformation
-      startOffset="4"
-      width="350"
-      height="350"
-      radius="20"
-      effect="grayscale"
-      border="5px_solid_black"
-      crop="crop"
+export const CloudVideo = ({ vid }) => {
+  const url = `https://res.cloudinary.com/jwfreeman/video/upload/${vid}`;
+  return (
+    <Video
+      cloudName={cloud}
+      publicId={cloudinaryCore.url(url)}
+      autoplay="true"
+      loop="true"
+      format="mp4"
     />
-  </Video>
-);
+  );
+};
 
 CloudImg.propTypes = {
   img: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
 };
 
-CloudCover.propTypes = {
-  img: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
-};
-
 CloudVideo.propTypes = {
   vid: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
 };

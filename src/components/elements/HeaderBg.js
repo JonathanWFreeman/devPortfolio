@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { useScrollEvent, SwipeTransition } from '../utilities';
+import { useScrollEvent, SwipeTransition, CloudVideo } from '../utilities';
 import {
   BackgroundColor,
   PrimaryColor,
@@ -45,11 +45,7 @@ const HeaderBg = ({ bg }) => {
             backgroundPositionY: -scrollPosition / 4,
           }}
         >
-          {bg.video && (
-            <video autoPlay muted loop id="myVideo">
-              <source src={bg.video} type="video/mp4" />
-            </video>
-          )}
+          {bg.video && <CloudVideo vid={bg.cloud_ref} />}
         </div>
       </Header>
     </SwipeTransition>

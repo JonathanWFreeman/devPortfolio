@@ -47,9 +47,8 @@ export const query = graphql`
       frontmatter {
         slug
         title
-        image_cover
-        image_sm
         image_desc
+        cloud_ref
         video
         stack
         repo

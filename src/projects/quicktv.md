@@ -1,11 +1,10 @@
 ---
 slug: "/quicktv"
 title: "QuickTV"
-description: "App that only shows new TV episodes airing today and tomorrow."
-image_sm: "Portfolio/video/QuickTVDemo_ni2ter"
-image_cover: "https://res.cloudinary.com/jwfreeman/video/upload/v1588017153/Portfolio/video/QuickTVDemo_ni2ter.jpg"
+description: "App that shows a quick look at new TV episodes airing today and tomorrow."
+cloud_ref: "Portfolio/video/QuickTVDemo_ni2ter"
+video: true
 image_desc: "Dog in blanket"
-video: "https://res.cloudinary.com/jwfreeman/video/upload/v1588017153/Portfolio/video/QuickTVDemo_ni2ter.mp4"
 stack: "HTML, CSS, JavaScript, Netlify"
 repo: "https://github.com/JonathanWFreeman/tvFeed"
 demo: "https://quicktv.exe.rocks"
