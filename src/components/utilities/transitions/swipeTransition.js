@@ -5,16 +5,16 @@ import { motion } from 'framer-motion';
 
 const getDirection = {
   SwipeUp: {
-    exiting: { transform: 'translate(0, -100%)' },
-    exited: { transform: 'translate(0, -100%)' },
-    entering: { transform: 'translate(0, 0%)' },
-    entered: { transform: 'translate(0, 0%)' },
+    exiting: { transform: 'translate(0, -100%)', transitionDuration: '1.5s' },
+    exited: { transform: 'translate(0, -100%)', transitionDuration: '1.5s' },
+    entering: { transform: 'translate(0, 0%)', transitionDuration: '1.5s' },
+    entered: { transform: 'translate(0, 0%)', transitionDuration: '1.5s' },
   },
   SwipeDown: {
-    exiting: { transform: 'translate(0, 100%)' },
-    exited: { transform: 'translate(0, 100%)' },
-    entering: { transform: 'translate(0, 0%)' },
-    entered: { transform: 'translate(0, 0%)' },
+    exiting: { transform: 'translate(0, 100%)', transitionDuration: '1.5s' },
+    exited: { transform: 'translate(0, 100%)', transitionDuration: '1.5s' },
+    entering: { transform: 'translate(0, 0%)', transitionDuration: '1.5s' },
+    entered: { transform: 'translate(0, 0%)', transitionDuration: '1.5s' },
   },
 };
 

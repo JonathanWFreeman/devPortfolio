@@ -1,4 +1,4 @@
-const TRANSITION_LENGTH = 1;
+const TRANSITION_LENGTH = 1.5;
 
 export const exitTransition = {
   length: TRANSITION_LENGTH, // Take 1.5 seconds to leave

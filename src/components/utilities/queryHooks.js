@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 export const useProjectsQuery = () => {
   const { allMarkdownRemark } = useStaticQuery(graphql`
     query Projects {
-      allMarkdownRemark {
+      allMarkdownRemark(sort: { order: ASC, fields: frontmatter___order }) {
         edges {
           node {
             id
@@ -17,6 +17,7 @@ export const useProjectsQuery = () => {
               image_sm
               cloud_ref
               media_type
+              order
             }
           }
         }

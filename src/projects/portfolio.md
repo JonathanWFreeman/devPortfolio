@@ -7,6 +7,7 @@ image_cover: "https://i.picsum.photos/id/1025/2000/1000.jpg"
 image_desc: "Dog in blanket"
 stack: "Gatsby, Styled Components, Framer Motion, Netlify"
 repo: "https://github.com/JonathanWFreeman/devPortfolio"
+order: 3
 ---
 
 ## Purpose and Goal

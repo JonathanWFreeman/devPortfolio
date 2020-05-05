@@ -8,6 +8,7 @@ image_desc: "Dog in blanket"
 stack: "HTML, CSS, JavaScript, Netlify"
 repo: "https://github.com/JonathanWFreeman/tvFeed"
 demo: "https://quicktv.exe.rocks"
+order: 1
 ---
 
 ## Purpose and Goal

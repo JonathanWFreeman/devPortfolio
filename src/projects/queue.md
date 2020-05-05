@@ -8,6 +8,7 @@ image_desc: "Dog in blanket"
 stack: "React, CSS, Firebase"
 repo: "https://github.com/JonathanWFreeman/queue"
 demo: "https://quicktv.exe.rocks"
+order: 2
 ---
 
 ## Summary
