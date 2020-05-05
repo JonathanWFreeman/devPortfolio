@@ -2,8 +2,8 @@
 slug: "/quicktv"
 title: "QuickTV"
 description: "App that shows a quick look at new TV episodes airing today and tomorrow."
-cloud_ref: "Portfolio/video/QuickTVDemo_ni2ter"
-video: true
+cloud_ref: "QuickTVDemo"
+media_type: "video"
 image_desc: "Dog in blanket"
 stack: "HTML, CSS, JavaScript, Netlify"
 repo: "https://github.com/JonathanWFreeman/tvFeed"

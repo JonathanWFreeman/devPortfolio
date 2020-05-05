@@ -41,7 +41,7 @@ const HeaderBg = ({ bg }) => {
 
   return (
     <SwipeTransition>
-      <Header bg={imgCover(bg.video, bg.cloud_ref)}>
+      <Header bg={imgCover(bg.media_type, bg.cloud_ref)}>
         <div
           id="bg"
           style={{
@@ -50,7 +50,7 @@ const HeaderBg = ({ bg }) => {
             backgroundPositionY: -scrollPosition / 4,
           }}
         >
-          {bg.video && <CloudVideo vid={bg.cloud_ref} />}
+          {bg.media_type === 'video' && <CloudVideo vid={bg.cloud_ref} />}
         </div>
       </Header>
     </SwipeTransition>
