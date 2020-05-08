@@ -14,7 +14,7 @@ import {
   SecondaryColor,
   AltColor,
 } from '../Global';
-import { FadeButtonTransition } from './elements';
+import { ButtonLinkTransitionFade } from './elements';
 
 const Grid = styled.section`
   display: grid;
@@ -230,11 +230,11 @@ const ProjectsListing = () => {
                     </GlowTitle>
                     <div className="innerTopDescription">
                       <p>{node.frontmatter.description}</p>
-                      <FadeButtonTransition
+                      <ButtonLinkTransitionFade
                         linkTo={`/projects${node.frontmatter.slug}`}
                       >
                         Read More
-                      </FadeButtonTransition>
+                      </ButtonLinkTransitionFade>
                     </div>
                   </div>
                 </div>
@@ -245,11 +245,11 @@ const ProjectsListing = () => {
                 <div className="titleBg" />
                 <GlowTitle>{node.frontmatter.title}</GlowTitle>
                 <p>{node.frontmatter.description}</p>
-                <FadeButtonTransition
+                <ButtonLinkTransitionFade
                   linkTo={`/projects${node.frontmatter.slug}`}
                 >
                   Read More
-                </FadeButtonTransition>
+                </ButtonLinkTransitionFade>
               </div>
             </div>
           </Card>

@@ -23,17 +23,18 @@ const IndexPage = () => (
             margin: 0;
           `}
         >
-          Hey,
+          <Animation delay={1}>Hey,</Animation>
         </h1>
         <h2
           css={`
             margin: 0;
           `}
         >
-          I'm Jonathan
+          <Animation delay={2}>I'm Jonathan</Animation>
         </h2>
-        <Animation />
-        <h3>Front-End Developer</h3>
+        <h3>
+          <Animation delay={3.5}>Front-End Developer</Animation>
+        </h3>
         <p>Jango chewbacca yoda hutt ben hoth kamino jango darth</p>
         <p>Jango chewbacca yoda hutt ben hoth kamino jango darth</p>
         <p>Jango chewbacca yoda hutt ben hoth kamino jango darth</p>

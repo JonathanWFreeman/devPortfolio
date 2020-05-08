@@ -65,7 +65,7 @@ export const ButtonLinkEx = ({ children, linkTo, color }) => (
   </Button>
 );
 
-export const FadeButtonTransition = ({ linkTo, children, color }) => (
+export const ButtonLinkTransitionFade = ({ linkTo, children, color }) => (
   <Button
     as={TransitionLink}
     to={linkTo}
@@ -77,13 +77,13 @@ export const FadeButtonTransition = ({ linkTo, children, color }) => (
   </Button>
 );
 
-FadeButtonTransition.propTypes = {
+ButtonLinkTransitionFade.propTypes = {
   linkTo: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   color: PropTypes.string,
 };
 
-FadeButtonTransition.defaultProps = {
+ButtonLinkTransitionFade.defaultProps = {
   color: SecondaryColor,
 };
 
