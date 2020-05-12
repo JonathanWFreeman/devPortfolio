@@ -12,7 +12,7 @@ import styled from 'styled-components';
 
 import Footer from '../footer';
 import Header from '../header';
-import { Social, HeaderBg, Scrollbar, SocialWidth } from '../elements';
+import { Social, Scrollbar, SocialWidth } from '../elements';
 import GlobalStyle, { SiteWidth } from '../../Global';
 import { Above, Below, FadeTransition } from '../utilities';
 
@@ -104,7 +104,7 @@ const Content = styled.section`
   }}
 `;
 
-const Layout = ({ children, bg, layout, location }) => {
+const Layout = ({ children, layout, location }) => {
   const data = useStaticQuery(graphql`
     {
       site {
@@ -121,7 +121,6 @@ const Layout = ({ children, bg, layout, location }) => {
       <Social />
       <MainWrapper>
         <FadeTransition>
-          {bg && <HeaderBg bg={bg} />}
           <Content layoutType={layout}>{children}</Content>
         </FadeTransition>
       </MainWrapper>
@@ -134,7 +133,6 @@ const Layout = ({ children, bg, layout, location }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  bg: PropTypes.string,
   layout: PropTypes.string,
   location: PropTypes.object,
 };
