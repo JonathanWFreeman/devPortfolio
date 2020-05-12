@@ -1,3 +1,3 @@
-import LetterAnimation from './animation';
+import LetterAnimation from './letterAnimation';
 
-export { LetterAnimation as Animation };
+export { LetterAnimation };

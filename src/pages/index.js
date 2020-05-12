@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import Layout from '../components/layouts/layout';
 import Image from '../components/image';
 import SEO from '../components/seo';
-import { Animation } from '../components/utilities';
+import { LetterAnimation } from '../components/utilities';
 
 const IndexPage = () => (
   <Layout>
@@ -23,17 +23,17 @@ const IndexPage = () => (
             margin: 0;
           `}
         >
-          <Animation delay={1}>Hey,</Animation>
+          <LetterAnimation delay={1}>Hey,</LetterAnimation>
         </h1>
         <h2
           css={`
             margin: 0;
           `}
         >
-          <Animation delay={2}>I'm Jonathan</Animation>
+          <LetterAnimation delay={2}>I'm Jonathan</LetterAnimation>
         </h2>
         <h3>
-          <Animation delay={3.5}>Front-End Developer</Animation>
+          <LetterAnimation delay={3.5}>Front-End Developer</LetterAnimation>
         </h3>
         <p>Jango chewbacca yoda hutt ben hoth kamino jango darth</p>
         <p>Jango chewbacca yoda hutt ben hoth kamino jango darth</p>
