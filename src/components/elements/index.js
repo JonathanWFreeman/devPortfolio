@@ -5,5 +5,6 @@ import Social from './social';
 export * from './buttons';
 export * from './links';
 export * from './social';
+export * from './layoutElements';
 
 export { HeaderBg, Scrollbar, Social };

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { BackgroundColor, AltColor } from '../../Global';
 import { Above } from '../utilities';
@@ -64,9 +65,9 @@ const SocialBar = styled.aside`
   }
 `;
 
-function Social() {
+function Social({ className }) {
   return (
-    <SocialBar>
+    <SocialBar className={className}>
       <a
         href="https://github.com/JonathanWFreeman"
         className="icon github"
@@ -103,5 +104,9 @@ function Social() {
     </SocialBar>
   );
 }
+
+Social.propTypes = {
+  className: PropTypes.string,
+};
 
 export default Social;

@@ -40,20 +40,20 @@ const HeaderBg = ({ bg }) => {
   const [scrollPosition] = useScrollEvent('');
 
   return (
-    <SwipeTransition>
-      <Header bg={imgCover(bg.media_type, bg.cloud_ref)}>
-        <div
-          id="bg"
-          style={{
-            opacity: 1 - scrollPosition / (window.innerHeight / 1.3),
-            top: scrollPosition,
-            backgroundPositionY: -scrollPosition / 4,
-          }}
-        >
-          {bg.media_type === 'video' && <CloudVideo vid={bg.cloud_ref} />}
-        </div>
-      </Header>
-    </SwipeTransition>
+    // <SwipeTransition>
+    <Header bg={imgCover(bg.media_type, bg.cloud_ref)}>
+      <div
+        id="bg"
+        style={{
+          opacity: 1 - scrollPosition / (window.innerHeight / 1.3),
+          top: scrollPosition,
+          backgroundPositionY: -scrollPosition / 4,
+        }}
+      >
+        {bg.media_type === 'video' && <CloudVideo vid={bg.cloud_ref} />}
+      </div>
+    </Header>
+    // </SwipeTransition>
   );
 };
 
