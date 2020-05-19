@@ -38,5 +38,5 @@ SwipeTransition.propTypes = {
 };
 
 SwipeTransition.defaultProps = {
-  transitionDirection: 'up',
+  transitionDirection: 'down',
 };

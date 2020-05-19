@@ -2,12 +2,18 @@ const TRANSITION_LENGTH = 1.5;
 
 export const exitTransition = {
   length: TRANSITION_LENGTH, // Take 1.5 seconds to leave
-  trigger: () => console.log('We are exiting'),
+  trigger: () => {
+    const height = document.body.scrollHeight;
+    return console.log(`We are exiting ${height}`);
+  },
 };
 
 export const entryTransition = {
   delay: TRANSITION_LENGTH, // Wait 1.5 seconds before entering
-  trigger: () => console.log('We are entering'),
+  trigger: () => {
+    const height = document.body.scrollHeight;
+    return console.log(`We are entering ${height}`);
+  },
 };
 
 const exitTransitionTest = {

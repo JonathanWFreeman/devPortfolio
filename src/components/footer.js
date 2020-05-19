@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Above } from './utilities';
+
+import { Above, Transition } from './utilities';
 import { ExLink } from './elements';
 
 const FooterWrapper = styled.footer`
@@ -24,21 +26,33 @@ const FooterWrapper = styled.footer`
   }
 `;
 
-const Footer = () => (
+const Footer = ({ transitionType, transitionDirection }) => (
   <FooterWrapper>
-    <span>
-      {'{'}
-      <p>© {new Date().getFullYear()}, Built with</p>
-      <ExLink linkTo="https://www.gatsbyjs.org">Gatsby</ExLink>
-      {'}'}
-    </span>
-    <span>
-      {'{'}
-      <p>Font</p>:
-      <ExLink linkTo="https://rubjo.github.io/victor-mono/">Victor Mono</ExLink>
-      {'}'}
-    </span>
+    <Transition
+      transitionType={transitionType}
+      transitionDirection={transitionDirection}
+    >
+      <span>
+        {'{'}
+        <p>© {new Date().getFullYear()}, Built with</p>
+        <ExLink linkTo="https://www.gatsbyjs.org">Gatsby</ExLink>
+        {'}'}
+      </span>
+      <span>
+        {'{'}
+        <p>Font</p>:
+        <ExLink linkTo="https://rubjo.github.io/victor-mono/">
+          Victor Mono
+        </ExLink>
+        {'}'}
+      </span>
+    </Transition>
   </FooterWrapper>
 );
+
+Footer.propTypes = {
+  transitionType: PropTypes.string,
+  transitionDirection: PropTypes.string,
+};
 
 export default Footer;

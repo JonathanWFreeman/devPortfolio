@@ -8,6 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
 
 import Footer from '../footer';
 import Header from '../header';
@@ -15,17 +16,24 @@ import {
   Social,
   Scrollbar,
   SiteLayout,
+  HeaderBg,
   ContentWrapper,
   MainWrapper,
 } from '../elements';
 import GlobalStyle from '../../Global';
 import { Transition } from '../utilities';
 
+const SocialBar = styled(Social)`
+  margin-top: -100vh;
+  z-index: -1;
+`;
+
 const Layout = ({
   children,
   location,
   transitionType,
   transitionDirection,
+  bg,
 }) => {
   const data = useStaticQuery(graphql`
     {
@@ -36,23 +44,31 @@ const Layout = ({
       }
     }
   `);
-
   return (
-    <SiteLayout>
-      <Header siteTitle={data.site.siteMetadata.title} location={location} />
-      <Social />
-      <Transition
-        transitionType={transitionType}
-        transitionDirection={transitionDirection}
-      >
-        <MainWrapper>
-          <ContentWrapper>{children}</ContentWrapper>
-        </MainWrapper>
+    <>
+      <Transition transitionType="swipe" transitionDirection="up">
+        {bg && <HeaderBg bg={bg} />}
       </Transition>
-      <Footer />
-      <GlobalStyle />
-      <Scrollbar />
-    </SiteLayout>
+      <SiteLayout>
+        <Header siteTitle={data.site.siteMetadata.title} location={location} />
+        {location && location.pathname.includes('projects') ? (
+          <SocialBar />
+        ) : (
+          <Social />
+        )}
+        <MainWrapper>
+          <Transition
+            transitionType={transitionType}
+            transitionDirection={transitionDirection}
+          >
+            <ContentWrapper>{children}</ContentWrapper>
+          </Transition>
+        </MainWrapper>
+        <Footer transitionType={transitionType} />
+        <GlobalStyle />
+        <Scrollbar />
+      </SiteLayout>
+    </>
   );
 };
 
@@ -61,6 +77,7 @@ Layout.propTypes = {
   location: PropTypes.object,
   transitionType: PropTypes.string,
   transitionDirection: PropTypes.string,
+  bg: PropTypes.string.isRequired,
 };
 
 export default Layout;

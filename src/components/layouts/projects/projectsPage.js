@@ -3,14 +3,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import ProjectsPageLayout from './projectsPageLayout';
+import Layout from '../layout';
 import SEO from '../../seo';
 import ProjectsArchive from './projectsArchive';
 import { ButtonLinkEx } from '../../elements';
 import { PrimaryColor } from '../../../Global';
 
 const ProjectsPage = ({ data, location }) => (
-  <ProjectsPageLayout bg={data.markdownRemark.frontmatter} location={location}>
+  <Layout
+    bg={data.markdownRemark.frontmatter}
+    location={location}
+    transitionType="swipe"
+  >
     <SEO title={data.markdownRemark.frontmatter.title} />
     <article>
       <section>
@@ -33,7 +37,7 @@ const ProjectsPage = ({ data, location }) => (
       <section dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
     </article>
     <ProjectsArchive />
-  </ProjectsPageLayout>
+  </Layout>
 );
 
 export const query = graphql`
