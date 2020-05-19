@@ -1,29 +1,34 @@
 const TRANSITION_LENGTH = 1.5;
-
 export const exitTransition = {
   length: TRANSITION_LENGTH, // Take 1.5 seconds to leave
+
   trigger: () => {
-    const height = document.body.scrollHeight;
-    return console.log(`We are exiting ${height}`);
+    console.log(`We are exiting`);
   },
 };
 
 export const entryTransition = {
   delay: TRANSITION_LENGTH, // Wait 1.5 seconds before entering
+
   trigger: () => {
-    const height = document.body.scrollHeight;
-    return console.log(`We are entering ${height}`);
+    console.log(`We are entering`);
   },
 };
 
-const exitTransitionTest = {
+export const exitTransitionTest = {
   delay: TRANSITION_LENGTH, // Wait 1.5 seconds before entering
+  state: {
+    height: () => {
+      const height = document.body.scrollHeight;
+      return height;
+    },
+  },
   trigger: ({ exit, e, node }) => verticalAnimation(exit, 'up', e, node),
 };
 
-const verticalAnimation = (length, direction, e, node) => {
+const verticalAnimation = (exit, direction, e, node) => {
   console.log('Wow it worked');
-  console.log({ length });
+  console.log({ exit });
   console.log({ direction });
   console.log(e.target);
   console.dir(node);

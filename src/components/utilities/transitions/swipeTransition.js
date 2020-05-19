@@ -5,14 +5,26 @@ import { motion } from 'framer-motion';
 
 const SwipeDirection = {
   up: {
-    exiting: { transform: 'translate(0, -100%)', transitionDuration: '1s' },
-    exited: { transform: 'translate(0, -100%)', transitionDuration: '1s' },
+    exiting: custom => ({
+      transform: `translate(0, -${custom}px)`,
+      transitionDuration: '1s',
+    }),
+    exited: custom => ({
+      transform: `translate(0, -${custom}px)`,
+      transitionDuration: '1s',
+    }),
     entering: { transform: 'translate(0, 0%)', transitionDuration: '1s' },
     entered: { transform: 'translate(0, 0%)', transitionDuration: '1s' },
   },
   down: {
-    exiting: { transform: 'translate(0, 100%)', transitionDuration: '1s' },
-    exited: { transform: 'translate(0, 100%)', transitionDuration: '1s' },
+    exiting: custom => ({
+      transform: `translate(0, ${custom}px)`,
+      transitionDuration: '1s',
+    }),
+    exited: custom => ({
+      transform: `translate(0, ${custom}px)`,
+      transitionDuration: '1s',
+    }),
     entering: { transform: 'translate(0, 0%)', transitionDuration: '1s' },
     entered: { transform: 'translate(0, 0%)', transitionDuration: '1s' },
   },
@@ -20,15 +32,19 @@ const SwipeDirection = {
 
 export const SwipeTransition = ({ children, transitionDirection }) => (
   <TransitionState>
-    {({ transitionStatus }) => (
-      <motion.div
-        variants={SwipeDirection[transitionDirection]}
-        initial="exiting"
-        animate={transitionStatus}
-      >
-        {children}
-      </motion.div>
-    )}
+    {({ transitionStatus }) => {
+      const height = document.body.scrollHeight || 1;
+      return (
+        <motion.div
+          variants={SwipeDirection[transitionDirection]}
+          initial="exiting"
+          animate={transitionStatus}
+          custom={height}
+        >
+          {children}
+        </motion.div>
+      );
+    }}
   </TransitionState>
 );
 
