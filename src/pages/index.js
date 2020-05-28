@@ -5,6 +5,7 @@ import Layout from '../components/layouts/layout';
 import Image from '../components/image';
 import SEO from '../components/seo';
 import { LetterAnimation } from '../components/utilities';
+import { Demo } from '../components/threejs';
 
 const IndexPage = () => (
   <Layout>
@@ -45,8 +46,9 @@ const IndexPage = () => (
         <p>Resume | Projects | Contact</p>
       </div>
       <div>
+        <Demo />
         <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }} />
-        <Image />
+        {/* <Image /> */}
         <Link to="/projects/">Go to page 2</Link>
       </div>
     </div>
