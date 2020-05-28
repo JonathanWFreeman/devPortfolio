@@ -19,7 +19,7 @@ const Transition = ({ children, transitionType, transitionDirection }) => {
 };
 
 Transition.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   transitionType: PropTypes.string,
   transitionDirection: PropTypes.string,
 };

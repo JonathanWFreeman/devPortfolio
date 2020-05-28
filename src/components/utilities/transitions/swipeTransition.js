@@ -49,7 +49,7 @@ export const SwipeTransition = ({ children, transitionDirection }) => (
 );
 
 SwipeTransition.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   transitionDirection: PropTypes.string,
 };
 

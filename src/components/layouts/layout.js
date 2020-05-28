@@ -77,7 +77,7 @@ Layout.propTypes = {
   location: PropTypes.object,
   transitionType: PropTypes.string,
   transitionDirection: PropTypes.string,
-  bg: PropTypes.string.isRequired,
+  bg: PropTypes.string,
 };
 
 export default Layout;
