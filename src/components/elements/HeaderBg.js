@@ -100,7 +100,7 @@ const HeaderBg = ({ bg }) => {
 };
 
 HeaderBg.propTypes = {
-  bg: PropTypes.string,
+  bg: PropTypes.object.isRequired,
 };
 
 export default HeaderBg;

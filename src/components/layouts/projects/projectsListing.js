@@ -1,13 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {
-  useProjectsQuery,
-  Above,
-  Below,
-  SwipeTransition,
-  CloudImg,
-} from '../../utilities';
+import { useProjectsQuery, Above, Below, CloudImg } from '../../utilities';
 import {
   BackgroundColor,
   PrimaryColor,

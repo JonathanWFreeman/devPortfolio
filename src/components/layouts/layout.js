@@ -46,9 +46,11 @@ const Layout = ({
   `);
   return (
     <>
-      <Transition transitionType="swipe" transitionDirection="up">
-        {bg && <HeaderBg bg={bg} />}
-      </Transition>
+      {bg && (
+        <Transition transitionType="swipe" transitionDirection="up">
+          <HeaderBg bg={bg} />
+        </Transition>
+      )}
       <SiteLayout>
         <Header siteTitle={data.site.siteMetadata.title} location={location} />
         {location && location.pathname.includes('projects') ? (
@@ -77,7 +79,7 @@ Layout.propTypes = {
   location: PropTypes.object,
   transitionType: PropTypes.string,
   transitionDirection: PropTypes.string,
-  bg: PropTypes.string.isRequired,
+  bg: PropTypes.object,
 };
 
 export default Layout;

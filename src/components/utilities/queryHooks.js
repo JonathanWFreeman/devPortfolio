@@ -14,7 +14,6 @@ export const useProjectsQuery = () => {
               slug
               description
               image_desc
-              image_sm
               cloud_ref
               media_type
               order
