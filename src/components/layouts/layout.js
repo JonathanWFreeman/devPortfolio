@@ -21,11 +21,12 @@ import {
   MainWrapper,
 } from '../elements';
 import GlobalStyle from '../../Global';
-import { Transition } from '../utilities';
+import { Transition, Above } from '../utilities';
 
 const SocialBar = styled(Social)`
+  ${Above.small`
   margin-top: -100vh;
-  z-index: -1;
+  z-index: -1;`}
 `;
 
 const Layout = ({
