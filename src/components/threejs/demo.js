@@ -1,55 +1,152 @@
 /* eslint-disable no-multi-assign */
 /* eslint-disable no-return-assign */
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, Suspense } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { Canvas, extend, useThree, useFrame } from 'react-three-fiber';
-import styled from 'styled-components';
+import {
+  Canvas,
+  extend,
+  useThree,
+  useFrame,
+  useLoader,
+} from 'react-three-fiber';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 
 const Fade = styled.div`
-  ${'' /* background: purple; */}
+  opacity: 1;
 `;
 
 extend({ OrbitControls });
 
-const SpaceShip = () => {
+// function Model({ url, position, rotation, time }) {
+//   const [model, setModel] = useState();
+//   new GLTFLoader().load(url, setModel);
+
+//   const mesh = useRef();
+//   // const gltf = useLoader(GLTFLoader, url);
+//   // const model = gltf.scene;
+//   let count = 0;
+//   // console.dir(gltf);
+//   useEffect(() => {
+//     count += 1;
+//     if (count >= 5) {
+//       count = 0;
+//     }
+//     console.log(Math.floor(count));
+//     if (model) {
+//       mesh.current.rotation._y += 0.01 * time;
+//     }
+
+//     // time += 0.03;
+//     // mesh.current.position.y = position[1] + Math.sin(time) * 0.4;
+//   });
+
+//   console.dir(mesh);
+
+//   return model ? (
+//     <primitive
+//       object={model.scene}
+//       ref={mesh}
+//       // rotation={[0, 0, 0]}
+//       scale={[1, 1, 1]}
+//       // dispose={null}
+//       position={position}
+//       rotation={rotation}
+//       // visible={false}
+//     />
+//   ) : null;
+// }
+
+let counte = 0;
+let countup = true;
+function counter() {
+  if (countup) {
+    counte += 0.02;
+    if (counte >= 1) countup = false;
+  } else {
+    counte -= 0.02;
+    if (counte <= 0) countup = true;
+  }
+  console.log(counte);
+  return counte;
+}
+setInterval(counter, 500);
+
+function Model({ url, position, rotation, time }) {
   const [model, setModel] = useState();
+  const mesh = useRef();
+  // const gltf = useLoader(GLTFLoader, url);
+  // const model = gltf.scene;
+  let count = 0;
+  // console.dir(gltf);
 
   useEffect(() => {
-    new GLTFLoader().load('/threejs/rocket/scene.gltf', setModel);
-  }, []);
+    new GLTFLoader().load(url, setModel);
+  }, [url]);
 
-  return model ? <primitive object={model.scene} /> : null;
-};
+  useFrame(() => {
+    count += 0.01;
+    if (count >= 5) {
+      count = 0;
+    }
+    // console.log(Math.floor(count));
+    if (model) {
+      mesh.current.rotation.y += 0.01 * time;
+    }
 
-const Something = () => {
-  const [model, setModel] = useState();
+    if (model) {
+      mesh.current.scale.x = counte;
+      mesh.current.scale.y = counte;
+      mesh.current.scale.z = counte;
+    }
 
-  useEffect(() => {
-    new GLTFLoader().load('/threejs/html5.gltf', setModel);
-  }, []);
+    // time += 0.03;
+    // mesh.current.position.y = position[1] + Math.sin(time) * 0.4;
+  });
+  console.dir(mesh);
+  return model ? (
+    <primitive
+      object={model.scene}
+      ref={mesh}
+      // rotation={[0, 0, 0]}
+      scale={[1, 1, 1]}
+      // dispose={null}
+      position={position}
+      rotation={rotation}
+      // visible={false}
+    />
+  ) : null;
+}
 
-  return model ? <primitive object={model.scene} /> : null;
-};
+// const Model = ({ url }) => {
+//   const [model, setModel] = useState();
+//   console.log(url);
+//   useEffect(() => {
+//     new GLTFLoader().load(url, setModel);
+//   }, [url]);
+
+//   return model ? <primitive object={model.scene} /> : null;
+// };
 
 const Controls = () => {
   const orbitRef = useRef();
   const { camera, gl } = useThree();
-  console.log(orbitRef);
   useFrame(() => {
     orbitRef.current.update();
   });
 
   return (
     <orbitControls
-      autoRotate
-      scale={(5, 5, 5)}
-      enableRotate={false}
-      enableZoom={false}
-      maxPolarAngle={Math.PI / 3}
-      minPolarAngle={Math.PI / 3}
+      // autoRotate
+      // autoRotateSpeed={15}
+      enabled={false}
+      // setModel={(50, 50, 50)}
+      // maxPolarAngle={Math.PI / 3}
+      // minPolarAngle={Math.PI / 3}
       args={[camera, gl.domElement]}
       ref={orbitRef}
     />
@@ -93,23 +190,69 @@ const Demo = () => {
       {isBrowser && (
         <Fade>
           <Canvas
-            camera={{ position: [0, 0, 5] }}
-            onCreated={({ gl }) => {
-              gl.shadowMap.enabled = true;
-              gl.shadowMap.type = THREE.PCFSoftShadowMap;
-            }}
+            camera={{ position: [5, 0, 0] }}
+            // onCreated={({ gl }) => {
+            //   gl.shadowMap.enabled = true;
+            //   gl.shadowMap.type = THREE.PCFSoftShadowMap;
+            // }}
           >
-            <ambientLight intensity={0.5} />
-            <spotLight position={[15, 20, 5]} penumbra={1} castShadow />
+            {/* <ambientLight intensity={-0.4} /> */}
+            {/* <spotLight
+              position={[15, 20, 5]}
+              penumbra={1}
+              intensity={2}
+              castShadow
+            />
+            <spotLight
+              position={[-15, -20, -5]}
+              intensity={-1}
+              penumbra={1}
+              castShadow
+            /> */}
+            <spotLight
+              position={[0, 0, 5]}
+              intensity={1}
+              penumbra={2}
+              castShadow
+            />
+            <spotLight
+              position={[0, 0, -5]}
+              intensity={-1}
+              penumbra={2}
+              castShadow
+            />
             <Controls />
             {/* <SpaceShip /> */}
-            <Something />
+            <Suspense fallback={null}>
+              <Model
+                url="/threejs/html5.gltf"
+                position={[0, 0, 0]}
+                rotation={[0, 1, 0]}
+                time={4}
+              />
+              <Model
+                url="/threejs/css3.gltf"
+                position={[0, 0, 0]}
+                rotation={[0, 3, 0]}
+                time={2}
+              />
+            </Suspense>
             {/* <Box position={[4, 0, 0]} /> */}
           </Canvas>
         </Fade>
       )}
     </>
   );
+};
+
+// TODO:
+// async await fade in out each model
+
+Model.propTypes = {
+  url: PropTypes.string,
+  position: PropTypes.array,
+  rotation: PropTypes.array,
+  time: PropTypes.number,
 };
 
 export default Demo;
