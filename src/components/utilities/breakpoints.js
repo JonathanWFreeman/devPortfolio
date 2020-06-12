@@ -2,6 +2,14 @@ import { css } from 'styled-components';
 
 // TODO:
 // Add media for device
+export function isMobile() {
+  let mobile = false; // initiate as false
+  // device detection
+  if (/Mobi/.test(navigator.userAgent)) {
+    mobile = true;
+  }
+  return mobile;
+}
 
 const size = {
   small: 600,
