@@ -36,7 +36,7 @@ const ProjectsPage = ({ data, location }) => (
       </section>
       <section dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
     </article>
-    <ProjectsArchive />
+    {/* <ProjectsArchive /> */}
   </Layout>
 );
 

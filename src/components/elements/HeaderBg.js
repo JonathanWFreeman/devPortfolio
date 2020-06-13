@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 
-import { useScrollEvent, CloudVideo, imgCover } from '../utilities';
+import { useScrollEvent, CloudVideo, imgCover, isMobile } from '../utilities';
 import {
   BackgroundColor,
   PrimaryColor,
@@ -14,7 +14,7 @@ import {
 
 const Header = styled.header`
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
   background: ${BackgroundColor};
@@ -32,8 +32,8 @@ const Header = styled.header`
       position: absolute;
       bottom: 0;
       right: 0;
-      width: 20%;
-      height: 20%;
+      width: 125px;
+      height: 105px;
       background: ${BackgroundColor};
       transform: skewY(-40deg);
       transform-origin: bottom right;
@@ -53,10 +53,10 @@ const animate = keyframes`
 const Arrow = styled.svg`
   position: absolute;
   z-index: 500;
-  width: 100px;
-  height: 100px;
-  top: 35px;
-  right: 0;
+  width: 50px;
+  height: 50px;
+  top: 20px;
+  right: 5px;
   transform: skewY(40deg);
   animation: ${animate} 5s linear infinite;
 `;
@@ -74,7 +74,9 @@ const HeaderBg = ({ bg }) => {
           backgroundPositionY: -scrollPosition / 4,
         }}
       >
-        {bg.media_type === 'video' && <CloudVideo vid={bg.cloud_ref} />}
+        {isMobile() === false && bg.media_type === 'video' && (
+          <CloudVideo vid={bg.cloud_ref} />
+        )}
         <span
           className="skewed"
           style={{
