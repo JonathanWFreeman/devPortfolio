@@ -28,6 +28,7 @@ const Header = styled.header`
     background-blend-mode: multiply;
     ${'' /* background-blend-mode: luminosity; */}
     background-size: cover;
+    background-position: center center;
     .skewed {
       position: absolute;
       bottom: 0;

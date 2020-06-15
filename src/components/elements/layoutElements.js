@@ -35,8 +35,7 @@ export const ContentWrapper = styled.section`
     padding: 0 2%;
   `}
 `;
-// TODO:
-// FIX MARGIN ISSUES
+
 export const MainWrapper = styled.main`
   min-height: 80vh;
   grid-area: main;

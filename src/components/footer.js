@@ -16,6 +16,7 @@ const FooterWrapper = styled.footer`
   `}
   text-align: center;
   grid-area: footer;
+  width: 100vw;
   span {
     white-space: nowrap;
   }
@@ -38,6 +39,7 @@ const Footer = ({ transitionType, transitionDirection }) => (
         <ExLink linkTo="https://www.gatsbyjs.org">Gatsby</ExLink>
         {'}'}
       </span>
+      {'\n'}
       <span>
         {'{'}
         <p>Font</p>:

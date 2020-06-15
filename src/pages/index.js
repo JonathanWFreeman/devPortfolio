@@ -1,22 +1,27 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import styled from 'styled-components';
 
 import Layout from '../components/layouts/layout';
 import Image from '../components/image';
 import SEO from '../components/seo';
-import { LetterAnimation } from '../components/utilities';
+import { LetterAnimation, Above } from '../components/utilities';
+
+const HomeContent = styled.article`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+  ${Above.small`
+    flex-direction: row;
+  `}
+`;
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <div
-      css={`
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 100%;
-      `}
-    >
+    <HomeContent>
       <div>
         <h1
           css={`
@@ -49,7 +54,7 @@ const IndexPage = () => (
         <Image />
         <Link to="/projects/">Go to page 2</Link>
       </div>
-    </div>
+    </HomeContent>
   </Layout>
 );
 
