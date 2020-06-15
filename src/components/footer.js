@@ -35,8 +35,15 @@ const Footer = ({ transitionType, transitionDirection }) => (
     >
       <span>
         {'{'}
-        <p>© {new Date().getFullYear()}, Built with</p>
-        <ExLink linkTo="https://www.gatsbyjs.org">Gatsby</ExLink>
+        <p>© {new Date().getFullYear()} Jonathan Freeman</p>
+        {'}'}
+      </span>
+      {'\n'}
+      <span>
+        {'{'}
+        <p>
+          Built with <ExLink linkTo="https://www.gatsbyjs.org">Gatsby</ExLink>
+        </p>
         {'}'}
       </span>
       {'\n'}

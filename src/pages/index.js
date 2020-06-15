@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Layout from '../components/layouts/layout';
 import Image from '../components/image';
 import SEO from '../components/seo';
-import { LetterAnimation, Above } from '../components/utilities';
+import { LetterAnimation, Fade, Above } from '../components/utilities';
 
 const HomeContent = styled.article`
   display: flex;
@@ -18,42 +18,52 @@ const HomeContent = styled.article`
   `}
 `;
 
+const MainContent = styled.div`
+  width: 100%;
+  flex: 1 1 66%;
+  padding-right: 2%;
+  h1,
+  h2 {
+    margin: 0;
+  }
+`;
+
+const SecondaryContent = styled.div`
+  width: 100%;
+  flex: 1 1 33%;
+`;
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <HomeContent>
-      <div>
-        <h1
-          css={`
-            margin: 0;
-          `}
-        >
+      <MainContent>
+        <h1>
           <LetterAnimation delay={1}>Hey,</LetterAnimation>
         </h1>
-        <h2
-          css={`
-            margin: 0;
-          `}
-        >
+        <h2>
           <LetterAnimation delay={2}>I'm Jonathan</LetterAnimation>
         </h2>
         <h3>
           <LetterAnimation delay={3.5}>Front-End Developer</LetterAnimation>
         </h3>
-        <p>Jango chewbacca yoda hutt ben hoth kamino jango darth</p>
-        <p>Jango chewbacca yoda hutt ben hoth kamino jango darth</p>
-        <p>Jango chewbacca yoda hutt ben hoth kamino jango darth</p>
-        <p>
-          Video games, baseball, bread baking and trying and keep my bonsai
-          alive
-        </p>
-        <p>Resume | Projects | Contact</p>
-      </div>
-      <div>
-        <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }} />
+        <Fade delay={5}>
+          <p>
+            I started my journey as a self taught developer a few years ago.
+            Since then I have worked at a small agency and done some freelance
+            work.
+          </p>
+          <p>
+            In my free time when I'm not trying to learn something new, I enjoy
+            playing video games, watching baseball, baking (mostly bread) and
+            trying to keep my bonsai's alive.
+          </p>
+        </Fade>
+        {/* <p>Resume | Projects | Contact</p> */}
+      </MainContent>
+      <SecondaryContent>
         <Image />
-        <Link to="/projects/">Go to page 2</Link>
-      </div>
+      </SecondaryContent>
     </HomeContent>
   </Layout>
 );
