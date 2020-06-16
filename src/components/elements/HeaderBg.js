@@ -1,5 +1,3 @@
-/* eslint-disable import/no-cycle */
-/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
