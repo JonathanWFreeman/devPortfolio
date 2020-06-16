@@ -4,7 +4,12 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { useScrollEvent, FadeLinkTransition, Above } from './utilities';
+import {
+  useScrollEvent,
+  FadeLinkTransition,
+  Above,
+  useWindowDimensions,
+} from './utilities';
 import {
   SiteWidth,
   BackgroundColor,
@@ -94,7 +99,8 @@ const useGetPath = location => {
 
 const Header = ({ location }) => {
   const [scrollPosition] = useScrollEvent('');
-  const maths = 0 + scrollPosition / (window.innerHeight / 1.3);
+  const { height } = useWindowDimensions();
+  const maths = 0 + scrollPosition / (height / 1.3);
 
   return (
     <HeaderWrapper maths={maths} location={location.pathname}>

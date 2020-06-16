@@ -1,11 +1,10 @@
 import { css } from 'styled-components';
+import { window } from 'browser-monads';
 
-// TODO:
-// Add media for device
 export function isMobile() {
   let mobile = false; // initiate as false
   // device detection
-  if (/Mobi/.test(navigator.userAgent)) {
+  if (/Mobi/.test(window.navigator.userAgent)) {
     mobile = true;
   }
   return mobile;

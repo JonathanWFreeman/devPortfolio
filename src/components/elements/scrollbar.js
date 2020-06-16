@@ -1,7 +1,8 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { document } from 'browser-monads';
 
-import { useScrollEvent, Below } from '../utilities';
+import { useScrollEvent, Below, useWindowDimensions } from '../utilities';
 import { PrimaryColor, AltColor } from '../../Global';
 
 const animate = keyframes`
@@ -59,9 +60,9 @@ const ProgressBar = styled.div`
 
 const Scrollbar = () => {
   const [scrollPosition] = useScrollEvent('');
-  const totalHeight = document.body.scrollHeight - window.innerHeight;
+  const { height } = useWindowDimensions();
+  const totalHeight = document.body.scrollHeight - height;
   const progressHeight = (scrollPosition / totalHeight) * 100;
-
   return (
     <>
       <ScrollPath />

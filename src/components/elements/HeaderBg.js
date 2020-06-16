@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 
-import { useScrollEvent, CloudVideo, imgCover, isMobile } from '../utilities';
+import {
+  useScrollEvent,
+  CloudVideo,
+  imgCover,
+  isMobile,
+  useWindowDimensions,
+} from '../utilities';
 import {
   BackgroundColor,
   PrimaryColor,
@@ -62,13 +68,14 @@ const Arrow = styled.svg`
 
 const HeaderBg = ({ bg }) => {
   const [scrollPosition] = useScrollEvent('');
+  const { height } = useWindowDimensions();
 
   return (
     <Header bg={imgCover(bg.media_type, bg.cloud_ref)}>
       <div
         id="bg"
         style={{
-          opacity: 1 - scrollPosition / (window.innerHeight / 1.3),
+          opacity: 1 - scrollPosition / (height / 1.3),
           top: scrollPosition,
           backgroundPositionY: -scrollPosition / 4,
         }}

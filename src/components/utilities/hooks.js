@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { window } from 'browser-monads';
 
 export const useScrollEvent = initialState => {
   const [scrollPosition, setScrollPosition] = useState(initialState);
@@ -25,15 +26,15 @@ export const useGetPath = location => {
   return locationPath;
 };
 
-async function getWindowDimensions() {
-  const { scrollWidth: width, scrollHeight: height } = await document.body;
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
   return {
     width,
     height,
   };
 }
 
-export async function useWindowDimensions() {
+export function useWindowDimensions() {
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions()
   );

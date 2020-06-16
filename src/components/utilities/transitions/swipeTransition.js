@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { TransitionState } from 'gatsby-plugin-transition-link';
 import { motion } from 'framer-motion';
 
+import { useWindowDimensions } from '../hooks';
+
 const SwipeDirection = {
   up: {
     exiting: custom => ({
@@ -30,11 +32,11 @@ const SwipeDirection = {
   },
 };
 
-export const SwipeTransition = ({ children, transitionDirection }) => (
-  <TransitionState>
-    {({ transitionStatus }) => {
-      const height = document.body.scrollHeight || 1;
-      return (
+export const SwipeTransition = ({ children, transitionDirection }) => {
+  const { height } = useWindowDimensions();
+  return (
+    <TransitionState>
+      {({ transitionStatus }) => (
         <motion.div
           variants={SwipeDirection[transitionDirection]}
           initial="exiting"
@@ -43,10 +45,10 @@ export const SwipeTransition = ({ children, transitionDirection }) => (
         >
           {children}
         </motion.div>
-      );
-    }}
-  </TransitionState>
-);
+      )}
+    </TransitionState>
+  );
+};
 
 SwipeTransition.propTypes = {
   children: PropTypes.node.isRequired,
