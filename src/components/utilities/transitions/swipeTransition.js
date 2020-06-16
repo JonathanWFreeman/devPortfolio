@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TransitionState } from 'gatsby-plugin-transition-link';
 import { motion } from 'framer-motion';
-
-import { useDocumentDimensions, useWindowDimensions } from '../hooks';
+import { document } from 'browser-monads';
 
 const SwipeDirection = {
   up: {
@@ -33,12 +32,8 @@ const SwipeDirection = {
 };
 
 export const SwipeTransition = ({ children, transitionDirection }) => {
-  const { scrollHeight } = useDocumentDimensions();
-  // const height = document.body.scrollHeight;
-  // console.log({ scrollHeight });
-  // console.log({ height });
-  console.log(useDocumentDimensions());
-
+  const height = document.body.scrollHeight || 1;
+  console.log(height);
   return (
     <TransitionState>
       {({ transitionStatus }) => (
@@ -46,7 +41,7 @@ export const SwipeTransition = ({ children, transitionDirection }) => {
           variants={SwipeDirection[transitionDirection]}
           initial="exiting"
           animate={transitionStatus}
-          custom={scrollHeight}
+          custom={height}
         >
           {children}
         </motion.div>
