@@ -33,7 +33,6 @@ const SwipeDirection = {
 
 export const SwipeTransition = ({ children, transitionDirection }) => {
   const height = document.body.scrollHeight || 2500;
-  console.log(height);
   return (
     <TransitionState>
       {({ transitionStatus }) => (
