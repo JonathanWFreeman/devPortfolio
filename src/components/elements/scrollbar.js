@@ -59,10 +59,10 @@ const ProgressBar = styled.div`
 `;
 
 const Scrollbar = () => {
-  const [scrollPosition] = useScrollEvent('');
+  const [scrollPosition] = useScrollEvent(0);
   const { height } = useWindowDimensions();
   const totalHeight = document.body.scrollHeight - height;
-  const progressHeight = (scrollPosition / totalHeight) * 100;
+  const progressHeight = (scrollPosition / totalHeight) * 100 || 0;
   return (
     <>
       <ScrollPath />
