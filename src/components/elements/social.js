@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { BackgroundColor, AltColor } from '../../Global';
-import { Above, Transition } from '../utilities';
+import { Above, Transition, isMobile } from '../utilities';
 
 export const SocialWidth = '50px';
 
@@ -83,7 +83,9 @@ function Social({ transitionType, location }) {
       margin-top: -100vh;
       z-index: -1;
     `;
-    transitionDirection = 'up';
+    if (!isMobile()) {
+      transitionDirection = 'up';
+    }
   }
 
   return (
