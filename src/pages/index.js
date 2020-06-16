@@ -62,7 +62,11 @@ const IndexPage = () => (
         {/* <p>Resume | Projects | Contact</p> */}
       </MainContent>
       <SecondaryContent>
-        <Image />
+        <img
+          src="https://res.cloudinary.com/jwfreeman/image/upload/v1/Portfolio/image/jonathan-freeman-img.png"
+          alt="Jonathan Freeman"
+        />
+        {/* <Image /> */}
       </SecondaryContent>
     </HomeContent>
   </Layout>

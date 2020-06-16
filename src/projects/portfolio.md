@@ -2,9 +2,9 @@
 slug: "/portfolio"
 title: "Portfolio"
 description: "A portfolio for displaying my current and recent projects."
-cloud_ref: "placeholderDog"
+cloud_ref: "Portfolio"
 media_type: "image"
-image_desc: "Dog in blanket"
+image_desc: "Portfolio Home Page"
 stack: "Gatsby, Styled Components, Framer Motion, Netlify"
 repo: "https://github.com/JonathanWFreeman/devPortfolio"
 order: 3
