@@ -6,12 +6,6 @@ import { Above, Transition } from '../utilities';
 
 export const SocialWidth = '50px';
 
-// const SocialBar = styled(Social)`
-//   ${Above.small`
-//   margin-top: -100vh;
-//   z-index: -1;`}
-// `;
-
 const SocialBar = styled.aside`
   ${Above.small`
     position: fixed;
@@ -80,14 +74,16 @@ const SocialBar = styled.aside`
   }
 `;
 
-function Social({ transitionType, transitionDirection, location }) {
+function Social({ transitionType, location }) {
   let isProjects;
+  let transitionDirection = 'down';
 
   if (location && location.pathname.includes('projects')) {
     isProjects = `
       margin-top: -100vh;
       z-index: -1;
     `;
+    transitionDirection = 'up';
   }
 
   return (
@@ -136,7 +132,6 @@ function Social({ transitionType, transitionDirection, location }) {
 
 Social.propTypes = {
   transitionType: PropTypes.string,
-  transitionDirection: PropTypes.string,
   location: PropTypes.object,
 };
 

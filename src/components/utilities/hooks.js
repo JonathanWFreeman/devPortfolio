@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { window } from 'browser-monads';
+import { window, document } from 'browser-monads';
 
 export const useScrollEvent = initialState => {
   const [scrollPosition, setScrollPosition] = useState(initialState);
@@ -49,4 +49,23 @@ export function useWindowDimensions() {
   }, []);
 
   return windowDimensions;
+}
+
+function getDocumentDimensions() {
+  const { scrollHeight } = document.body;
+  return {
+    scrollHeight,
+  };
+}
+
+export function useDocumentDimensions() {
+  const [documentDimensions, setDocumentDimensions] = useState(
+    getDocumentDimensions()
+  );
+  console.log(documentDimensions);
+
+  useEffect(() => {
+    setDocumentDimensions(getDocumentDimensions());
+  }, []);
+  return documentDimensions;
 }
