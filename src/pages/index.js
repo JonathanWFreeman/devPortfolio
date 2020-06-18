@@ -62,7 +62,7 @@ const IndexPage = () => (
       </MainContent>
       <SecondaryContent>
         <img
-          src="https://res.cloudinary.com/jwfreeman/image/upload/v1/Portfolio/image/jonathan-freeman-img.png"
+          src="https://res.cloudinary.com/jwfreeman/image/upload/v1/Portfolio/image/jonathan_freeman_img.png"
           alt="Jonathan Freeman"
         />
         {/* <Image /> */}
