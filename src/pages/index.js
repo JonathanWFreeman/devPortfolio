@@ -14,6 +14,7 @@ const HomeContent = styled.article`
   flex-direction: column;
   ${Above.small`
     flex-direction: row;
+    align-items: flex-start;
   `}
 `;
 
@@ -25,6 +26,9 @@ const MainContent = styled.div`
   h2 {
     margin: 0;
   }
+  ${Above.small`
+    margin-top: 5%;
+  `}
 `;
 
 const SecondaryContent = styled.div`
