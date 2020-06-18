@@ -48,14 +48,14 @@ const IndexPage = () => (
         </h3>
         <Fade delay={5}>
           <p>
-            I started my journey as a self taught developer a few years ago.
-            Since then I have worked at a small agency and done some freelance
-            work.
+            I am a self taught developer who is always striving to better
+            myself. I have worked as freelance and with agencies and I am always
+            looking forward to the next opportunity that comes my way!
           </p>
           <p>
             In my free time when I'm not trying to learn something new, I enjoy
             playing video games, watching baseball, baking (mostly bread) and
-            trying to keep my bonsai's alive.
+            trying to keep my bonsais alive.
           </p>
         </Fade>
         {/* <p>Resume | Projects | Contact</p> */}
