@@ -5,6 +5,14 @@ module.exports = {
     author: 'Jonathan Freeman',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-28313388-1',
+        head: true,
+        anonymize: true,
+      },
+    },
     'gatsby-plugin-eslint',
     'gatsby-plugin-react-helmet',
     {
@@ -53,12 +61,6 @@ module.exports = {
       resolve: 'gatsby-plugin-transition-link',
       options: {
         injectPageProps: false,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'UA-28313388-4',
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
