@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
+import { window, document } from 'browser-monads';
 
 export const useScrollEvent = initialState => {
   const [scrollPosition, setScrollPosition] = useState(initialState);
 
+  const setYPosition = () => {
+    setScrollPosition(window.pageYOffset);
+  };
+
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      setScrollPosition(window.pageYOffset);
-    });
+    window.addEventListener('scroll', setYPosition);
+    // cleanup
+    return () => window.removeEventListener('scroll', setYPosition);
   }, []);
   return [scrollPosition];
 };
@@ -21,15 +26,15 @@ export const useGetPath = location => {
   return locationPath;
 };
 
-async function getWindowDimensions() {
-  const { scrollWidth: width, scrollHeight: height } = await document.body;
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
   return {
     width,
     height,
   };
 }
 
-export async function useWindowDimensions() {
+export function useWindowDimensions() {
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions()
   );
@@ -44,4 +49,23 @@ export async function useWindowDimensions() {
   }, []);
 
   return windowDimensions;
+}
+
+function getDocumentDimensions() {
+  const { scrollHeight } = document.body;
+  return {
+    scrollHeight,
+  };
+}
+
+export function useDocumentDimensions() {
+  const [documentDimensions, setDocumentDimensions] = useState(
+    getDocumentDimensions()
+  );
+  console.log(documentDimensions);
+
+  useEffect(() => {
+    setDocumentDimensions(getDocumentDimensions());
+  }, []);
+  return documentDimensions;
 }

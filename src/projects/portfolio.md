@@ -2,9 +2,9 @@
 slug: "/portfolio"
 title: "Portfolio"
 description: "A portfolio for displaying my current and recent projects."
-image_sm: "https://i.picsum.photos/id/1025/400/400.jpg"
-image_cover: "https://i.picsum.photos/id/1025/2000/1000.jpg"
-image_desc: "Dog in blanket"
+cloud_ref: "Portfolio"
+media_type: "image"
+image_desc: "Portfolio Home Page"
 stack: "Gatsby, Styled Components, Framer Motion, Netlify"
 repo: "https://github.com/JonathanWFreeman/devPortfolio"
 order: 3

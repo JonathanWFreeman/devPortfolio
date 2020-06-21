@@ -13,7 +13,7 @@ export function imgCover(media, ref) {
 
 export const CloudImg = ({ img, media, desc }) => (
   <img
-    src={`https://res.cloudinary.com/jwfreeman/video/upload/c_fill,h_400,w_1200/v1/Portfolio/${media}/${img}.jpg`}
+    src={`https://res.cloudinary.com/jwfreeman/${media}/upload/c_fill,h_600,w_1600/v1/Portfolio/${media}/${img}.jpg`}
     alt={desc}
   />
 );
@@ -24,8 +24,8 @@ export const CloudVideo = ({ vid }) => {
     <Video
       cloudName={cloud}
       publicId={cloudinaryCore.url(url)}
-      autoplay="true"
-      loop="true"
+      autoPlay
+      loop
       format="mp4"
     />
   );

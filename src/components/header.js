@@ -4,7 +4,12 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { useScrollEvent, FadeLinkTransition } from './utilities';
+import {
+  useScrollEvent,
+  FadeLinkTransition,
+  Above,
+  useWindowDimensions,
+} from './utilities';
 import {
   SiteWidth,
   BackgroundColor,
@@ -54,12 +59,14 @@ const HeaderLogo = styled.div`
       letter-spacing: -1em;
     }
   }
-  &:hover span:nth-child(even) {
-    letter-spacing: 0;
-  }
-  &:hover span:nth-child(4) {
-    transition-delay: 0.3s;
-  }
+  ${Above.small`
+    &:hover span:nth-child(even) {
+      letter-spacing: 0;
+    }
+    &:hover span:nth-child(4) {
+      transition-delay: 0.3s;
+    }
+  `}
 `;
 
 const Nav = styled.nav`
@@ -90,21 +97,16 @@ const useGetPath = location => {
   useEffect(() => locationPath, [locationPath]);
 };
 
-// TODO:
-// fix so calcs only on project pages
-// context?
-
-const Header = ({ siteTitle, location }) => {
+const Header = ({ location }) => {
   const [scrollPosition] = useScrollEvent('');
-  const maths = 0 + scrollPosition / (window.innerHeight / 1.3);
+  const { height } = useWindowDimensions();
+  const maths = 0 + scrollPosition / (height / 1.3);
 
-  // console.log(maths > 1);
   return (
     <HeaderWrapper maths={maths} location={location.pathname}>
       <HeaderContainer>
         <HeaderLogo>
           <FadeLinkTransition to="/">
-            {/* {siteTitle} */}
             <span>&lt;J</span>
             <span>onathan</span>
             <span>F</span>
@@ -114,7 +116,6 @@ const Header = ({ siteTitle, location }) => {
         </HeaderLogo>
         <Nav>
           <FadeLinkTransition to="/projects">Projects</FadeLinkTransition>
-          <FadeLinkTransition to="/contact">Contact</FadeLinkTransition>
         </Nav>
       </HeaderContainer>
     </HeaderWrapper>
@@ -122,12 +123,10 @@ const Header = ({ siteTitle, location }) => {
 };
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
   location: PropTypes.object,
 };
 
 Header.defaultProps = {
-  siteTitle: ``,
   location: {
     pathname: 'undefined',
   },

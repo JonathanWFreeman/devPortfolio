@@ -3,7 +3,7 @@ export const exitTransition = {
   length: TRANSITION_LENGTH, // Take 1.5 seconds to leave
 
   trigger: () => {
-    console.log(`We are exiting`);
+    // console.log(`We are exiting`);
   },
 };
 
@@ -11,7 +11,7 @@ export const entryTransition = {
   delay: TRANSITION_LENGTH, // Wait 1.5 seconds before entering
 
   trigger: () => {
-    console.log(`We are entering`);
+    // console.log(`We are entering`);
   },
 };
 

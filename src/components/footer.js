@@ -16,6 +16,7 @@ const FooterWrapper = styled.footer`
   `}
   text-align: center;
   grid-area: footer;
+  width: 100vw;
   span {
     white-space: nowrap;
   }
@@ -34,10 +35,18 @@ const Footer = ({ transitionType, transitionDirection }) => (
     >
       <span>
         {'{'}
-        <p>© {new Date().getFullYear()}, Built with</p>
-        <ExLink linkTo="https://www.gatsbyjs.org">Gatsby</ExLink>
+        <p>© {new Date().getFullYear()} Jonathan Freeman</p>
         {'}'}
       </span>
+      {'\n'}
+      <span>
+        {'{'}
+        <p>
+          Built with <ExLink linkTo="https://www.gatsbyjs.org">Gatsby</ExLink>
+        </p>
+        {'}'}
+      </span>
+      {'\n'}
       <span>
         {'{'}
         <p>Font</p>:

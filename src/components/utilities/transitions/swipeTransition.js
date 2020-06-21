@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TransitionState } from 'gatsby-plugin-transition-link';
 import { motion } from 'framer-motion';
+import { document } from 'browser-monads';
 
 const SwipeDirection = {
   up: {
@@ -30,11 +31,11 @@ const SwipeDirection = {
   },
 };
 
-export const SwipeTransition = ({ children, transitionDirection }) => (
-  <TransitionState>
-    {({ transitionStatus }) => {
-      const height = document.body.scrollHeight || 1;
-      return (
+export const SwipeTransition = ({ children, transitionDirection }) => {
+  const height = document.body.scrollHeight || 2500;
+  return (
+    <TransitionState>
+      {({ transitionStatus }) => (
         <motion.div
           variants={SwipeDirection[transitionDirection]}
           initial="exiting"
@@ -43,10 +44,10 @@ export const SwipeTransition = ({ children, transitionDirection }) => (
         >
           {children}
         </motion.div>
-      );
-    }}
-  </TransitionState>
-);
+      )}
+    </TransitionState>
+  );
+};
 
 SwipeTransition.propTypes = {
   children: PropTypes.node,

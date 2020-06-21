@@ -1,10 +1,14 @@
-/* eslint-disable import/no-cycle */
-/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 
-import { useScrollEvent, CloudVideo, imgCover } from '../utilities';
+import {
+  useScrollEvent,
+  CloudVideo,
+  imgCover,
+  isMobile,
+  useWindowDimensions,
+} from '../utilities';
 import {
   BackgroundColor,
   PrimaryColor,
@@ -14,7 +18,7 @@ import {
 
 const Header = styled.header`
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
   background: ${BackgroundColor};
@@ -28,12 +32,13 @@ const Header = styled.header`
     background-blend-mode: multiply;
     ${'' /* background-blend-mode: luminosity; */}
     background-size: cover;
+    background-position: center center;
     .skewed {
       position: absolute;
       bottom: 0;
       right: 0;
-      width: 20%;
-      height: 20%;
+      width: 125px;
+      height: 105px;
       background: ${BackgroundColor};
       transform: skewY(-40deg);
       transform-origin: bottom right;
@@ -53,28 +58,31 @@ const animate = keyframes`
 const Arrow = styled.svg`
   position: absolute;
   z-index: 500;
-  width: 100px;
-  height: 100px;
-  top: 35px;
-  right: 0;
+  width: 50px;
+  height: 50px;
+  top: 20px;
+  right: 5px;
   transform: skewY(40deg);
   animation: ${animate} 5s linear infinite;
 `;
 
 const HeaderBg = ({ bg }) => {
   const [scrollPosition] = useScrollEvent('');
+  const { height } = useWindowDimensions();
 
   return (
     <Header bg={imgCover(bg.media_type, bg.cloud_ref)}>
       <div
         id="bg"
         style={{
-          opacity: 1 - scrollPosition / (window.innerHeight / 1.3),
+          opacity: 1 - scrollPosition / (height / 1.3),
           top: scrollPosition,
           backgroundPositionY: -scrollPosition / 4,
         }}
       >
-        {bg.media_type === 'video' && <CloudVideo vid={bg.cloud_ref} />}
+        {isMobile() === false && bg.media_type === 'video' && (
+          <CloudVideo vid={bg.cloud_ref} />
+        )}
         <span
           className="skewed"
           style={{
@@ -100,7 +108,7 @@ const HeaderBg = ({ bg }) => {
 };
 
 HeaderBg.propTypes = {
-  bg: PropTypes.string,
+  bg: PropTypes.object.isRequired,
 };
 
 export default HeaderBg;

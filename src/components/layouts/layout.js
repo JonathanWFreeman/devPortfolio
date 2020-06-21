@@ -8,7 +8,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
-import styled from 'styled-components';
 
 import Footer from '../footer';
 import Header from '../header';
@@ -22,11 +21,6 @@ import {
 } from '../elements';
 import GlobalStyle from '../../Global';
 import { Transition } from '../utilities';
-
-const SocialBar = styled(Social)`
-  margin-top: -100vh;
-  z-index: -1;
-`;
 
 const Layout = ({
   children,
@@ -46,16 +40,14 @@ const Layout = ({
   `);
   return (
     <>
-      <Transition transitionType="swipe" transitionDirection="up">
-        {bg && <HeaderBg bg={bg} />}
-      </Transition>
+      {bg && (
+        <Transition transitionType="swipe" transitionDirection="up">
+          <HeaderBg bg={bg} />
+        </Transition>
+      )}
       <SiteLayout>
         <Header siteTitle={data.site.siteMetadata.title} location={location} />
-        {location && location.pathname.includes('projects') ? (
-          <SocialBar />
-        ) : (
-          <Social />
-        )}
+        <Social transitionType={transitionType} location={location} />
         <MainWrapper>
           <Transition
             transitionType={transitionType}
@@ -77,7 +69,7 @@ Layout.propTypes = {
   location: PropTypes.object,
   transitionType: PropTypes.string,
   transitionDirection: PropTypes.string,
-  bg: PropTypes.string,
+  bg: PropTypes.object,
 };
 
 export default Layout;
