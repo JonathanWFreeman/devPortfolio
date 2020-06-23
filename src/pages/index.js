@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import Layout from '../components/layouts/layout';
 import Image from '../components/image';
 import SEO from '../components/seo';
-import { Demo } from '../components/threejs';
-import { LetterAnimation, Fade, Above } from '../components/utilities';
+import { Models } from '../components/threejs';
+import {
+  LetterAnimation,
+  Fade,
+  Above,
+  isMobile,
+} from '../components/utilities';
 
 const HomeContent = styled.article`
   display: flex;
@@ -66,7 +71,7 @@ const IndexPage = () => (
         {/* <p>Resume | Projects | Contact</p> */}
       </MainContent>
       <SecondaryContent>
-        <Demo />
+        {!isMobile() && <Models />}
         <img
           src="https://res.cloudinary.com/jwfreeman/image/upload/v1/Portfolio/image/jonathan_freeman_img.png"
           alt="Jonathan Freeman"

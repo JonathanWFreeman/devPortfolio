@@ -1,3 +1,3 @@
-import Demo from './demo';
+import Models from './models';
 
-export { Demo };
+export { Models };

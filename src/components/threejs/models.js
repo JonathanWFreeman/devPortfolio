@@ -1,20 +1,8 @@
-/* eslint-disable no-multi-assign */
-/* eslint-disable no-return-assign */
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useRef, useEffect, Suspense } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import {
-  Canvas,
-  extend,
-  useThree,
-  useFrame,
-  useLoader,
-} from 'react-three-fiber';
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
+import { Canvas, extend, useFrame } from 'react-three-fiber';
 
 extend({ OrbitControls });
 
@@ -36,16 +24,6 @@ function counter() {
 }
 // setInterval(counter, 50);
 
-// async function zoomOut() {
-//   let count = 1;
-
-//   while (count !== 0) {
-//     setInterval(() => {
-//       count -= 0.1;
-//     }, 500);
-//   }
-// }
-
 let gah = 1;
 async function timer() {
   while (true) {
@@ -59,16 +37,13 @@ async function timer() {
 }
 // timer();
 
-function Model({ url, position, rotation, time }) {
+function Model({ url, position, time, rotation }) {
   const [model, setModel] = useState();
-  const [yPos, setYPos] = useState([0, 0, 0]);
+  const [yPos, setYPos] = useState(rotation);
   const mesh = useRef();
-  // const gltf = useLoader(GLTFLoader, url);
-  // const model = gltf.scene;
   let count = 0;
-  let rotPos;
+  let meshY;
   let rotPosY = 0;
-  // console.dir(gltf);
 
   useEffect(() => {
     new GLTFLoader().load(url, setModel);
@@ -79,99 +54,44 @@ function Model({ url, position, rotation, time }) {
     if (count >= 5) {
       count = 0;
     }
-    // console.log(Math.floor(count));
     if (model) {
       // console.log(gah);
       // console.log(counte);
-      rotPosY = mesh.current.rotation.y += 0.005 * time;
+      meshY = mesh.current.rotation.y;
+      rotPosY = meshY + 0.005 * time;
       // mesh.current.scale.x = counte;
       // mesh.current.scale.y = counte;
       // mesh.current.scale.z = counte;
 
       setYPos([0, rotPosY, 0]);
-      rotPos = [0, rotPosY, 0];
       console.log(yPos);
     }
-
-    // time += 0.03;
-    // mesh.current.position.y = position[1] + Math.sin(time) * 0.4;
   });
-  // console.dir(mesh);
   return model ? (
     <primitive
       object={model.scene}
       ref={mesh}
-      // rotation={[0, 7, 0]}
       scale={[1, 1, 1]}
-      // dispose={null}
       position={position}
       rotation={yPos}
-      // rotation={rotation}
-      // visible={false}
     />
   ) : null;
 }
 
-const Controls = () => {
-  const orbitRef = useRef();
-  const { camera, gl } = useThree();
-  useFrame(() => {
-    orbitRef.current.update();
-  });
-
-  return (
-    <orbitControls
-      // autoRotate
-      // autoRotateSpeed={15}
-      enabled={false}
-      // setModel={(50, 50, 50)}
-      // maxPolarAngle={Math.PI / 3}
-      // minPolarAngle={Math.PI / 3}
-      args={[camera, gl.domElement]}
-      ref={orbitRef}
-    />
-  );
-};
-
-const Box = props => {
-  // This reference will give us direct access to the mesh
-  const mesh = useRef();
-
-  // Set up state for the hovered and active state
-  const [hovered, setHover] = useState(false);
-  const [active, setActive] = useState(false);
-
-  // Rotate mesh every frame, this is outside of React without overhead
-  useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.1));
-
-  return (
-    <mesh
-      {...props}
-      ref={mesh}
-      onClick={e => setActive(!active)}
-      onPointerOver={e => setHover(true)}
-      onPointerOut={e => setHover(false)}
-    >
-      <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
-      <meshStandardMaterial
-        attach="material"
-        color={hovered ? 'hotpink' : 'orange'}
-      />
-    </mesh>
-  );
-};
-
-const modelArr = ['/threejs/html5.gltf', '/threejs/css3.gltf'];
+const modelArr = ['/models/html5.gltf', '/models/css3.gltf', '/models/js.gltf'];
 
 let ugh = 0;
 let psh = 0;
+// change to length of array and loop through
 function inOut() {
-  if (ugh > 5) {
+  const len = modelArr.length - 1;
+
+  if (ugh > 6) {
     psh++;
     ugh = 0;
   }
 
-  if (psh > 1) {
+  if (psh > len) {
     psh = 0;
   }
 
@@ -185,17 +105,13 @@ function inOut() {
 }
 setInterval(inOut, 1000);
 
-const Demo = () => {
+const Models = () => {
   const isBrowser = typeof window !== 'undefined';
   const [modState, setModState] = useState(modelArr[0]);
-
-  // const sec = setInterval(timer, 1000);
-  // const mod = setInterval(inOut, 1000);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setModState(inOut);
-      // console.log(modState);
     }, 1000);
 
     return () => clearInterval(interval);
@@ -204,13 +120,7 @@ const Demo = () => {
   return (
     <>
       {isBrowser && (
-        <Canvas
-          camera={{ position: [5, 0, 0] }}
-          // onCreated={({ gl }) => {
-          //   gl.shadowMap.enabled = true;
-          //   gl.shadowMap.type = THREE.PCFSoftShadowMap;
-          // }}
-        >
+        <Canvas camera={{ position: [5, 0, 0] }}>
           {/* <ambientLight intensity={-0.4} /> */}
           {/* <spotLight
               position={[15, 20, 5]}
@@ -236,25 +146,19 @@ const Demo = () => {
               penumbra={2}
               castShadow
             /> */}
-          <Controls />
-          {/* <SpaceShip /> */}
           <Suspense fallback={null}>
             <Model
               url={modState}
               position={[0, 0, 0]}
-              rotation={[0, 5, 0]}
-              time={2}
+              rotation={[0, 1.1, 0]}
+              time={3}
             />
           </Suspense>
-          {/* <Box position={[4, 0, 0]} /> */}
         </Canvas>
       )}
     </>
   );
 };
-
-// TODO:
-// async await fade in out each model
 
 Model.propTypes = {
   url: PropTypes.string,
@@ -263,4 +167,4 @@ Model.propTypes = {
   time: PropTypes.number,
 };
 
-export default Demo;
+export default Models;
