@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import Layout from '../components/layouts/layout';
 import Image from '../components/image';
 import SEO from '../components/seo';
+import { Demo } from '../components/threejs';
 import { LetterAnimation, Fade, Above } from '../components/utilities';
 
 const HomeContent = styled.article`
@@ -65,6 +66,7 @@ const IndexPage = () => (
         {/* <p>Resume | Projects | Contact</p> */}
       </MainContent>
       <SecondaryContent>
+        <Demo />
         <img
           src="https://res.cloudinary.com/jwfreeman/image/upload/v1/Portfolio/image/jonathan_freeman_img.png"
           alt="Jonathan Freeman"

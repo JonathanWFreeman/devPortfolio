@@ -16,11 +16,21 @@ import {
 } from 'react-three-fiber';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 
+const wait = (amount = 0) =>
+  new Promise(resolve => setTimeout(resolve, amount));
+
 const Fade = styled.div`
   opacity: 1;
 `;
 
 extend({ OrbitControls });
+
+function timer() {
+  const date = new Date();
+  const seconds = date.getSeconds();
+  console.log(date.getSeconds());
+  return seconds;
+}
 
 // function Model({ url, position, rotation, time }) {
 //   const [model, setModel] = useState();
@@ -66,15 +76,15 @@ let countup = true;
 function counter() {
   if (countup) {
     counte += 0.02;
-    if (counte >= 1) countup = false;
+    if (counte >= 2) countup = false;
   } else {
     counte -= 0.02;
     if (counte <= 0) countup = true;
   }
-  console.log(counte);
+  // console.log(counte);
   return counte;
 }
-setInterval(counter, 500);
+setInterval(counter, 1000);
 
 function Model({ url, position, rotation, time }) {
   const [model, setModel] = useState();
@@ -96,9 +106,7 @@ function Model({ url, position, rotation, time }) {
     // console.log(Math.floor(count));
     if (model) {
       mesh.current.rotation.y += 0.01 * time;
-    }
 
-    if (model) {
       mesh.current.scale.x = counte;
       mesh.current.scale.y = counte;
       mesh.current.scale.z = counte;
@@ -107,7 +115,7 @@ function Model({ url, position, rotation, time }) {
     // time += 0.03;
     // mesh.current.position.y = position[1] + Math.sin(time) * 0.4;
   });
-  console.dir(mesh);
+  // console.dir(mesh);
   return model ? (
     <primitive
       object={model.scene}
@@ -181,12 +189,48 @@ const Box = props => {
   );
 };
 
+const modelArr = ['/threejs/html5.gltf', '/threejs/css3.gltf'];
+
+let ugh = 0;
+let psh = 0;
+function inOut() {
+  if (ugh > 5) {
+    psh++;
+    ugh = 0;
+  }
+
+  if (psh > 1) {
+    psh = 0;
+  }
+
+  ugh++;
+  const mod = modelArr[psh];
+  // console.log({ ugh });
+  console.log({ psh });
+  // console.log({ mod });
+
+  return mod;
+}
+setInterval(inOut, 1000);
+
 const Demo = () => {
   const isBrowser = typeof window !== 'undefined';
+  const [modState, setModState] = useState(modelArr[0]);
+
+  // const sec = setInterval(timer, 1000);
+  // const mod = setInterval(inOut, 1000);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setModState(inOut);
+      console.log(modState);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [modState]);
 
   return (
     <>
-      <h1>Hello everyone!</h1>
       {isBrowser && (
         <Fade>
           <Canvas
@@ -210,30 +254,24 @@ const Demo = () => {
               castShadow
             /> */}
             <spotLight
-              position={[0, 0, 5]}
+              position={[5, 0, 0]}
               intensity={1}
               penumbra={2}
               castShadow
             />
-            <spotLight
+            {/* <spotLight
               position={[0, 0, -5]}
               intensity={-1}
               penumbra={2}
               castShadow
-            />
+            /> */}
             <Controls />
             {/* <SpaceShip /> */}
             <Suspense fallback={null}>
               <Model
-                url="/threejs/html5.gltf"
+                url={modState}
                 position={[0, 0, 0]}
-                rotation={[0, 1, 0]}
-                time={4}
-              />
-              <Model
-                url="/threejs/css3.gltf"
-                position={[0, 0, 0]}
-                rotation={[0, 3, 0]}
+                rotation={[0, 0, 0]}
                 time={2}
               />
             </Suspense>
