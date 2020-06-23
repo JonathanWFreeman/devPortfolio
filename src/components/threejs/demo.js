@@ -16,82 +16,58 @@ import {
 } from 'react-three-fiber';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 
-const wait = (amount = 0) =>
-  new Promise(resolve => setTimeout(resolve, amount));
-
-const Fade = styled.div`
-  opacity: 1;
-`;
-
 extend({ OrbitControls });
 
-function timer() {
-  const date = new Date();
-  const seconds = date.getSeconds();
-  console.log(date.getSeconds());
-  return seconds;
-}
-
-// function Model({ url, position, rotation, time }) {
-//   const [model, setModel] = useState();
-//   new GLTFLoader().load(url, setModel);
-
-//   const mesh = useRef();
-//   // const gltf = useLoader(GLTFLoader, url);
-//   // const model = gltf.scene;
-//   let count = 0;
-//   // console.dir(gltf);
-//   useEffect(() => {
-//     count += 1;
-//     if (count >= 5) {
-//       count = 0;
-//     }
-//     console.log(Math.floor(count));
-//     if (model) {
-//       mesh.current.rotation._y += 0.01 * time;
-//     }
-
-//     // time += 0.03;
-//     // mesh.current.position.y = position[1] + Math.sin(time) * 0.4;
-//   });
-
-//   console.dir(mesh);
-
-//   return model ? (
-//     <primitive
-//       object={model.scene}
-//       ref={mesh}
-//       // rotation={[0, 0, 0]}
-//       scale={[1, 1, 1]}
-//       // dispose={null}
-//       position={position}
-//       rotation={rotation}
-//       // visible={false}
-//     />
-//   ) : null;
-// }
+const wait = (amount = 0) =>
+  new Promise(resolve => setTimeout(resolve, amount));
 
 let counte = 0;
 let countup = true;
 function counter() {
   if (countup) {
-    counte += 0.02;
-    if (counte >= 2) countup = false;
+    counte += 0.1;
+    if (counte >= 1) countup = false;
   } else {
-    counte -= 0.02;
+    counte -= 0.1;
     if (counte <= 0) countup = true;
   }
   // console.log(counte);
   return counte;
 }
-setInterval(counter, 1000);
+// setInterval(counter, 50);
+
+// async function zoomOut() {
+//   let count = 1;
+
+//   while (count !== 0) {
+//     setInterval(() => {
+//       count -= 0.1;
+//     }, 500);
+//   }
+// }
+
+let gah = 1;
+async function timer() {
+  while (true) {
+    gah = 1;
+    // console.log(gah);
+    await wait(5000);
+    // await zoomOut();
+    await wait(5000);
+    // console.log(gah);
+  }
+}
+// timer();
 
 function Model({ url, position, rotation, time }) {
   const [model, setModel] = useState();
+  const [yPos, setYPos] = useState([0, 0, 0]);
   const mesh = useRef();
   // const gltf = useLoader(GLTFLoader, url);
   // const model = gltf.scene;
   let count = 0;
+  let rotPos;
+  let rotPosY = 0;
   // console.dir(gltf);
 
   useEffect(() => {
@@ -105,11 +81,16 @@ function Model({ url, position, rotation, time }) {
     }
     // console.log(Math.floor(count));
     if (model) {
-      mesh.current.rotation.y += 0.01 * time;
+      // console.log(gah);
+      // console.log(counte);
+      rotPosY = mesh.current.rotation.y += 0.005 * time;
+      // mesh.current.scale.x = counte;
+      // mesh.current.scale.y = counte;
+      // mesh.current.scale.z = counte;
 
-      mesh.current.scale.x = counte;
-      mesh.current.scale.y = counte;
-      mesh.current.scale.z = counte;
+      setYPos([0, rotPosY, 0]);
+      rotPos = [0, rotPosY, 0];
+      console.log(yPos);
     }
 
     // time += 0.03;
@@ -120,25 +101,16 @@ function Model({ url, position, rotation, time }) {
     <primitive
       object={model.scene}
       ref={mesh}
-      // rotation={[0, 0, 0]}
+      // rotation={[0, 7, 0]}
       scale={[1, 1, 1]}
       // dispose={null}
       position={position}
-      rotation={rotation}
+      rotation={yPos}
+      // rotation={rotation}
       // visible={false}
     />
   ) : null;
 }
-
-// const Model = ({ url }) => {
-//   const [model, setModel] = useState();
-//   console.log(url);
-//   useEffect(() => {
-//     new GLTFLoader().load(url, setModel);
-//   }, [url]);
-
-//   return model ? <primitive object={model.scene} /> : null;
-// };
 
 const Controls = () => {
   const orbitRef = useRef();
@@ -206,7 +178,7 @@ function inOut() {
   ugh++;
   const mod = modelArr[psh];
   // console.log({ ugh });
-  console.log({ psh });
+  // console.log({ psh });
   // console.log({ mod });
 
   return mod;
@@ -223,7 +195,7 @@ const Demo = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setModState(inOut);
-      console.log(modState);
+      // console.log(modState);
     }, 1000);
 
     return () => clearInterval(interval);
@@ -232,16 +204,15 @@ const Demo = () => {
   return (
     <>
       {isBrowser && (
-        <Fade>
-          <Canvas
-            camera={{ position: [5, 0, 0] }}
-            // onCreated={({ gl }) => {
-            //   gl.shadowMap.enabled = true;
-            //   gl.shadowMap.type = THREE.PCFSoftShadowMap;
-            // }}
-          >
-            {/* <ambientLight intensity={-0.4} /> */}
-            {/* <spotLight
+        <Canvas
+          camera={{ position: [5, 0, 0] }}
+          // onCreated={({ gl }) => {
+          //   gl.shadowMap.enabled = true;
+          //   gl.shadowMap.type = THREE.PCFSoftShadowMap;
+          // }}
+        >
+          {/* <ambientLight intensity={-0.4} /> */}
+          {/* <spotLight
               position={[15, 20, 5]}
               penumbra={1}
               intensity={2}
@@ -253,31 +224,30 @@ const Demo = () => {
               penumbra={1}
               castShadow
             /> */}
-            <spotLight
-              position={[5, 0, 0]}
-              intensity={1}
-              penumbra={2}
-              castShadow
-            />
-            {/* <spotLight
+          <spotLight
+            position={[5, 0, 0]}
+            intensity={1}
+            penumbra={2}
+            castShadow
+          />
+          {/* <spotLight
               position={[0, 0, -5]}
               intensity={-1}
               penumbra={2}
               castShadow
             /> */}
-            <Controls />
-            {/* <SpaceShip /> */}
-            <Suspense fallback={null}>
-              <Model
-                url={modState}
-                position={[0, 0, 0]}
-                rotation={[0, 0, 0]}
-                time={2}
-              />
-            </Suspense>
-            {/* <Box position={[4, 0, 0]} /> */}
-          </Canvas>
-        </Fade>
+          <Controls />
+          {/* <SpaceShip /> */}
+          <Suspense fallback={null}>
+            <Model
+              url={modState}
+              position={[0, 0, 0]}
+              rotation={[0, 5, 0]}
+              time={2}
+            />
+          </Suspense>
+          {/* <Box position={[4, 0, 0]} /> */}
+        </Canvas>
       )}
     </>
   );
