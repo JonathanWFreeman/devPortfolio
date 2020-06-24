@@ -12,7 +12,7 @@ export function isMobile() {
 
 const size = {
   small: 600,
-  med: 960,
+  medium: 960,
   large: 1140,
 };
 

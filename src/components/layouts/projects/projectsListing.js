@@ -62,12 +62,12 @@ const GlowTitle = styled.h2`
   position: ${({ position }) => position || 'relative'};
   text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 10px ${SecondaryColor},
     0 0 20px ${SecondaryColor}, 0 0 30px ${SecondaryColor};
-  ${Above.med`
+  ${Above.medium`
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
         `}
-  ${Below.med`
+  ${Below.medium`
           font-size: 2em;
           line-height: 1.15;
           text-align: center;
@@ -93,14 +93,14 @@ const Card = styled.div`
       position: relative;
       overflow: hidden;
       .innerTopContent {
-        ${Above.med`
+        ${Above.medium`
           display: block;
         `}
-        ${Below.med`
+        ${Below.medium`
           display: none;
         `}
         .innerTopDescription {
-          ${Above.med`
+          ${Above.medium`
             transition: 0.5s;
             position: absolute;
             transform: translate(-50%, 50%);
@@ -117,10 +117,10 @@ const Card = styled.div`
     }
   }
   .cardBottom {
-    ${Above.med`
+    ${Above.medium`
       display:none
     `}
-    ${Below.med`
+    ${Below.medium`
       display: flex;
     `}
     justify-content: center;
@@ -128,7 +128,7 @@ const Card = styled.div`
     transition: 0.5s;
     position: relative;
     z-index: 0;
-    ${Above.med`
+    ${Above.medium`
       ${'' /* transform: translateY(-160px); */}
       ${'' /* margin-top: -245px; */}
     `}
@@ -174,7 +174,7 @@ const Card = styled.div`
     .cardTop {
       ${'' /* transform: translateY(0); */}
       .cardContent {
-        ${Above.med`
+        ${Above.medium`
           img {
             opacity: 0.2;
           }

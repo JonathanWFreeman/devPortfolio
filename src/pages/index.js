@@ -18,8 +18,11 @@ const HomeContent = styled.article`
   align-items: center;
   height: 100%;
   flex-direction: column;
-  ${Above.small`
+  ${Above.medium`
     flex-direction: row;
+    align-items: center;
+  `}
+  ${Above.large`
     align-items: flex-start;
   `}
 `;
@@ -71,7 +74,7 @@ const IndexPage = () => (
         {/* <p>Resume | Projects | Contact</p> */}
       </MainContent>
       <SecondaryContent>
-        {!isMobile() && <Models />}
+        {!isMobile() && <Models style={{ position: 'absolute' }} />}
         <img
           src="https://res.cloudinary.com/jwfreeman/image/upload/v1/Portfolio/image/jonathan_freeman_img.png"
           alt="Jonathan Freeman"

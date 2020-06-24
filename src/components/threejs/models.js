@@ -120,32 +120,23 @@ const Models = () => {
   return (
     <>
       {isBrowser && (
-        <Canvas camera={{ position: [5, 0, 0] }}>
-          {/* <ambientLight intensity={-0.4} /> */}
-          {/* <spotLight
-              position={[15, 20, 5]}
-              penumbra={1}
-              intensity={2}
-              castShadow
-            />
-            <spotLight
-              position={[-15, -20, -5]}
-              intensity={-1}
-              penumbra={1}
-              castShadow
-            /> */}
+        <Canvas
+          style={{ height: `25vh`, position: 'absolute' }}
+          camera={{ position: [5, 0, 0] }}
+        >
+          <ambientLight intensity={0.2} />
           <spotLight
-            position={[5, 0, 0]}
+            position={[-10, 4, 20]}
             intensity={1}
-            penumbra={2}
+            penumbra={1}
             castShadow
           />
-          {/* <spotLight
-              position={[0, 0, -5]}
-              intensity={-1}
-              penumbra={2}
-              castShadow
-            /> */}
+          <spotLight
+            position={[15, -8, 0]}
+            intensity={1}
+            penumbra={1}
+            castShadow
+          />
           <Suspense fallback={null}>
             <Model
               url={modState}
