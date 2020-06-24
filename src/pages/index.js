@@ -46,6 +46,18 @@ const SecondaryContent = styled.div`
   position: relative;
 `;
 
+const CanvasModel = styled.div`
+  position: absolute;
+  height: 50%;
+  width: 20%;
+  ${'' /* height: 60vh;
+  width: 50vw;
+  top: 10vh;
+  left: 40vw;
+  z-index: -10;
+  opacity: 50%; */}
+`;
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
@@ -75,7 +87,11 @@ const IndexPage = () => (
         {/* <p>Resume | Projects | Contact</p> */}
       </MainContent>
       <SecondaryContent>
-        {!isMobile() && <Models style={{ position: 'absolute' }} />}
+        {!isMobile() && (
+          <CanvasModel>
+            <Models />
+          </CanvasModel>
+        )}
         {/* <img
           src="https://res.cloudinary.com/jwfreeman/image/upload/v1/Portfolio/image/jonathan_freeman_img.png"
           alt="Jonathan Freeman"
