@@ -29,7 +29,7 @@ const HomeContent = styled.article`
 
 const MainContent = styled.div`
   width: 100%;
-  flex: 1 1 66%;
+  flex: 1 1 50%;
   padding-right: 2%;
   h1,
   h2 {
@@ -43,6 +43,7 @@ const MainContent = styled.div`
 const SecondaryContent = styled.div`
   width: 100%;
   flex: 1 1 33%;
+  position: relative;
 `;
 
 const IndexPage = () => (
@@ -75,11 +76,11 @@ const IndexPage = () => (
       </MainContent>
       <SecondaryContent>
         {!isMobile() && <Models style={{ position: 'absolute' }} />}
-        <img
+        {/* <img
           src="https://res.cloudinary.com/jwfreeman/image/upload/v1/Portfolio/image/jonathan_freeman_img.png"
           alt="Jonathan Freeman"
-        />
-        {/* <Image /> */}
+        /> */}
+        <Image />
       </SecondaryContent>
     </HomeContent>
   </Layout>

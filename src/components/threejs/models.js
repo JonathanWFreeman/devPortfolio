@@ -1,10 +1,23 @@
 import React, { useState, useRef, useEffect, Suspense } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Canvas, extend, useFrame } from 'react-three-fiber';
 
 extend({ OrbitControls });
+
+const CanvasModel = styled.div`
+  position: absolute;
+  height: 50%;
+  width: 20%;
+  ${'' /* height: 60vh;
+  width: 50vw;
+  top: 10vh;
+  left: 40vw;
+  z-index: -10;
+  opacity: 50%; */}
+`;
 
 const wait = (amount = 0) =>
   new Promise(resolve => setTimeout(resolve, amount));
@@ -120,32 +133,31 @@ const Models = () => {
   return (
     <>
       {isBrowser && (
-        <Canvas
-          style={{ height: `25vh`, position: 'absolute' }}
-          camera={{ position: [5, 0, 0] }}
-        >
-          <ambientLight intensity={0.2} />
-          <spotLight
-            position={[-10, 4, 20]}
-            intensity={1}
-            penumbra={1}
-            castShadow
-          />
-          <spotLight
-            position={[15, -8, 0]}
-            intensity={1}
-            penumbra={1}
-            castShadow
-          />
-          <Suspense fallback={null}>
-            <Model
-              url={modState}
-              position={[0, 0, 0]}
-              rotation={[0, 1.1, 0]}
-              time={3}
+        <CanvasModel>
+          <Canvas camera={{ position: [5, 0, 0] }}>
+            <ambientLight intensity={0.2} />
+            <spotLight
+              position={[-10, 4, 20]}
+              intensity={1}
+              penumbra={1}
+              castShadow
             />
-          </Suspense>
-        </Canvas>
+            <spotLight
+              position={[15, -8, 0]}
+              intensity={1}
+              penumbra={1}
+              castShadow
+            />
+            <Suspense fallback={null}>
+              <Model
+                url={modState}
+                position={[0, 0, 0]}
+                rotation={[0, 1.1, 0]}
+                time={3}
+              />
+            </Suspense>
+          </Canvas>
+        </CanvasModel>
       )}
     </>
   );
