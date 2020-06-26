@@ -6,37 +6,6 @@ import { Canvas, extend, useFrame } from 'react-three-fiber';
 
 extend({ OrbitControls });
 
-const wait = (amount = 0) =>
-  new Promise(resolve => setTimeout(resolve, amount));
-
-let counte = 0;
-let countup = true;
-function counter() {
-  if (countup) {
-    counte += 0.1;
-    if (counte >= 1) countup = false;
-  } else {
-    counte -= 0.1;
-    if (counte <= 0) countup = true;
-  }
-  // console.log(counte);
-  return counte;
-}
-// setInterval(counter, 50);
-
-let gah = 1;
-async function timer() {
-  while (true) {
-    gah = 1;
-    // console.log(gah);
-    await wait(5000);
-    // await zoomOut();
-    await wait(5000);
-    // console.log(gah);
-  }
-}
-// timer();
-
 function Model({ url, position, time, rotation }) {
   const [model, setModel] = useState();
   const [yPos, setYPos] = useState(rotation);
@@ -55,16 +24,10 @@ function Model({ url, position, time, rotation }) {
       count = 0;
     }
     if (model) {
-      // console.log(gah);
-      // console.log(counte);
       meshY = mesh.current.rotation.y;
       rotPosY = meshY + 0.005 * time;
-      // mesh.current.scale.x = counte;
-      // mesh.current.scale.y = counte;
-      // mesh.current.scale.z = counte;
 
       setYPos([0, rotPosY, 0]);
-      console.log(yPos);
     }
   });
   return model ? (
@@ -80,39 +43,28 @@ function Model({ url, position, time, rotation }) {
 
 const modelArr = ['/models/html5.gltf', '/models/css3.gltf', '/models/js.gltf'];
 
-let ugh = 0;
-let psh = 0;
-// change to length of array and loop through
-function inOut() {
+let arrNum = 0;
+function cycleModel() {
   const len = modelArr.length - 1;
 
-  if (ugh > 6) {
-    psh++;
-    ugh = 0;
+  arrNum++;
+
+  if (arrNum > len) {
+    arrNum = 0;
   }
 
-  if (psh > len) {
-    psh = 0;
-  }
-
-  ugh++;
-  const mod = modelArr[psh];
-  // console.log({ ugh });
-  // console.log({ psh });
-  // console.log({ mod });
-
-  return mod;
+  return modelArr[arrNum];
 }
-setInterval(inOut, 1000);
 
 const Models = () => {
   const isBrowser = typeof window !== 'undefined';
   const [modState, setModState] = useState(modelArr[0]);
+  const rotationTime = 3.26;
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setModState(inOut);
-    }, 1000);
+      setModState(cycleModel);
+    }, rotationTime * 1000);
 
     return () => clearInterval(interval);
   }, [modState]);
@@ -138,8 +90,8 @@ const Models = () => {
             <Model
               url={modState}
               position={[0, 0, 0]}
-              rotation={[0, 1.1, 0]}
-              time={3}
+              rotation={[0, 1.4, 0]}
+              time={rotationTime}
             />
           </Suspense>
         </Canvas>
