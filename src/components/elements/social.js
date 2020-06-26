@@ -28,8 +28,8 @@ const SocialBar = styled.aside`
     `}
   }
   a {
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
     transition: 0.5s;
     ${Above.small`
       margin: 10px 0;
