@@ -13,7 +13,6 @@ const SocialBar = styled.aside`
     flex-direction: column;
     width: ${SocialWidth};
     align-items: center;
-    ${'' /* margin-top: ${({ isProjects }) => `-100vh`} */}
     ${({ isProjects }) => isProjects}
   `}
   display: flex;
