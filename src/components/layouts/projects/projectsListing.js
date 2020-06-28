@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { useProjectsQuery, Above, Below, CloudImg } from '../../utilities';
+import {
+  useProjectsQuery,
+  Above,
+  Below,
+  PortfolioImages,
+} from '../../utilities';
 import {
   BackgroundColor,
   PrimaryColor,
@@ -213,7 +218,7 @@ const ProjectsListing = () => {
           <div className="cardTop">
             <BorderWrapper>
               <div className="cardContent">
-                <CloudImg
+                <PortfolioImages
                   img={node.frontmatter.cloud_ref}
                   media={node.frontmatter.media_type}
                   desc={node.frontmatter.image_desc}

@@ -6,10 +6,7 @@ import { Above, Transition } from './utilities';
 import { ExLink } from './elements';
 
 const FooterWrapper = styled.footer`
-  ${'' /* max-width: ${SiteWidth}; */}
-  ${'' /* margin: 25px auto 0; */}
-  ${'' /* text-align: center; */}
-  ${'' /* padding: 25px 0; */}
+  z-index: 1;
   ${Above.small`
   display: flex;
   justify-content: center;

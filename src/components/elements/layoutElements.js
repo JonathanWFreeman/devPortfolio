@@ -39,5 +39,4 @@ export const ContentWrapper = styled.section`
 export const MainWrapper = styled.main`
   min-height: 80vh;
   grid-area: main;
-  ${'' /* margin: 8vh 0; */}
 `;
