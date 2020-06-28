@@ -219,7 +219,7 @@ const ProjectsListing = () => {
             <BorderWrapper>
               <div className="cardContent">
                 <PortfolioImages
-                  img={node.frontmatter.cloud_ref}
+                  src={node.frontmatter.cloud_ref}
                   media={node.frontmatter.media_type}
                   desc={node.frontmatter.image_desc}
                 />

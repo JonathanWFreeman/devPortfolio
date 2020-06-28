@@ -10,7 +10,7 @@ import {
   Fade,
   Above,
   Below,
-  CloudImage,
+  SelfImage,
 } from '../components/utilities';
 import { PhotoBorder } from '../components/elements';
 
@@ -86,7 +86,7 @@ const IndexPage = () => (
         <CanvasModel>
           <Models />
         </CanvasModel>
-        <CloudImage />
+        <SelfImage src="jonathan_freeman_img_jo59mg" media="image" ext="png" />
         {/* <Image /> */}
         <PhotoBorder />
       </SecondaryContent>

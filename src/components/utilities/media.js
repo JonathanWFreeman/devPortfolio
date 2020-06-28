@@ -9,14 +9,13 @@ import { isMobile } from './breakpoints';
 const cloud = 'jwfreeman';
 const cloudinaryCore = new cloudinary.Cloudinary({ cloud_name: cloud });
 
-export function imgCover(media, ref) {
-  // let target = bool ? (target = 'video') : (target = 'image');
-  return `https://res.cloudinary.com/jwfreeman/${media}/upload/Portfolio/${media}/${ref}.jpg`;
+export function imgCover(media, src) {
+  return `https://res.cloudinary.com/jwfreeman/${media}/upload/Portfolio/${media}/${src}.jpg`;
 }
 
-export const PortfolioImages = ({ img, media, desc }) => (
+export const PortfolioImages = ({ src, media, desc }) => (
   <img
-    src={`https://res.cloudinary.com/jwfreeman/${media}/upload/c_fill,h_600,w_1600/v1/Portfolio/${media}/${img}.jpg`}
+    src={`https://res.cloudinary.com/jwfreeman/${media}/upload/c_fill,h_600,w_1600/v1/Portfolio/${media}/${src}.jpg`}
     alt={desc}
   />
 );
@@ -34,9 +33,10 @@ export const CloudVideo = ({ vid }) => {
   );
 };
 
-export const CloudImage = ({ img }) => {
+export const SelfImage = ({ src }) => {
   const [mousePos, setMousePos] = useState({ x: 500, y: 500 });
   const mousePosition = useMousePosition();
+  const url = `https://res.cloudinary.com/jwfreeman/image/upload/v1/Portfolio/image/${src}.png`;
 
   useEffect(() => {
     if (!isMobile()) {
@@ -46,8 +46,7 @@ export const CloudImage = ({ img }) => {
 
   return (
     <img
-      // src="https://res.cloudinary.com/jwfreeman/image/upload/v1/Portfolio/image/jonathan_freeman_img.png"
-      src="https://res.cloudinary.com/jwfreeman/image/upload/v1593205662/Portfolio/image/jonathan_freeman_img_jo59mg.png"
+      src={url}
       alt="Jonathan Freeman"
       css={`
         filter: drop-shadow(${mousePos.x / 100}px ${mousePos.y / 100}px 2px red)
@@ -60,12 +59,12 @@ export const CloudImage = ({ img }) => {
   );
 };
 
-CloudImage.propTypes = {
-  img: PropTypes.string.isRequired,
+SelfImage.propTypes = {
+  src: PropTypes.string.isRequired,
 };
 
 PortfolioImages.propTypes = {
-  img: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
   media: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
 };
