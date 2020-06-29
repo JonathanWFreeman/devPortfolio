@@ -6,11 +6,13 @@ import { motion } from 'framer-motion';
 
 import { entryTransition, exitTransition } from './transitions';
 
+const TRANSITION_LENGTH = '1s';
+
 const Fade = {
-  exiting: { opacity: 0 },
-  exited: { opacity: 0 },
-  entering: { opacity: 1 },
-  entered: { opacity: 1 },
+  exiting: { opacity: 0, transitionDuration: TRANSITION_LENGTH },
+  exited: { opacity: 0, transitionDuration: TRANSITION_LENGTH },
+  entering: { opacity: 1, transitionDuration: TRANSITION_LENGTH },
+  entered: { opacity: 1, transitionDuration: TRANSITION_LENGTH },
 };
 
 // In a component that wraps your page contents

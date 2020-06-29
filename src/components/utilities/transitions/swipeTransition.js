@@ -4,30 +4,44 @@ import { TransitionState } from 'gatsby-plugin-transition-link';
 import { motion } from 'framer-motion';
 import { document } from 'browser-monads';
 
+const TRANSITION_LENGTH = '1s';
+
 const SwipeDirection = {
   up: {
     exiting: custom => ({
       transform: `translate(0, -${custom}px)`,
-      transitionDuration: '1s',
+      transitionDuration: TRANSITION_LENGTH,
     }),
     exited: custom => ({
       transform: `translate(0, -${custom}px)`,
-      transitionDuration: '1s',
+      transitionDuration: TRANSITION_LENGTH,
     }),
-    entering: { transform: 'translate(0, 0%)', transitionDuration: '1s' },
-    entered: { transform: 'translate(0, 0%)', transitionDuration: '1s' },
+    entering: {
+      transform: 'translate(0, 0%)',
+      transitionDuration: TRANSITION_LENGTH,
+    },
+    entered: {
+      transform: 'translate(0, 0%)',
+      transitionDuration: TRANSITION_LENGTH,
+    },
   },
   down: {
     exiting: custom => ({
       transform: `translate(0, ${custom}px)`,
-      transitionDuration: '1s',
+      transitionDuration: TRANSITION_LENGTH,
     }),
     exited: custom => ({
       transform: `translate(0, ${custom}px)`,
-      transitionDuration: '1s',
+      transitionDuration: TRANSITION_LENGTH,
     }),
-    entering: { transform: 'translate(0, 0%)', transitionDuration: '1s' },
-    entered: { transform: 'translate(0, 0%)', transitionDuration: '1s' },
+    entering: {
+      transform: 'translate(0, 0%)',
+      transitionDuration: TRANSITION_LENGTH,
+    },
+    entered: {
+      transform: 'translate(0, 0%)',
+      transitionDuration: TRANSITION_LENGTH,
+    },
   },
 };
 
