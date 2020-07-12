@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
+import { Above } from './components/utilities';
 import 'victormono';
 
 export const SiteWidth = '80vw';
@@ -33,7 +34,9 @@ body{
   font-family: 'Victor Mono', monospace;
   background-color: ${BackgroundColor};
   color: #FFF;
-  font-size: 1.3rem;
+  ${Above.small`
+    font-size: 1.3rem;
+  `}
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
