@@ -7,7 +7,7 @@ media_type: "video"
 image_desc: "Queue Demo"
 stack: "React, CSS, Firebase"
 repo: "https://github.com/JonathanWFreeman/queue"
-demo: "https://quicktv.exe.rocks"
+demo: "https://queue.jonathanfreeman.dev/"
 order: 2
 ---
 

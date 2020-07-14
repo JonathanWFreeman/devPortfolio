@@ -7,7 +7,7 @@ media_type: "video"
 image_desc: "QuickTV Demo"
 stack: "HTML, CSS, JavaScript, Netlify"
 repo: "https://github.com/JonathanWFreeman/tvFeed"
-demo: "https://quicktv.exe.rocks"
+demo: "https://quicktv.jonathanfreeman.dev"
 order: 1
 ---
 
