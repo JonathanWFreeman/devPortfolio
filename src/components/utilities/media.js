@@ -15,7 +15,7 @@ export function imgCover(media, src) {
 
 export const PortfolioImages = ({ src, media, desc }) => (
   <img
-    src={`https://res.cloudinary.com/jwfreeman/${media}/upload/c_fill,h_600,w_1600/v1/Portfolio/${media}/${src}.jpg`}
+    src={`https://res.cloudinary.com/jwfreeman/${media}/upload/c_fill,h_600,w_1600/Portfolio/${media}/${src}.jpg`}
     alt={desc}
   />
 );
