@@ -8,7 +8,7 @@ image_desc: "Queue Demo"
 stack: "React, CSS, Firebase"
 repo: "https://github.com/JonathanWFreeman/queue"
 demo: "https://queue.jonathanfreeman.dev/"
-order: 2
+order: 3
 ---
 
 ## Summary

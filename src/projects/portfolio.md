@@ -7,7 +7,7 @@ media_type: "image"
 image_desc: "Portfolio Home Page"
 stack: "Gatsby, Styled Components, Framer Motion, React Three Fiber (ThreeJS) Netlify"
 repo: "https://github.com/JonathanWFreeman/devPortfolio"
-order: 3
+order: 4
 ---
 
 ## Purpose and Goal

@@ -8,7 +8,7 @@ image_desc: "QuickTV Demo"
 stack: "HTML, CSS, JavaScript, Netlify"
 repo: "https://github.com/JonathanWFreeman/tvFeed"
 demo: "https://quicktv.jonathanfreeman.dev"
-order: 1
+order: 2
 ---
 
 ## Purpose and Goal
