@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { BackgroundColor, AltColor } from '../../Global';
 import { Above, Transition, isMobile } from '../utilities';
 
 export const SocialWidth = '50px';
+
+const fadeIn = keyframes`
+  0%{opacity: 0}
+  75%{opacity: 0}
+  100%{opacity: 1}
+`;
 
 const SocialBar = styled.aside`
   ${Above.small`
@@ -75,20 +81,17 @@ const SocialBar = styled.aside`
 
 function Social({ transitionType, location }) {
   let isProjects;
-  let transitionDirection = 'down';
+  const transitionDirection = 'down';
 
   if (location && location.pathname.includes('projects')) {
-    isProjects = `
+    isProjects = css`
       margin-top: -100vh;
-      z-index: -1;
+      animation: ${fadeIn} 2s linear;
     `;
-    if (!isMobile()) {
-      transitionDirection = 'up';
-    }
   }
 
   return (
-    <SocialBar isProjects={isProjects}>
+    <SocialBar css={isProjects}>
       <Transition
         transitionType={transitionType}
         transitionDirection={transitionDirection}
