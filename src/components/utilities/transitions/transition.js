@@ -12,6 +12,7 @@ const Transition = ({ children, transitionType, transitionDirection }) => {
           {children}
         </SwipeTransition>
       );
+    // return fade by default
     default:
       return <FadeTransition>{children}</FadeTransition>;
   }
