@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 // Add staggering effect to the children of the container
 const containerVariants = {
   before: {},
-  after: custom => ({
+  after: (custom) => ({
     transition: {
       delayChildren: custom,
       staggerChildren: 0.05,

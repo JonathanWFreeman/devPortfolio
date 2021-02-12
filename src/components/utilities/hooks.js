@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { window, document } from 'browser-monads';
 
-export const useScrollEvent = initialState => {
+export const useScrollEvent = (initialState) => {
   const [scrollPosition, setScrollPosition] = useState(initialState);
 
   const setYPosition = () => {
@@ -16,7 +16,7 @@ export const useScrollEvent = initialState => {
   return [scrollPosition];
 };
 
-export const useGetPath = location => {
+export const useGetPath = (location) => {
   const [locationPath, setLocationPath] = useState('');
 
   const regex = /^(\/[^\\/]+)/gm;
@@ -74,7 +74,7 @@ export const useMousePosition = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const setFromEvent = e => setPosition({ x: e.clientX, y: e.clientY });
+    const setFromEvent = (e) => setPosition({ x: e.clientX, y: e.clientY });
     window.addEventListener('mousemove', setFromEvent);
 
     return () => {

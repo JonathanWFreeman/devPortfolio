@@ -8,11 +8,11 @@ const TRANSITION_LENGTH = '1s';
 
 const SwipeDirection = {
   up: {
-    exiting: custom => ({
+    exiting: (custom) => ({
       transform: `translate(0, -${custom}px)`,
       transitionDuration: TRANSITION_LENGTH,
     }),
-    exited: custom => ({
+    exited: (custom) => ({
       transform: `translate(0, -${custom}px)`,
       transitionDuration: TRANSITION_LENGTH,
     }),
@@ -26,11 +26,11 @@ const SwipeDirection = {
     },
   },
   down: {
-    exiting: custom => ({
+    exiting: (custom) => ({
       transform: `translate(0, ${custom}px)`,
       transitionDuration: TRANSITION_LENGTH,
     }),
-    exited: custom => ({
+    exited: (custom) => ({
       transform: `translate(0, ${custom}px)`,
       transitionDuration: TRANSITION_LENGTH,
     }),

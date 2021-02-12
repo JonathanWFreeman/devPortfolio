@@ -84,11 +84,11 @@ const Nav = styled.nav`
   }
 `;
 
-const StyledLink = styled(props => <Link {...props} />)`
+const StyledLink = styled((props) => <Link {...props} />)`
   border: none;
 `;
 
-const useGetPath = location => {
+const useGetPath = (location) => {
   const [locationPath, setLocationPath] = useState('');
   const regex = /^(\/[^\\/]+)/gm;
   const pathName = location.pathname;

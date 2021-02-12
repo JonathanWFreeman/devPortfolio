@@ -7,7 +7,7 @@ const ProjectsArchive = () => {
   const { edges } = useProjectsQuery();
   return (
     <aside>
-      {edges.map(edge => (
+      {edges.map((edge) => (
         <Link
           to={`/projects${edge.node.frontmatter.slug}`}
           key={edge.node.frontmatter.slug}
