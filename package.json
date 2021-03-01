@@ -31,7 +31,7 @@
     "react-three-fiber": "^4.2.21",
     "styled-components": "^5.2.0",
     "styled-normalize": "^8.0.7",
-    "three": "^0.116.1",
+    "three": "^0.125.0",
     "victormono": "^1.4.1"
   },
   "devDependencies": {
