@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Video } from 'cloudinary-react';
 import cloudinary from 'cloudinary-core';
 
+import { useStaticQuery, graphql } from 'gatsby';
 import { useMousePosition } from './hooks';
 import { isMobile } from './breakpoints';
 
@@ -34,8 +35,23 @@ export const CloudVideo = ({ vid }) => {
 };
 
 export const SelfImage = ({ src }) => {
+  // const data = useStaticQuery(graphql`
+  //   query MyQuery {
+  //     photo: allCloudinaryMedia {
+  //       edges {
+  //         node {
+  //           secure_url
+  //           resource_type
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
+  // const img = data.photo.edges[1].node.secure_url;
+
   const [mousePos, setMousePos] = useState({ x: 500, y: 500 });
   const mousePosition = useMousePosition();
+  // const url = img;
   const url = `https://res.cloudinary.com/jwfreeman/image/upload/v1/Portfolio/image/${src}.png`;
 
   useEffect(() => {
