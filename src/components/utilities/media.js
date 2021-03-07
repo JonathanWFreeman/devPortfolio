@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { StaticImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import { Video } from 'cloudinary-react';
 import cloudinary from 'cloudinary-core';
@@ -33,10 +34,10 @@ export const CloudVideo = ({ vid }) => {
   );
 };
 
-export const SelfImage = ({ src }) => {
+export const SelfImage = () => {
   const [mousePos, setMousePos] = useState({ x: 500, y: 500 });
   const mousePosition = useMousePosition();
-  const url = `https://res.cloudinary.com/jwfreeman/image/upload/v1/Portfolio/image/${src}.png`;
+  const url = `https://res.cloudinary.com/jwfreeman/image/upload/v1593218108/Portfolio/image/jonathan_freeman_img.png`;
 
   useEffect(() => {
     if (!isMobile()) {
@@ -45,22 +46,20 @@ export const SelfImage = ({ src }) => {
   }, [mousePosition.x, mousePosition.y]);
 
   return (
-    <img
+    <StaticImage
       src={url}
       alt="Jonathan Freeman"
-      css={`
-        filter: drop-shadow(${mousePos.x / 100}px ${mousePos.y / 100}px 2px red)
-          drop-shadow(
-            ${(mousePos.x / 200) * -1}px ${(mousePos.y / 200) * -1}px 2px
-              #03e9f4
-          );
-      `}
+      placeholder="blurred"
+      style={{
+        filter: `drop-shadow(${mousePos.x / 100}px ${
+          mousePos.y / 100
+        }px 2px red) 
+        drop-shadow(${(mousePos.x / 200) * -1}px ${
+          (mousePos.y / 200) * -1
+        }px 2px #03e9f4)`,
+      }}
     />
   );
-};
-
-SelfImage.propTypes = {
-  src: PropTypes.string.isRequired,
 };
 
 PortfolioImages.propTypes = {
