@@ -4,7 +4,7 @@ title: "Portfolio"
 description: "A portfolio for displaying my current and recent projects."
 cloud_ref: "Portfolio"
 media_type: "image"
-image_desc: "Portfolio Home Page"
+image_desc: "Portfolio"
 stack: "Gatsby, Styled Components, Framer Motion, React Three Fiber (ThreeJS) Netlify"
 repo: "https://github.com/JonathanWFreeman/devPortfolio"
 order: 4
