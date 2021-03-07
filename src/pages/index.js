@@ -86,7 +86,7 @@ const IndexPage = () => (
         <CanvasModel>
           <Models />
         </CanvasModel>
-        <SelfImage />
+        <SelfImage src="jonathan_freeman_img_jo59mg" media="image" ext="png" />
         {/* <Image /> */}
         <PhotoBorder />
       </SecondaryContent>
