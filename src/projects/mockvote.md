@@ -7,7 +7,7 @@ media_type: "image"
 image_desc: "Mock Vote"
 stack: "React, Styled Components, Firebase, Netlify"
 repo: "https://github.com/JonathanWFreeman/mock-vote"
-demo: "https://mockvote.netlify.app/"
+demo: "https://mockvote.jonathanfreeman.dev/"
 order: 1
 ---
 
