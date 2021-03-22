@@ -19,8 +19,8 @@ const SocialBar = styled.aside`
     flex-direction: column;
     width: ${SocialWidth};
     align-items: center;
-    ${({ isProjects }) => isProjects}
   `}
+  ${({ isProjects }) => isProjects}
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -85,8 +85,10 @@ function Social({ transitionType, location }) {
 
   if (location && location.pathname.includes('projects')) {
     isProjects = css`
-      margin-top: -100vh;
       animation: ${fadeIn} 2s linear;
+    ${Above.small`
+      margin-top: -100vh;
+    `}
     `;
   }
 
