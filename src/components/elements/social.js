@@ -123,7 +123,7 @@ function Social({ transitionType, location }) {
         </a>
 
         <a
-          href="mailto:hey@jonathanfreeman.dev"
+          href="mailto:howdy@jonathanfreeman.dev"
           className="icon mail"
           title="Email"
         >
