@@ -19,16 +19,16 @@ const Square = styled.div`
   background: #333;
   top: 64%;
   right: 37%;
-  transform: skew(43deg, 4deg) perspective(0px) rotate3d(33, -2, -45, 61deg);
+  transform: skew(61deg, 4deg) perspective(0px) rotate3d(33, -2, -45, 5deg);
 `;
 
 const SquareEdge = styled(Square)`
   background: linear-gradient(to bottom, ${AltColor}, ${PrimaryColor});
   animation: ${animate} 5s linear infinite;
   width: 3%;
-  height: 51%;
-  top: 59%;
-  right: 51%;
+  height: 46%;
+  top: 58%;
+  right: 59%;
   :before {
     content: '';
     position: absolute;
@@ -57,7 +57,7 @@ const SquareEdge2 = styled(SquareEdge)`
   background: linear-gradient(to top, ${SecondaryColor}, ${PrimaryColor});
   top: 60%;
   right: -25%;
-  transform: skew(-50deg, 7deg) perspective(0px) rotate3d(-63, 19, 62, 6deg);
+  transform: skew(-50deg, 7deg) perspective(0px) rotate3d(-63, 19, 62, 0deg);
   z-index: -1;
 `;
 
@@ -68,18 +68,18 @@ const Square2 = styled.div`
   background: linear-gradient(to top, ${SecondaryColor}, ${PrimaryColor});
   top: 61%;
   right: -1%;
-  transform: skew(-52deg, 7deg) perspective(0px) rotate3d(-63, 19, 62, 6deg);
+  transform: skew(-52deg, 7deg) perspective(0px) rotate3d(-63, 19, 62, 0deg);
   z-index: -1;
 `;
 
 const Square3 = styled.div`
   position: absolute;
-  width: 14%;
-  height: 46%;
+  width: 67%;
+  height: 132%;
   background: #333;
   top: 60%;
   right: -14%;
-  transform: skew(-52deg, 7deg) perspective(0px) rotate3d(-63, 19, 62, 6deg);
+  transform: skew(-52deg, 7deg) perspective(0px) rotate3d(-63, 19, 62, 0deg);
   z-index: 2;
 `;
 
@@ -90,14 +90,14 @@ const Square4 = styled.div`
   background: #333;
   top: 64%;
   right: 83%;
-  transform: skew(7deg, 7deg) perspective(0px) rotate3d(-63, 19, 62, 6deg);
+  transform: skew(7deg, 7deg) perspective(0px) rotate3d(-63, 19, 62, 357deg);
   z-index: 2;
 `;
 
 const PhotoBorder = () => (
   <>
     <SquareEdge />
-    <Square />
+    {/* <Square /> */}
     <SquareEdge2 />
     <Square2 />
     <Square3 />

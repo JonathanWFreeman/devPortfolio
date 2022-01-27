@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "jonathan-freeman-developer-portfolio",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Jonathan Freeman Developer Portfolio",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Jonathan Freeman",
   "dependencies": {
     "babel-plugin-styled-components": "^1.12.0",
     "browser-monads": "^1.0.0",
